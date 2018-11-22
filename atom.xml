@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mustang</title>
+  
+  <subtitle>温欣</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-11-22T06:31:52.764Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Mustang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_在右上角或者左上角实现fork me on github</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E5%9C%A8%E5%8F%B3%E4%B8%8A%E8%A7%92%E6%88%96%E8%80%85%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%AE%9E%E7%8E%B0fork-me-on-github/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-在右上角或者左上角实现fork-me-on-github/</id>
+    <published>2018-11-22T06:13:31.000Z</published>
+    <updated>2018-11-22T06:31:52.764Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-在右上角或者左上角实现fork-me-on-github"><a href="#HEXO-在右上角或者左上角实现fork-me-on-github" class="headerlink" title="HEXO_在右上角或者左上角实现fork me on github"></a>HEXO_在右上角或者左上角实现fork me on github</h2><p>1,在<a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="noopener">GitHub Ribbons</a>或<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">GitHub Corners</a>选择一款你喜欢的挂饰，拷贝方框内的代码： </p><p><img src="/2018/11/22/HEXO-在右上角或者左上角实现fork-me-on-github/2.png" alt=""></p><p>2,将刚刚复制的挂饰代码，添加到<code>Blog/themes/next/layout/_layout.swig</code>文件中，添加位置如下图所示(放在<code>&lt;div     class=&quot;headband&quot;&gt;&lt;/div&gt;</code>下方)： </p><p><img src="/2018/11/22/HEXO-在右上角或者左上角实现fork-me-on-github/3.png" alt=""></p><p>3,效果图如下图所示： </p><p><img src="/2018/11/22/HEXO-在右上角或者左上角实现fork-me-on-github/1.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-在右上角或者左上角实现fork-me-on-github&quot;&gt;&lt;a href=&quot;#HEXO-在右上角或者左上角实现fork-me-on-github&quot; class=&quot;headerlink&quot; title=&quot;HEXO_在右上角或者左上角实现fork me on
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO_设置动态背景</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-设置动态背景/</id>
+    <published>2018-11-22T06:00:32.000Z</published>
+    <updated>2018-11-22T06:01:39.618Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-设置动态背景"><a href="#HEXO-设置动态背景" class="headerlink" title="HEXO_设置动态背景"></a>HEXO_设置动态背景</h2><p>1,主题配置文件（_config.yml）中找到<strong>canvas_nest</strong>，设置成<strong>ture</strong>就OK啦。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Canvas-nest</span><br><span class="line">canvas_nest: ture</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-设置动态背景&quot;&gt;&lt;a href=&quot;#HEXO-设置动态背景&quot; class=&quot;headerlink&quot; title=&quot;HEXO_设置动态背景&quot;&gt;&lt;/a&gt;HEXO_设置动态背景&lt;/h2&gt;&lt;p&gt;1,主题配置文件（_config.yml）中找到&lt;strong&gt;ca
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO_创建关于我页面</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E5%88%9B%E5%BB%BA%E5%85%B3%E4%BA%8E%E6%88%91%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-创建关于我页面/</id>
+    <published>2018-11-22T05:56:18.000Z</published>
+    <updated>2018-11-22T05:56:41.638Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-创建关于我页面"><a href="#HEXO-创建关于我页面" class="headerlink" title="HEXO_创建关于我页面"></a>HEXO_创建关于我页面</h2><p>新建一个 <code>about</code> 页面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure><p>菜单显示 <code>about</code> 链接，在主题的 <code>_configy.yml</code> 设置中将 <code>menu</code> 中 <code>about</code> 前面的注释去掉即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br><span class="line">  about: /about</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-创建关于我页面&quot;&gt;&lt;a href=&quot;#HEXO-创建关于我页面&quot; class=&quot;headerlink&quot; title=&quot;HEXO_创建关于我页面&quot;&gt;&lt;/a&gt;HEXO_创建关于我页面&lt;/h2&gt;&lt;p&gt;新建一个 &lt;code&gt;about&lt;/code&gt; 页面：&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO_创建分类页面</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-创建分类页面/</id>
+    <published>2018-11-22T05:49:01.000Z</published>
+    <updated>2018-11-22T05:50:11.575Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-创建分类页面"><a href="#HEXO-创建分类页面" class="headerlink" title="HEXO_创建分类页面"></a>HEXO_创建分类页面</h2><h3 id="添加一个-分类-页面，并在菜单中显示页面链接。"><a href="#添加一个-分类-页面，并在菜单中显示页面链接。" class="headerlink" title="添加一个 分类 页面，并在菜单中显示页面链接。"></a>添加一个 分类 页面，并在菜单中显示页面链接。</h3><ol><li><p>新建一个页面，命名为 <code>categories</code> 。命令如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure></li><li><p>编辑刚新建的页面，将页面的类型设置为 <code>categories</code> ，主题将自动为这个页面显示所有分类。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2014-12-22 12:39:04</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>注意：如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，请添加字段 <code>comments</code> 并将值设置为 <code>false</code>，如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2014-12-22 12:39:04</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li><li><p>在菜单中添加链接。编辑主题的 <code>_config.yml</code> ，将 <code>menu</code> 中的 <code>categories: /categories</code> 注释去掉，如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  categories: /categories</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-创建分类页面&quot;&gt;&lt;a href=&quot;#HEXO-创建分类页面&quot; class=&quot;headerlink&quot; title=&quot;HEXO_创建分类页面&quot;&gt;&lt;/a&gt;HEXO_创建分类页面&lt;/h2&gt;&lt;h3 id=&quot;添加一个-分类-页面，并在菜单中显示页面链接。&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO_创建标签云页面</title>
+    <link href="http://yoursite.com/2018/11/21/HEXO%E2%80%94-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AF%B9%E5%BA%94%E7%9A%84menu%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+    <id>http://yoursite.com/2018/11/21/HEXO—-初始化对应的menu文件夹/</id>
+    <published>2018-11-21T08:19:32.000Z</published>
+    <updated>2018-11-22T05:55:00.778Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO进阶-二-创建标签云页面"><a href="#HEXO进阶-二-创建标签云页面" class="headerlink" title="HEXO进阶(二)_创建标签云页面"></a>HEXO进阶(二)_创建标签云页面</h2><p>没有创建Menu对应的文件夹，<code>Blog/source</code>文件目录如下： </p><p><img src="/2018/11/21/HEXO—-初始化对应的menu文件夹/1.jpg" alt=""></p><p>在博客网站点击标签菜单可能会提示： can not get tegs</p><p>比如要创建标签文件夹，终端中输入（前提在<strong>Hexo</strong>文件路径下）</p><ul><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line">输出：</span><br><span class="line">INFO  Created: ~/Desktop/MyBlog/Blog/source/tags/index.md</span><br></pre></td></tr></table></figure></li></ul><p>成功过后目录如下： </p><p><img src="/2018/11/21/HEXO—-初始化对应的menu文件夹/2.jpg" alt=""></p><p>编辑<code>Blog/source/tags</code>中<strong>index.md</strong>文件，添加<code>type: &quot;tags&quot;</code>，其他Menu也同理创建。</p><ul><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">date: 2018-01-20 18:57:48</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure></li></ul><p>在菜单中添加链接。编辑主题的 <code>_config.yml</code> ，添加 <code>tags</code> 到 <code>menu</code> 中，如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO进阶-二-创建标签云页面&quot;&gt;&lt;a href=&quot;#HEXO进阶-二-创建标签云页面&quot; class=&quot;headerlink&quot; title=&quot;HEXO进阶(二)_创建标签云页面&quot;&gt;&lt;/a&gt;HEXO进阶(二)_创建标签云页面&lt;/h2&gt;&lt;p&gt;没有创建Menu对应的文
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://yoursite.com/2018/11/21/test/"/>
+    <id>http://yoursite.com/2018/11/21/test/</id>
+    <published>2018-11-21T07:27:59.000Z</published>
+    <updated>2018-11-21T07:28:24.583Z</updated>
+    
+    <content type="html"><![CDATA[<p>fdsafdsa </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;fdsafdsa &lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO_修改主题及网站配置</title>
+    <link href="http://yoursite.com/2018/11/21/HEXO_%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E5%8F%8A%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/11/21/HEXO_修改主题及网站配置/</id>
+    <published>2018-11-21T06:31:07.000Z</published>
+    <updated>2018-11-21T08:32:32.650Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO进阶-二-修改主题及网站配置"><a href="#HEXO进阶-二-修改主题及网站配置" class="headerlink" title="HEXO进阶(二)_修改主题及网站配置"></a>HEXO进阶(二)_修改主题及网站配置</h2><h4 id="1，修改站点配置文件-config-yml"><a href="#1，修改站点配置文件-config-yml" class="headerlink" title="1，修改站点配置文件(_config.yml)"></a>1，修改站点配置文件(_config.yml)</h4><p>注 ： 对应的目录 ：blog/_config.yml/，blog 为 hexo init 初始化文件夹的名称，替换成你自己初始化文件夹的名称。 </p><p>修改 depoly ： </p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span> </span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>repo的值是：登陆你的github，然后找到你创建的仓库，话不多说上图：</p><p>点击绿色标记的那个图标复制地址然后换到repo那里 </p><p>注意要使用 UseSSH,不能用UseHttps。</p><p><img src="/2018/11/21/HEXO_修改主题及网站配置/1.png" alt=""></p><h4 id="2，修改主题"><a href="#2，修改主题" class="headerlink" title="2，修改主题"></a>2，修改主题</h4><p>默认的主题真的很捞，我们去换一个主题，这里我选用的是Next主题</p><p>通过 git 方式下载项目，命令如下 ： </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd themes</span><br><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next next</span><br></pre></td></tr></table></figure><p> 第一部步是进入到 themes 下面， 第二步是拷贝远程主题到该目录下。下载完成后，我的博客 themes 下就多了一个 next 文件夹。如图 ： </p><p><img src="/2018/11/21/HEXO_修改主题及网站配置/2.png" alt=""></p><p>在站点文件夹中修改_config.yml </p><p>​        theme ：next</p><p>注 ：把默认主题 landscape 切换成 next。 </p><h4 id="3修改menu"><a href="#3修改menu" class="headerlink" title="3修改menu"></a>3修改menu</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="/2018/11/21/HEXO_修改主题及网站配置/3.png" alt=""></h4><p>默认 menu 菜单显示 home、archives，根据自己的需要去掉注释。 </p><h4 id="4修改-Schemes-："><a href="#4修改-Schemes-：" class="headerlink" title="4修改 Schemes ："></a>4修改 Schemes ：</h4><p><img src="/2018/11/21/HEXO_修改主题及网站配置/4.png" alt=""></p><p>next 主题对应的有四个风格，Muse、Mist、Pisces、Gemini，默认为 Muse。 根据自己的喜欢设置即可</p><h4 id="5，编辑主题配置文件，启用自动摘录"><a href="#5，编辑主题配置文件，启用自动摘录" class="headerlink" title="5，编辑主题配置文件，启用自动摘录 :"></a>5，编辑主题配置文件，启用自动摘录 :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure><p>注 ：修改 auto_excerpt 为 true，允许自动摘录，显示部分，点击阅读全文。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO进阶-二-修改主题及网站配置&quot;&gt;&lt;a href=&quot;#HEXO进阶-二-修改主题及网站配置&quot; class=&quot;headerlink&quot; title=&quot;HEXO进阶(二)_修改主题及网站配置&quot;&gt;&lt;/a&gt;HEXO进阶(二)_修改主题及网站配置&lt;/h2&gt;&lt;h4 id=
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>devops前后端交互流程</title>
+    <link href="http://yoursite.com/2018/11/21/devops%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/11/21/devops前后端交互流程/</id>
+    <published>2018-11-21T02:38:51.000Z</published>
+    <updated>2018-11-21T05:48:54.977Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Devops前后端数据交互流程"><a href="#Devops前后端数据交互流程" class="headerlink" title="Devops前后端数据交互流程"></a>Devops前后端数据交互流程</h2><h3 id="前言：本文以devops前端登陆功能来分析前后端数据交互的流程"><a href="#前言：本文以devops前端登陆功能来分析前后端数据交互的流程" class="headerlink" title="前言：本文以devops前端登陆功能来分析前后端数据交互的流程"></a>前言：本文以devops前端登陆功能来分析前后端数据交互的流程</h3><h3 id="1，首先打开devops-web模块下的"><a href="#1，首先打开devops-web模块下的" class="headerlink" title="1，首先打开devops-web模块下的"></a>1，首先打开devops-web模块下的</h3><p><img src="/2018/11/21/devops前后端交互流程/login.png" alt="login"></p><h3 id="2-login-normal-vue页面分析："><a href="#2-login-normal-vue页面分析：" class="headerlink" title="2,login-normal.vue页面分析："></a>2,login-normal.vue页面分析：</h3><p><img src="/2018/11/21/devops前后端交互流程/form.png" alt="form"></p><h3 id="可以看到的是这个form引入了一个名为loginForm。我们跟踪源代码找到这个loginForm"><a href="#可以看到的是这个form引入了一个名为loginForm。我们跟踪源代码找到这个loginForm" class="headerlink" title="可以看到的是这个form引入了一个名为loginForm。我们跟踪源代码找到这个loginForm"></a>可以看到的是这个form引入了一个名为loginForm。我们跟踪源代码找到这个loginForm</h3><p><img src="/2018/11/21/devops前后端交互流程/loginForm.png" alt=""></p><h3 id="可以看到这个form其实是定义了username和password的初始值。"><a href="#可以看到这个form其实是定义了username和password的初始值。" class="headerlink" title="可以看到这个form其实是定义了username和password的初始值。"></a>可以看到这个form其实是定义了username和password的初始值。</h3><h3 id="我们找到之前login-form的提交位置："><a href="#我们找到之前login-form的提交位置：" class="headerlink" title="我们找到之前login-form的提交位置："></a>我们找到之前login-form的提交位置：</h3><p><img src="/2018/11/21/devops前后端交互流程/commit.png" alt=""></p><h3 id="提交这个表单时会默认调用handleLogin这个方法我们去找到这个方法："><a href="#提交这个表单时会默认调用handleLogin这个方法我们去找到这个方法：" class="headerlink" title="提交这个表单时会默认调用handleLogin这个方法我们去找到这个方法："></a>提交这个表单时会默认调用handleLogin这个方法我们去找到这个方法：</h3><p><img src="/2018/11/21/devops前后端交互流程/handlerLogin.png" alt=""></p><h3 id="发现这个方法其实时调用了IUserController里面的login这个方法并且把username和password参数传入"><a href="#发现这个方法其实时调用了IUserController里面的login这个方法并且把username和password参数传入" class="headerlink" title="发现这个方法其实时调用了IUserController里面的login这个方法并且把username和password参数传入"></a>发现这个方法其实时调用了IUserController里面的login这个方法并且把username和password参数传入</h3><h3 id="那么既然调用这个Controller，那么就绝对有导入相关Controller的配置我们找到："><a href="#那么既然调用这个Controller，那么就绝对有导入相关Controller的配置我们找到：" class="headerlink" title="那么既然调用这个Controller，那么就绝对有导入相关Controller的配置我们找到："></a>那么既然调用这个Controller，那么就绝对有导入相关Controller的配置我们找到：</h3><p><img src="/2018/11/21/devops前后端交互流程/controller.png" alt=""></p><h3 id="现在我们明白时导入了action文件夹下面的controller我们切换到actions文件夹下面："><a href="#现在我们明白时导入了action文件夹下面的controller我们切换到actions文件夹下面：" class="headerlink" title="现在我们明白时导入了action文件夹下面的controller我们切换到actions文件夹下面："></a>现在我们明白时导入了action文件夹下面的controller我们切换到actions文件夹下面：</h3><p><img src="/2018/11/21/devops前后端交互流程/actionscontroller.png" alt=""></p><h3 id="打开这个js文件发现里面定义了许多的Controller而我们的IUserController就在其中："><a href="#打开这个js文件发现里面定义了许多的Controller而我们的IUserController就在其中：" class="headerlink" title="打开这个js文件发现里面定义了许多的Controller而我们的IUserController就在其中："></a>打开这个js文件发现里面定义了许多的Controller而我们的IUserController就在其中：</h3><p><img src="/2018/11/21/devops前后端交互流程/IUserController.png" alt=""></p><h3 id="我们去api文件夹下面寻找IUserController："><a href="#我们去api文件夹下面寻找IUserController：" class="headerlink" title="我们去api文件夹下面寻找IUserController："></a>我们去api文件夹下面寻找IUserController：</h3><p><img src="/2018/11/21/devops前后端交互流程/apicontroller.png" alt=""></p><h3 id="api文件夹下面定义了一系列的Controller-IUserController也是定义在其中"><a href="#api文件夹下面定义了一系列的Controller-IUserController也是定义在其中" class="headerlink" title="api文件夹下面定义了一系列的Controller       IUserController也是定义在其中"></a>api文件夹下面定义了一系列的Controller       IUserController也是定义在其中</h3><h3 id="通过上图我们可以看到-url-和-parameters这俩个属性，parameters传入了username和password"><a href="#通过上图我们可以看到-url-和-parameters这俩个属性，parameters传入了username和password" class="headerlink" title="通过上图我们可以看到 url  和 parameters这俩个属性，parameters传入了username和password,"></a>通过上图我们可以看到 url  和 parameters这俩个属性，parameters传入了username和password,</h3><h3 id="url：正是去调用后端接口的地址：-api-uc-users-login"><a href="#url：正是去调用后端接口的地址：-api-uc-users-login" class="headerlink" title="url：正是去调用后端接口的地址：/api/uc/users/login"></a>url：正是去调用后端接口的地址：/api/uc/users/login</h3><h3 id="去devops-specs下面找到IUserController这个接口："><a href="#去devops-specs下面找到IUserController这个接口：" class="headerlink" title="去devops-specs下面找到IUserController这个接口："></a>去devops-specs下面找到IUserController这个接口：</h3><p><img src="/2018/11/21/devops前后端交互流程/Interface.png" alt=""></p><h3 id="我们发现这个接口的-Path的值刚好与之前的url相对应起来然后直接去调用login方法就可以了"><a href="#我们发现这个接口的-Path的值刚好与之前的url相对应起来然后直接去调用login方法就可以了" class="headerlink" title="我们发现这个接口的@Path的值刚好与之前的url相对应起来然后直接去调用login方法就可以了"></a>我们发现这个接口的@Path的值刚好与之前的url相对应起来然后直接去调用login方法就可以了</h3><h3 id="我们可以再找到IUserController的实现类-UserController："><a href="#我们可以再找到IUserController的实现类-UserController：" class="headerlink" title="我们可以再找到IUserController的实现类 UserController："></a>我们可以再找到IUserController的实现类 UserController：</h3><p><img src="/2018/11/21/devops前后端交互流程/UserController.png" alt=""></p><h3 id="到此，登陆功能从前端到后端的数据交互的流程已经分析完毕了，当然这只是大概的分析，具体的细节还要做进一步的研究。"><a href="#到此，登陆功能从前端到后端的数据交互的流程已经分析完毕了，当然这只是大概的分析，具体的细节还要做进一步的研究。" class="headerlink" title="到此，登陆功能从前端到后端的数据交互的流程已经分析完毕了，当然这只是大概的分析，具体的细节还要做进一步的研究。"></a>到此，登陆功能从前端到后端的数据交互的流程已经分析完毕了，当然这只是大概的分析，具体的细节还要做进一步的研究。</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Devops前后端数据交互流程&quot;&gt;&lt;a href=&quot;#Devops前后端数据交互流程&quot; class=&quot;headerlink&quot; title=&quot;Devops前后端数据交互流程&quot;&gt;&lt;/a&gt;Devops前后端数据交互流程&lt;/h2&gt;&lt;h3 id=&quot;前言：本文以devops前
+      
+    
+    </summary>
+    
+    
+      <category term="devops" scheme="http://yoursite.com/tags/devops/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Devops开发环境搭建及前后端交互流程</title>
+    <link href="http://yoursite.com/2018/11/21/Devops%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/11/21/Devops开发环境搭建及前后端交互流程/</id>
+    <published>2018-11-21T00:59:30.000Z</published>
+    <updated>2018-11-21T01:52:10.142Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Devops-web模块环境搭建"><a href="#Devops-web模块环境搭建" class="headerlink" title="Devops - web模块环境搭建"></a>Devops - web模块环境搭建</h2><p>前言：</p><p>​    安装nodejs npm 并且升级到最新版本。</p><h4 id="一：解压源码包："><a href="#一：解压源码包：" class="headerlink" title="一：解压源码包："></a>一：解压源码包：</h4><p>​    将devops源码包解压会得到如图所示的项目目录：</p><p>​    <img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/source.png" alt="devops源码解压"> </p><h4 id="二：将源码导入EOS-STUDIO中：-devops是一个maven工程，选择导入maven，将整个项目直接导入"><a href="#二：将源码导入EOS-STUDIO中：-devops是一个maven工程，选择导入maven，将整个项目直接导入" class="headerlink" title="二：将源码导入EOS-STUDIO中：(devops是一个maven工程，选择导入maven，将整个项目直接导入)"></a>二：将源码导入EOS-STUDIO中：(devops是一个maven工程，选择导入maven，将整个项目直接导入)</h4><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/importOne.png" alt="devops源码解压"></p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/importTwo.png" alt="devops源码解压"></p><h4 id="三：修改settings-xml文件"><a href="#三：修改settings-xml文件" class="headerlink" title="三：修改settings.xml文件"></a>三：修改settings.xml文件</h4><p>打开刚刚导入的项目，打开pom.xml文件会发现<depency>报错</depency></p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/pom.png" alt="pom"></p><p>这是由于我们的setting.xml文件没有指定的缘故那么接下来我们就去设置setting.xml文件</p><p>(settings.xml文件在我们导入的项目devoper中)</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/settings.png" alt="pom"></p><p>点击首选项–&gt;选择Maven–&gt;UserSettings 设置上图所示的settings.xml路径</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/setting.png" alt="pom"></p><p>然后apply,确定，发现我们的pom文件没有报错了。</p><h4 id="四：设置web模块的访问端口和ip地址"><a href="#四：设置web模块的访问端口和ip地址" class="headerlink" title="四：设置web模块的访问端口和ip地址"></a>四：设置web模块的访问端口和ip地址</h4><p>打开devops-web模块–&gt;打开config下的index.js文件</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/setIp.png" alt="pom"></p><p>host:改为localhost</p><p>port:随意</p><h4 id="五：安装依赖"><a href="#五：安装依赖" class="headerlink" title="五：安装依赖"></a>五：安装依赖</h4><p>找到解压后的devops-web那个文件夹，点击进入。打开cmd执行 “npm install ”命令</p><p>执行之后会发现在该文件夹下会生成一个node_modules</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/install.png" alt="pom"></p><h4 id="六：修改webpack-dev-conf-js"><a href="#六：修改webpack-dev-conf-js" class="headerlink" title="六：修改webpack.dev.conf.js"></a>六：修改webpack.dev.conf.js</h4><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/webpack.png" alt="pom"></p><p>打开webpack.dev.conf.js文件，把new CopyWebpackPlugin 里面的from字段的值改为上图所示的地址。</p><p>(不修改的话，在访问web模块时会报错)</p><h4 id="七：启动并访问web模块"><a href="#七：启动并访问web模块" class="headerlink" title="七：启动并访问web模块"></a>七：启动并访问web模块</h4><p>找到解压后的devops-web那个文件夹，点击进入。打开cmd执行 “npm run dev ”命令</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/run.png" alt="pom"></p><p>执行命令后会自动弹出页面我们只需稍等片刻。。。</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/success.png" alt="pom"></p><p>OK至此为止，devops的web模块也就搭建完毕了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Devops-web模块环境搭建&quot;&gt;&lt;a href=&quot;#Devops-web模块环境搭建&quot; class=&quot;headerlink&quot; title=&quot;Devops - web模块环境搭建&quot;&gt;&lt;/a&gt;Devops - web模块环境搭建&lt;/h2&gt;&lt;p&gt;前言：&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="devops" scheme="http://yoursite.com/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO_初级搭建</title>
+    <link href="http://yoursite.com/2018/11/20/HEXO%E5%88%9D%E7%BA%A7%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2018/11/20/HEXO初级搭建/</id>
+    <published>2018-11-20T12:13:44.000Z</published>
+    <updated>2018-11-21T08:30:14.933Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO个人博客搭建（初级）"><a href="#HEXO个人博客搭建（初级）" class="headerlink" title="HEXO个人博客搭建（初级）"></a>HEXO个人博客搭建（初级）</h2><h3 id="相关步骤："><a href="#相关步骤：" class="headerlink" title="相关步骤："></a>相关步骤：</h3><h4 id="1、安装Node-js和配置好Node-js环境，打开cmd命令行，成功界面如下-："><a href="#1、安装Node-js和配置好Node-js环境，打开cmd命令行，成功界面如下-：" class="headerlink" title="1、安装Node.js和配置好Node.js环境，打开cmd命令行，成功界面如下 ："></a>1、安装Node.js和配置好Node.js环境，打开cmd命令行，成功界面如下 ：</h4><ul><li><img src="/2018/11/20/HEXO初级搭建/1.png" alt="1"></li></ul><h4 id="2、安装Git和配置好Git环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择"><a href="#2、安装Git和配置好Git环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择" class="headerlink" title="2、安装Git和配置好Git环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择"></a>2、安装Git和配置好Git环境，安装成功的象征就是在电脑上任何位置<strong>鼠标右键</strong>能够出现如下两个选择</h4><p>成功配置的界面如图 ：</p><p><img src="/2018/11/20/HEXO初级搭建/2.png" alt="img"></p><h4 id="3、Github账户注册和新建项目，项目必须要遵守格式：账户名-github-io，不然接下来会有很多麻烦。并且需要勾选Initialize-this-repository-with-a-README-："><a href="#3、Github账户注册和新建项目，项目必须要遵守格式：账户名-github-io，不然接下来会有很多麻烦。并且需要勾选Initialize-this-repository-with-a-README-：" class="headerlink" title="3、Github账户注册和新建项目，项目必须要遵守格式：账户名.github.io，不然接下来会有很多麻烦。并且需要勾选Initialize this repository with a README ："></a>3、Github账户注册和新建项目，项目必须要遵守格式：账户名.github.io，不然接下来会有很多麻烦。并且需要勾选Initialize this repository with a README ：</h4><p><img src="/2018/11/20/HEXO初级搭建/3.png" alt="1542718020787"></p><h4 id="4、安装Hexo"><a href="#4、安装Hexo" class="headerlink" title="4、安装Hexo"></a>4、安装Hexo</h4><p>在自己认为合适的地方创个文件夹，我是在D盘建了一个blog文件夹。然后通过命令行进入到该文件夹里面 ：</p><p><img src="/2018/11/20/HEXO初级搭建/4.png" alt="1542718147719"></p><p>在blog目录下，输入npm install hexo -g，开始安装Hexo ：</p><p><img src="/2018/11/20/HEXO初级搭建/5.png" alt="1542718230514"></p><p>输入hexo -v，检查hexo是否安装成功 ：</p><p><img src="/2018/11/20/HEXO初级搭建/6.png" alt="1542718263738"></p><p>输入hexo init，初始化该文件夹（waiting。。。。。） ：</p><p><img src="/2018/11/20/HEXO初级搭建/7.png" alt="1542718301248"></p><p>看到最终执行完的的“Start blogging with Hexo！ 就成功了</p><p>输入npm install，安装所需要的组件 ：</p><p><img src="/2018/11/20/HEXO初级搭建/8.png" alt="1542718368697"></p><p>输入hexo g，首次体验Hexo </p><p><img src="/2018/11/20/HEXO初级搭建/9.png" alt="1542718405250"></p><p> 输入hexo s，开启服务器，访问该网址，正式体验Hexo ：默认端口是 4000</p><p><img src="/2018/11/20/HEXO初级搭建/10.png" alt="1542718443465"></p><p>那么出现如下图就成功了 </p><p><img src="/2018/11/20/HEXO初级搭建/11.png" alt="img"></p><h4 id="5、将Hexo与Github-page联系起来，设置Git的user-name和email（如果是第一次的话）-邮箱和用户名替换成自己的"><a href="#5、将Hexo与Github-page联系起来，设置Git的user-name和email（如果是第一次的话）-邮箱和用户名替换成自己的" class="headerlink" title="5、将Hexo与Github page联系起来，设置Git的user name和email（如果是第一次的话） 邮箱和用户名替换成自己的"></a>5、将Hexo与Github page联系起来，设置Git的user name和email（如果是第一次的话） 邮箱和用户名替换成自己的</h4><p><img src="/2018/11/20/HEXO初级搭建/12.png" alt="1542718558546"></p><p>输入cd ~/.ssh，检查是否由.ssh的文件夹</p><p><img src="/2018/11/20/HEXO初级搭建/13.png" alt="img"></p><p>输入ls，列出该文件下的内容。下图说明存在</p><p><img src="/2018/11/20/HEXO初级搭建/14.png" alt="img"></p><p> 输入ssh-keygen -t rsa -C “<a href="mailto:1219787757@qq.com" target="_blank" rel="noopener">1219787757@qq.com</a>”，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：C:\Users\Administrator.ssh）。</p><p> <img src="/2018/11/20/HEXO初级搭建/15.png" alt="img"></p><p> 输入eval “$(ssh-agent -s)”，添加密钥到ssh-agent</p><p><img src="/2018/11/20/HEXO初级搭建/16.png" alt="img"></p><p> 再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent</p><p><img src="/2018/11/20/HEXO初级搭建/17.png" alt="img"></p><p> 登录Github，点击头像下的settings，添加ssh</p><p> <img src="/2018/11/20/HEXO初级搭建/18.png" alt="img"></p><p>新建一个new ssh key，将id_rsa.pub文件里的内容复制上去</p><p><img src="/2018/11/20/HEXO初级搭建/19.png" alt="img"></p><p>输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p><p><img src="/2018/11/20/HEXO初级搭建/20.png" alt="1542718774968"></p><h4 id="6、配置Deployment，在blog文件夹中，找到-config-yml文件，修改repo值（在末尾）"><a href="#6、配置Deployment，在blog文件夹中，找到-config-yml文件，修改repo值（在末尾）" class="headerlink" title="6、配置Deployment，在blog文件夹中，找到_config.yml文件，修改repo值（在末尾）"></a>6、配置Deployment，在blog文件夹中，找到_config.yml文件，修改repo值（在末尾）</h4><p><img src="/2018/11/20/HEXO初级搭建/21.png" alt="1542718846351"></p><p>repo值是你在github项目里的ssh（右下角） ：点击右面的那个图标按钮直接复制即可</p><p><img src="/2018/11/20/HEXO初级搭建/22.png" alt="1542718895182"></p><h4 id="7、新建一篇博客，在cmd执行命令：hexo-new-post-“博客名”"><a href="#7、新建一篇博客，在cmd执行命令：hexo-new-post-“博客名”" class="headerlink" title="7、新建一篇博客，在cmd执行命令：hexo new post “博客名”"></a>7、新建一篇博客，在cmd执行命令：hexo new post “博客名”</h4><p><img src="/2018/11/20/HEXO初级搭建/23.png" alt="1542718965117"></p><p>这时候在文件夹_posts目录下将会看到已经创建的文件 （__post文件在blog/source下面可以找到）：</p><p><img src="/2018/11/20/HEXO初级搭建/24.png" alt="1542718995742"></p><p>在生成以及部署文章之前，需要安装一个扩展：npm install hexo-deployer-git –save ：</p><p><img src="/2018/11/20/HEXO初级搭建/25.png" alt="1542719060847"></p><p>使用编辑器编好文章，那么就可以使用命令：hexo d -g，生成以及部署了 ：</p><p><img src="/2018/11/20/HEXO初级搭建/26.png" alt="1542719114622"></p><p>部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章 ：</p><p><img src="/2018/11/20/HEXO初级搭建/27.png" alt="img"> </p><p>到此位置基础的HEXO+github就已经搭建完成了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO个人博客搭建（初级）&quot;&gt;&lt;a href=&quot;#HEXO个人博客搭建（初级）&quot; class=&quot;headerlink&quot; title=&quot;HEXO个人博客搭建（初级）&quot;&gt;&lt;/a&gt;HEXO个人博客搭建（初级）&lt;/h2&gt;&lt;h3 id=&quot;相关步骤：&quot;&gt;&lt;a href=&quot;#
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
