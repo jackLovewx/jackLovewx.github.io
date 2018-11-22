@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-22T07:28:43.998Z</updated>
+  <updated>2018-11-22T07:38:14.329Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_修改底部标签样式</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-修改底部标签样式/</id>
+    <published>2018-11-22T07:35:01.000Z</published>
+    <updated>2018-11-22T07:38:14.329Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-修改底部标签样式"><a href="#HEXO-修改底部标签样式" class="headerlink" title="HEXO_修改底部标签样式"></a>HEXO_修改底部标签样式</h2><h3 id="1-修改blog-themes-next-layout-macro-post-swig中文件，ctrl-f搜索rel-quot-tag-quot-gt-，将-替换成-lt-i-class-quot-fa-fa-tag-quot-gt-lt-i-gt-。输入以下命令，查看效果："><a href="#1-修改blog-themes-next-layout-macro-post-swig中文件，ctrl-f搜索rel-quot-tag-quot-gt-，将-替换成-lt-i-class-quot-fa-fa-tag-quot-gt-lt-i-gt-。输入以下命令，查看效果：" class="headerlink" title="1,修改blog\themes\next\layout\_macro\post.swig中文件，ctrl+f搜索rel=&quot;tag&quot;&gt;#，将#替换成&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;。输入以下命令，查看效果："></a>1,修改<code>blog\themes\next\layout\_macro\post.swig</code>中文件，<code>ctrl+f</code>搜索<code>rel=&quot;tag&quot;&gt;#</code>，将<code>#</code>替换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>。输入以下命令，查看效果：</h3><p><img src="/2018/11/22/HEXO-修改底部标签样式/1.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-修改底部标签样式&quot;&gt;&lt;a href=&quot;#HEXO-修改底部标签样式&quot; class=&quot;headerlink&quot; title=&quot;HEXO_修改底部标签样式&quot;&gt;&lt;/a&gt;HEXO_修改底部标签样式&lt;/h2&gt;&lt;h3 id=&quot;1-修改blog-themes-next-
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO_修改 hexo-theme-next 主题的样式</title>
