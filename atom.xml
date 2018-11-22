@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-22T13:49:19.672Z</updated>
+  <updated>2018-11-22T13:55:12.096Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_实现文章统计功能</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-实现文章统计功能/</id>
+    <published>2018-11-22T13:54:42.000Z</published>
+    <updated>2018-11-22T13:55:12.096Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-实现文章统计功能"><a href="#HEXO-实现文章统计功能" class="headerlink" title="HEXO_实现文章统计功能"></a>HEXO_实现文章统计功能</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-实现文章统计功能&quot;&gt;&lt;a href=&quot;#HEXO-实现文章统计功能&quot; class=&quot;headerlink&quot; title=&quot;HEXO_实现文章统计功能&quot;&gt;&lt;/a&gt;HEXO_实现文章统计功能&lt;/h2&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>HEXO_设置网站的图标Favicon</title>
@@ -455,30 +476,6 @@
       <category term="devops" scheme="http://yoursite.com/tags/devops/"/>
     
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Devops开发环境搭建及前后端交互流程</title>
-    <link href="http://yoursite.com/2018/11/21/Devops%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B/"/>
-    <id>http://yoursite.com/2018/11/21/Devops开发环境搭建及前后端交互流程/</id>
-    <published>2018-11-21T00:59:30.000Z</published>
-    <updated>2018-11-21T01:52:10.142Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Devops-web模块环境搭建"><a href="#Devops-web模块环境搭建" class="headerlink" title="Devops - web模块环境搭建"></a>Devops - web模块环境搭建</h2><p>前言：</p><p>​    安装nodejs npm 并且升级到最新版本。</p><h4 id="一：解压源码包："><a href="#一：解压源码包：" class="headerlink" title="一：解压源码包："></a>一：解压源码包：</h4><p>​    将devops源码包解压会得到如图所示的项目目录：</p><p>​    <img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/source.png" alt="devops源码解压"> </p><h4 id="二：将源码导入EOS-STUDIO中：-devops是一个maven工程，选择导入maven，将整个项目直接导入"><a href="#二：将源码导入EOS-STUDIO中：-devops是一个maven工程，选择导入maven，将整个项目直接导入" class="headerlink" title="二：将源码导入EOS-STUDIO中：(devops是一个maven工程，选择导入maven，将整个项目直接导入)"></a>二：将源码导入EOS-STUDIO中：(devops是一个maven工程，选择导入maven，将整个项目直接导入)</h4><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/importOne.png" alt="devops源码解压"></p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/importTwo.png" alt="devops源码解压"></p><h4 id="三：修改settings-xml文件"><a href="#三：修改settings-xml文件" class="headerlink" title="三：修改settings.xml文件"></a>三：修改settings.xml文件</h4><p>打开刚刚导入的项目，打开pom.xml文件会发现<depency>报错</depency></p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/pom.png" alt="pom"></p><p>这是由于我们的setting.xml文件没有指定的缘故那么接下来我们就去设置setting.xml文件</p><p>(settings.xml文件在我们导入的项目devoper中)</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/settings.png" alt="pom"></p><p>点击首选项–&gt;选择Maven–&gt;UserSettings 设置上图所示的settings.xml路径</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/setting.png" alt="pom"></p><p>然后apply,确定，发现我们的pom文件没有报错了。</p><h4 id="四：设置web模块的访问端口和ip地址"><a href="#四：设置web模块的访问端口和ip地址" class="headerlink" title="四：设置web模块的访问端口和ip地址"></a>四：设置web模块的访问端口和ip地址</h4><p>打开devops-web模块–&gt;打开config下的index.js文件</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/setIp.png" alt="pom"></p><p>host:改为localhost</p><p>port:随意</p><h4 id="五：安装依赖"><a href="#五：安装依赖" class="headerlink" title="五：安装依赖"></a>五：安装依赖</h4><p>找到解压后的devops-web那个文件夹，点击进入。打开cmd执行 “npm install ”命令</p><p>执行之后会发现在该文件夹下会生成一个node_modules</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/install.png" alt="pom"></p><h4 id="六：修改webpack-dev-conf-js"><a href="#六：修改webpack-dev-conf-js" class="headerlink" title="六：修改webpack.dev.conf.js"></a>六：修改webpack.dev.conf.js</h4><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/webpack.png" alt="pom"></p><p>打开webpack.dev.conf.js文件，把new CopyWebpackPlugin 里面的from字段的值改为上图所示的地址。</p><p>(不修改的话，在访问web模块时会报错)</p><h4 id="七：启动并访问web模块"><a href="#七：启动并访问web模块" class="headerlink" title="七：启动并访问web模块"></a>七：启动并访问web模块</h4><p>找到解压后的devops-web那个文件夹，点击进入。打开cmd执行 “npm run dev ”命令</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/run.png" alt="pom"></p><p>执行命令后会自动弹出页面我们只需稍等片刻。。。</p><p><img src="/2018/11/21/Devops开发环境搭建及前后端交互流程/success.png" alt="pom"></p><p>OK至此为止，devops的web模块也就搭建完毕了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Devops-web模块环境搭建&quot;&gt;&lt;a href=&quot;#Devops-web模块环境搭建&quot; class=&quot;headerlink&quot; title=&quot;Devops - web模块环境搭建&quot;&gt;&lt;/a&gt;Devops - web模块环境搭建&lt;/h2&gt;&lt;p&gt;前言：&lt;/p&gt;
-&lt;p
-      
-    
-    </summary>
-    
-    
-      <category term="devops" scheme="http://yoursite.com/tags/devops/"/>
     
   </entry>
   
