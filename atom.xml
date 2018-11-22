@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-22T07:56:33.759Z</updated>
+  <updated>2018-11-22T08:00:34.750Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_修改代码块自定义样式</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-修改代码块自定义样式/</id>
+    <published>2018-11-22T07:59:28.000Z</published>
+    <updated>2018-11-22T08:00:34.750Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-修改代码块自定义样式"><a href="#HEXO-修改代码块自定义样式" class="headerlink" title="HEXO_修改代码块自定义样式"></a>HEXO_修改代码块自定义样式</h2><h3 id="1-打开Blog-themes-next-source-css-custom-custom-styl，添加以下代码："><a href="#1-打开Blog-themes-next-source-css-custom-custom-styl，添加以下代码：" class="headerlink" title="1,打开Blog\themes\next\source\css\_custom\custom.styl，添加以下代码："></a>1,打开<code>Blog\themes\next\source\css\_custom\custom.styl</code>，添加以下代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Custom styles.</span><br><span class="line">code &#123;</span><br><span class="line">    color: #ff7600;</span><br><span class="line">    background: #fbf7f8;</span><br><span class="line">    margin: 2px;</span><br><span class="line">&#125;</span><br><span class="line">// 大代码块的自定义样式</span><br><span class="line">.highlight, pre &#123;</span><br><span class="line">    margin: 5px 0;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    border-radius: 3px;</span><br><span class="line">&#125;</span><br><span class="line">.highlight, code, pre &#123;</span><br><span class="line">    border: 1px solid #d6d6d6;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-修改代码块自定义样式&quot;&gt;&lt;a href=&quot;#HEXO-修改代码块自定义样式&quot; class=&quot;headerlink&quot; title=&quot;HEXO_修改代码块自定义样式&quot;&gt;&lt;/a&gt;HEXO_修改代码块自定义样式&lt;/h2&gt;&lt;h3 id=&quot;1-打开Blog-them
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO_设置头像并设置动画效果</title>
