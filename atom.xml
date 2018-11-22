@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-22T14:09:20.694Z</updated>
+  <updated>2018-11-22T14:24:29.669Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_添加jiathis分享</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E6%B7%BB%E5%8A%A0jiathis%E5%88%86%E4%BA%AB/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-添加jiathis分享/</id>
+    <published>2018-11-22T14:23:41.000Z</published>
+    <updated>2018-11-22T14:24:29.669Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-添加jiathis分享"><a href="#HEXO-添加jiathis分享" class="headerlink" title="HEXO_添加jiathis分享"></a>HEXO_添加jiathis分享</h2><h3 id="1编辑主题配置文件，将jiathis改为ture即可："><a href="#1编辑主题配置文件，将jiathis改为ture即可：" class="headerlink" title="1编辑主题配置文件，将jiathis改为ture即可："></a>1编辑主题配置文件，将<strong>jiathis</strong>改为<strong>ture</strong>即可：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Share</span><br><span class="line"># This plugin is more useful in China, make sure you known how to use it.</span><br><span class="line"># And you can find the use guide at official webiste: http://www.jiathis.com/.</span><br><span class="line"># Warning: JiaThis does not support https.</span><br><span class="line">jiathis: ture</span><br><span class="line">  ##uid: Get this uid from http://www.jiathis.com/</span><br><span class="line">#add_this_id:</span><br></pre></td></tr></table></figure><h3 id="2-效果如下图所示："><a href="#2-效果如下图所示：" class="headerlink" title="2,效果如下图所示："></a>2,效果如下图所示：</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-添加jiathis分享&quot;&gt;&lt;a href=&quot;#HEXO-添加jiathis分享&quot; class=&quot;headerlink&quot; title=&quot;HEXO_添加jiathis分享&quot;&gt;&lt;/a&gt;HEXO_添加jiathis分享&lt;/h2&gt;&lt;h3 id=&quot;1编辑主题配置文件
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO_添加网页顶部进度加载条</title>
@@ -453,29 +476,6 @@
     
     
       <category term="test" scheme="http://yoursite.com/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_修改主题及网站配置</title>
-    <link href="http://yoursite.com/2018/11/21/HEXO_%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E5%8F%8A%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/11/21/HEXO_修改主题及网站配置/</id>
-    <published>2018-11-21T06:31:07.000Z</published>
-    <updated>2018-11-21T08:32:32.650Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO进阶-二-修改主题及网站配置"><a href="#HEXO进阶-二-修改主题及网站配置" class="headerlink" title="HEXO进阶(二)_修改主题及网站配置"></a>HEXO进阶(二)_修改主题及网站配置</h2><h4 id="1，修改站点配置文件-config-yml"><a href="#1，修改站点配置文件-config-yml" class="headerlink" title="1，修改站点配置文件(_config.yml)"></a>1，修改站点配置文件(_config.yml)</h4><p>注 ： 对应的目录 ：blog/_config.yml/，blog 为 hexo init 初始化文件夹的名称，替换成你自己初始化文件夹的名称。 </p><p>修改 depoly ： </p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span> </span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>repo的值是：登陆你的github，然后找到你创建的仓库，话不多说上图：</p><p>点击绿色标记的那个图标复制地址然后换到repo那里 </p><p>注意要使用 UseSSH,不能用UseHttps。</p><p><img src="/2018/11/21/HEXO_修改主题及网站配置/1.png" alt=""></p><h4 id="2，修改主题"><a href="#2，修改主题" class="headerlink" title="2，修改主题"></a>2，修改主题</h4><p>默认的主题真的很捞，我们去换一个主题，这里我选用的是Next主题</p><p>通过 git 方式下载项目，命令如下 ： </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd themes</span><br><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next next</span><br></pre></td></tr></table></figure><p> 第一部步是进入到 themes 下面， 第二步是拷贝远程主题到该目录下。下载完成后，我的博客 themes 下就多了一个 next 文件夹。如图 ： </p><p><img src="/2018/11/21/HEXO_修改主题及网站配置/2.png" alt=""></p><p>在站点文件夹中修改_config.yml </p><p>​        theme ：next</p><p>注 ：把默认主题 landscape 切换成 next。 </p><h4 id="3修改menu"><a href="#3修改menu" class="headerlink" title="3修改menu"></a>3修改menu</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="/2018/11/21/HEXO_修改主题及网站配置/3.png" alt=""></h4><p>默认 menu 菜单显示 home、archives，根据自己的需要去掉注释。 </p><h4 id="4修改-Schemes-："><a href="#4修改-Schemes-：" class="headerlink" title="4修改 Schemes ："></a>4修改 Schemes ：</h4><p><img src="/2018/11/21/HEXO_修改主题及网站配置/4.png" alt=""></p><p>next 主题对应的有四个风格，Muse、Mist、Pisces、Gemini，默认为 Muse。 根据自己的喜欢设置即可</p><h4 id="5，编辑主题配置文件，启用自动摘录"><a href="#5，编辑主题配置文件，启用自动摘录" class="headerlink" title="5，编辑主题配置文件，启用自动摘录 :"></a>5，编辑主题配置文件，启用自动摘录 :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure><p>注 ：修改 auto_excerpt 为 true，允许自动摘录，显示部分，点击阅读全文。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO进阶-二-修改主题及网站配置&quot;&gt;&lt;a href=&quot;#HEXO进阶-二-修改主题及网站配置&quot; class=&quot;headerlink&quot; title=&quot;HEXO进阶(二)_修改主题及网站配置&quot;&gt;&lt;/a&gt;HEXO进阶(二)_修改主题及网站配置&lt;/h2&gt;&lt;h4 id=
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
