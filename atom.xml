@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-22T06:31:52.764Z</updated>
+  <updated>2018-11-22T06:46:32.269Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_添加RSS</title>
+    <link href="http://yoursite.com/2018/11/22/HEXO-%E6%B7%BB%E5%8A%A0RSS/"/>
+    <id>http://yoursite.com/2018/11/22/HEXO-添加RSS/</id>
+    <published>2018-11-22T06:41:02.000Z</published>
+    <updated>2018-11-22T06:46:32.269Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-添加RSS"><a href="#HEXO-添加RSS" class="headerlink" title="HEXO_添加RSS"></a>HEXO_添加RSS</h2><p>1,切换到<strong>Blog</strong>文件夹（hexo init的文件夹）下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br></pre></td></tr></table></figure><p>2,安装Hexo插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure><p>3,安装成功之后，编辑blog/_config.yml`文件，在文件末尾添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">plugins: hexo-generate-feed</span><br></pre></td></tr></table></figure><p>4,配置主题<code>_config.yml</code>文件，<code>command+f</code>搜索<code>rss</code>，在后面加上<code>/atom.xml</code> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//注意：有一个空格</span><br><span class="line">rss: /atom.xml</span><br></pre></td></tr></table></figure><p> 5,之后hexo g hexo d 部署到github上，效果图：</p><p><img src="/2018/11/22/HEXO-添加RSS/2.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-添加RSS&quot;&gt;&lt;a href=&quot;#HEXO-添加RSS&quot; class=&quot;headerlink&quot; title=&quot;HEXO_添加RSS&quot;&gt;&lt;/a&gt;HEXO_添加RSS&lt;/h2&gt;&lt;p&gt;1,切换到&lt;strong&gt;Blog&lt;/strong&gt;文件夹（hexo ini
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO_在右上角或者左上角实现fork me on github</title>
