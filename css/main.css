@@ -1985,7 +1985,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #50186e;
+  background: #e262e2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2858,17 +2858,7 @@ embed {
 }
 .headband {
   height: 3px;
-  background: #49b1f5;
-}
-.site-meta {
-  padding: 20px 0;
-  color: #fff;
-  background: #49b1f5;
-}
-.site-subtitle {
-  margin-top: 10px;
-  font-size: 13px;
-  color: #fff;
+  background: #fff;
 }
 .btn {
   color: #49b1f5;
