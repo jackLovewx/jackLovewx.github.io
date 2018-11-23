@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackLovewx.github.io/"/>
-  <updated>2018-11-23T03:25:47.681Z</updated>
+  <updated>2018-11-23T09:20:58.052Z</updated>
   <id>https://jackLovewx.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_更换背景图片</title>
+    <link href="https://jackLovewx.github.io/2018/11/23/HEXO-%E6%9B%B4%E6%8D%A2%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/"/>
+    <id>https://jackLovewx.github.io/2018/11/23/HEXO-更换背景图片/</id>
+    <published>2018-11-23T09:16:50.000Z</published>
+    <updated>2018-11-23T09:20:58.052Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-更换背景图片"><a href="#HEXO-更换背景图片" class="headerlink" title="HEXO_更换背景图片"></a>HEXO_更换背景图片</h2><h3 id="1-背景图片来源-（可根据自己的喜好设置图片的url）"><a href="#1-背景图片来源-（可根据自己的喜好设置图片的url）" class="headerlink" title="1,背景图片来源 （可根据自己的喜好设置图片的url）"></a>1,背景图片来源 （可根据自己的喜好设置图片的url）</h3><h3 id="2，修改背景样式"><a href="#2，修改背景样式" class="headerlink" title="2，修改背景样式"></a>2，修改背景样式</h3><p>打开文档下themes\next\source\css\ _custom\custom.styl文件，这个是Next故意留给用户自己个性化定制一些样式的文件，添加以下代码：</p><p>body {<br>    background:url(<a href="https://source.unsplash.com/random/1600x900)" target="_blank" rel="noopener">https://source.unsplash.com/random/1600x900)</a>;<br>    background-repeat: repeat;<br>    background-attachment:fixed;<br>    background-position:50% 50%;<br>}<br>url可更换为自己喜欢的图片的地址。</p><p>repeat：是否重复出现</p><p>attachment：定义背景图片随滚动轴的移动方式</p><p>position：设置背景图像的起始位置。</p><h3 id="3，效果图："><a href="#3，效果图：" class="headerlink" title="3，效果图："></a>3，效果图：</h3><p><img src="/2018/11/23/HEXO-更换背景图片/1.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-更换背景图片&quot;&gt;&lt;a href=&quot;#HEXO-更换背景图片&quot; class=&quot;headerlink&quot; title=&quot;HEXO_更换背景图片&quot;&gt;&lt;/a&gt;HEXO_更换背景图片&lt;/h2&gt;&lt;h3 id=&quot;1-背景图片来源-（可根据自己的喜好设置图片的url）&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO_添加站内搜索</title>
@@ -452,29 +475,6 @@
       
       
         &lt;h2 id=&quot;HEXO-修改-hexo-theme-next-主题的样式&quot;&gt;&lt;a href=&quot;#HEXO-修改-hexo-theme-next-主题的样式&quot; class=&quot;headerlink&quot; title=&quot;HEXO_修改 hexo-theme-next 主题的样式&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_添加RSS</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E6%B7%BB%E5%8A%A0RSS/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-添加RSS/</id>
-    <published>2018-11-22T06:41:02.000Z</published>
-    <updated>2018-11-22T06:46:32.269Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-添加RSS"><a href="#HEXO-添加RSS" class="headerlink" title="HEXO_添加RSS"></a>HEXO_添加RSS</h2><p>1,切换到<strong>Blog</strong>文件夹（hexo init的文件夹）下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br></pre></td></tr></table></figure><p>2,安装Hexo插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure><p>3,安装成功之后，编辑blog/_config.yml`文件，在文件末尾添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">plugins: hexo-generate-feed</span><br></pre></td></tr></table></figure><p>4,配置主题<code>_config.yml</code>文件，<code>command+f</code>搜索<code>rss</code>，在后面加上<code>/atom.xml</code> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//注意：有一个空格</span><br><span class="line">rss: /atom.xml</span><br></pre></td></tr></table></figure><p> 5,之后hexo g hexo d 部署到github上，效果图：</p><p><img src="/2018/11/22/HEXO-添加RSS/2.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-添加RSS&quot;&gt;&lt;a href=&quot;#HEXO-添加RSS&quot; class=&quot;headerlink&quot; title=&quot;HEXO_添加RSS&quot;&gt;&lt;/a&gt;HEXO_添加RSS&lt;/h2&gt;&lt;p&gt;1,切换到&lt;strong&gt;Blog&lt;/strong&gt;文件夹（hexo ini
       
     
     </summary>

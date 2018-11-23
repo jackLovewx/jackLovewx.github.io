@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HEXO_更换背景图片]]></title>
+    <url>%2F2018%2F11%2F23%2FHEXO-%E6%9B%B4%E6%8D%A2%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%2F</url>
+    <content type="text"><![CDATA[HEXO_更换背景图片1,背景图片来源 （可根据自己的喜好设置图片的url）2，修改背景样式打开文档下themes\next\source\css\ _custom\custom.styl文件，这个是Next故意留给用户自己个性化定制一些样式的文件，添加以下代码： body { background:url(https://source.unsplash.com/random/1600x900); background-repeat: repeat; background-attachment:fixed; background-position:50% 50%;}url可更换为自己喜欢的图片的地址。 repeat：是否重复出现 attachment：定义背景图片随滚动轴的移动方式 position：设置背景图像的起始位置。 3，效果图：]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HEXO_添加站内搜索]]></title>
     <url>%2F2018%2F11%2F23%2FHEXO-%E6%B7%BB%E5%8A%A0%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%2F</url>
     <content type="text"><![CDATA[HEXO_添加站内搜索1,NexT主题支持集成 Swiftype、 微搜索、Local Search 和 Algolia。下面介绍Local Search的安装。2,安装 hexo-generator-search1npm install hexo-generator-search --save 3,安装 hexo-generator-searchdb1npm install hexo-generator-searchdb --save 4,编辑站点配置文件，添加以下内容 :12345search: path: search.xml field: post format: html limit: 10000 5,编辑主题配置文件，设置Local searchenable为ture123456789# Local search# Dependencies: https://github.com/flashlab/hexo-generator-searchlocal_search: enable: ture # if auto, trigger search by changing input # if manual, trigger search by pressing enter key or search button trigger: auto # show top n results per article, show all results by setting to -1 top_n_per_article: 1 6, 效果如下图所示：]]></content>
