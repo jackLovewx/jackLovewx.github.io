@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-22T14:24:29.669Z</updated>
+  <updated>2018-11-23T01:55:32.960Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_博文置顶</title>
+    <link href="http://yoursite.com/2018/11/23/HEXO-%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6/"/>
+    <id>http://yoursite.com/2018/11/23/HEXO-博文置顶/</id>
+    <published>2018-11-23T01:53:42.000Z</published>
+    <updated>2018-11-23T01:55:32.960Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-博文置顶"><a href="#HEXO-博文置顶" class="headerlink" title="HEXO_博文置顶"></a>HEXO_博文置顶</h2><h3 id="1-修改hexo-generator-index插件，把node-modules-hexo-generator-index-lib-generator-js中代码替换为："><a href="#1-修改hexo-generator-index插件，把node-modules-hexo-generator-index-lib-generator-js中代码替换为：" class="headerlink" title="1,修改hexo-generator-index插件，把node_modules/hexo-generator-index/lib/generator.js中代码替换为："></a>1,修改<strong>hexo-generator-index</strong>插件，把<code>node_modules/hexo-generator-index/lib/generator.js</code>中代码替换为：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">var pagination = require(&apos;hexo-pagination&apos;);</span><br><span class="line">module.exports = function(locals)&#123;</span><br><span class="line">  var config = this.config;</span><br><span class="line">  var posts = locals.posts;</span><br><span class="line">    posts.data = posts.data.sort(function(a, b) &#123;</span><br><span class="line">        if(a.top &amp;&amp; b.top) &#123; // 两篇文章top都有定义</span><br><span class="line">            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排</span><br><span class="line">            else return b.top - a.top; // 否则按照top值降序排</span><br><span class="line">        &#125;</span><br><span class="line">        else if(a.top &amp;&amp; !b.top) &#123; // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        else return b.date - a.date; // 都没定义按照文章日期降序排</span><br><span class="line">    &#125;);</span><br><span class="line">  var paginationDir = config.pagination_dir || &apos;page&apos;;</span><br><span class="line">  return pagination(&apos;&apos;, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [&apos;index&apos;, &apos;archive&apos;],</span><br><span class="line">    format: paginationDir + &apos;/%d/&apos;,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="2-文章添加Top值，值越大，越靠前："><a href="#2-文章添加Top值，值越大，越靠前：" class="headerlink" title="2,文章添加Top值，值越大，越靠前："></a>2,文章添加Top值，值越大，越靠前：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo-NexT主题配置</span><br><span class="line">date: 2018-01-20 20:41:08</span><br><span class="line">categories: Hexo</span><br><span class="line">tags:</span><br><span class="line">- Hexo</span><br><span class="line">- NexT</span><br><span class="line">top: 100</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-博文置顶&quot;&gt;&lt;a href=&quot;#HEXO-博文置顶&quot; class=&quot;headerlink&quot; title=&quot;HEXO_博文置顶&quot;&gt;&lt;/a&gt;HEXO_博文置顶&lt;/h2&gt;&lt;h3 id=&quot;1-修改hexo-generator-index插件，把node-modu
+      
+    
+    </summary>
+    
+      <category term="个人博客搭建" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO_添加jiathis分享</title>
@@ -452,30 +477,6 @@
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2018/11/21/test/"/>
-    <id>http://yoursite.com/2018/11/21/test/</id>
-    <published>2018-11-21T07:27:59.000Z</published>
-    <updated>2018-11-21T07:28:24.583Z</updated>
-    
-    <content type="html"><![CDATA[<p>fdsafdsa </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;fdsafdsa &lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
     
   </entry>
   
