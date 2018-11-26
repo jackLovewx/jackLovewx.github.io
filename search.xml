@@ -26,6 +26,9 @@
     <title><![CDATA[HEXO_更换背景图片]]></title>
     <url>%2F2018%2F11%2F23%2FHEXO-%E6%9B%B4%E6%8D%A2%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%2F</url>
     <content type="text"><![CDATA[HEXO_更换背景图片1,背景图片来源 （可根据自己的喜好设置图片的url）2，修改背景样式打开文档下themes\next\source\css\ _custom\custom.styl文件，这个是Next故意留给用户自己个性化定制一些样式的文件，添加以下代码： body { background:url(https://source.unsplash.com/random/1600x900); background-repeat: repeat; background-attachment:fixed; background-position:50% 50%;}url可更换为自己喜欢的图片的地址。 repeat：是否重复出现 attachment：定义背景图片随滚动轴的移动方式 position：设置背景图像的起始位置。 3，效果图：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -45,6 +48,9 @@
     <title><![CDATA[HEXO_在文章底部增加版权信息]]></title>
     <url>%2F2018%2F11%2F23%2FHEXO-%E5%9C%A8%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E5%A2%9E%E5%8A%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF%2F</url>
     <content type="text"><![CDATA[HEXO_在文章底部增加版权信息1,在目录Blog/themes/next/layout/_macro/，添加文件 my-copyright.swig，内容如下：123456789101112131415161718192021222324252627282930&#123;% if page.copyright %&#125;&lt;div class=&quot;my_post_copyright&quot;&gt; &lt;script src=&quot;//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js&quot;&gt;&lt;/script&gt; &lt;!-- JS库 sweetalert 可修改路径 --&gt; &lt;script src=&quot;https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js&quot;&gt;&lt;/script&gt; &lt;script src=&quot;https://unpkg.com/sweetalert/dist/sweetalert.min.js&quot;&gt;&lt;/script&gt; &lt;p&gt;&lt;span&gt;本文标题:&lt;/span&gt;&lt;a href=&quot;&#123;&#123; url_for(page.path) &#125;&#125;&quot;&gt;&#123;&#123; page.title &#125;&#125;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;span&gt;文章作者:&lt;/span&gt;&lt;a href=&quot;/&quot; title=&quot;访问 &#123;&#123; theme.author &#125;&#125; 的个人博客&quot;&gt;&#123;&#123; theme.author &#125;&#125;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;span&gt;发布时间:&lt;/span&gt;&#123;&#123; page.date.format(&quot;YYYY年MM月DD日 - HH:MM&quot;) &#125;&#125;&lt;/p&gt; &lt;p&gt;&lt;span&gt;最后更新:&lt;/span&gt;&#123;&#123; page.updated.format(&quot;YYYY年MM月DD日 - HH:MM&quot;) &#125;&#125;&lt;/p&gt; &lt;p&gt;&lt;span&gt;原始链接:&lt;/span&gt;&lt;a href=&quot;&#123;&#123; url_for(page.path) &#125;&#125;&quot; title=&quot;&#123;&#123; page.title &#125;&#125;&quot;&gt;&#123;&#123; page.permalink &#125;&#125;&lt;/a&gt; &lt;span class=&quot;copy-path&quot; title=&quot;点击复制文章链接&quot;&gt;&lt;i class=&quot;fa fa-clipboard&quot; data-clipboard-text=&quot;&#123;&#123; page.permalink &#125;&#125;&quot; aria-label=&quot;复制成功！&quot;&gt;&lt;/i&gt;&lt;/span&gt; &lt;/p&gt; &lt;p&gt;&lt;span&gt;许可协议:&lt;/span&gt;&lt;i class=&quot;fa fa-creative-commons&quot;&gt;&lt;/i&gt; &lt;a rel=&quot;license&quot; href=&quot;https://creativecommons.org/licenses/by-nc-nd/4.0/&quot; target=&quot;_blank&quot; title=&quot;Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)&quot;&gt;署名-非商业性使用-禁止演绎 4.0 国际&lt;/a&gt; 转载请保留原文链接及作者。&lt;/p&gt; &lt;/div&gt;&lt;script&gt; var clipboard = new Clipboard(&apos;.fa-clipboard&apos;); $(&quot;.fa-clipboard&quot;).click(function()&#123; clipboard.on(&apos;success&apos;, function()&#123; swal(&#123; title: &quot;&quot;, text: &apos;复制成功&apos;, icon: &quot;success&quot;, showConfirmButton: true &#125;); &#125;); &#125;); &lt;/script&gt;&#123;% endif %&#125; 2,在目录Blog/themes/next/source/css/_common/components/post/下添加文件my-post-copyright.styl，添加以下代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445.my_post_copyright &#123; width: 85%; max-width: 45em; margin: 2.8em auto 0; padding: 0.5em 1.0em; border: 1px solid #d3d3d3; font-size: 0.93rem; line-height: 1.6em; word-break: break-all; background: rgba(255,255,255,0.4);&#125;.my_post_copyright p&#123;margin:0;&#125;.my_post_copyright span &#123; display: inline-block; width: 5.2em; color: #b5b5b5; font-weight: bold;&#125;.my_post_copyright .raw &#123; margin-left: 1em; width: 5em;&#125;.my_post_copyright a &#123; color: #808080; border-bottom:0;&#125;.my_post_copyright a:hover &#123; color: #a3d2a3; text-decoration: underline;&#125;.my_post_copyright:hover .fa-clipboard &#123; color: #000;&#125;.my_post_copyright .post-url:hover &#123; font-weight: normal;&#125;.my_post_copyright .copy-path &#123; margin-left: 1em; width: 1em; +mobile()&#123;display:none;&#125;&#125;.my_post_copyright .copy-path:hover &#123; color: #808080; cursor: pointer;&#125; 3,在Blog/themes/next/source/css/_common/components/post/添加文件my-post-copyright.styl，文件内容如下：123456789101112131415161718192021222324252627282930313233343536373839404142434445.my_post_copyright &#123; width: 85%; max-width: 45em; margin: 2.8em auto 0; padding: 0.5em 1.0em; border: 1px solid #d3d3d3; font-size: 0.93rem; line-height: 1.6em; word-break: break-all; background: rgba(255,255,255,0.4);&#125;.my_post_copyright p&#123;margin:0;&#125;.my_post_copyright span &#123; display: inline-block; width: 5.2em; color: #b5b5b5; font-weight: bold;&#125;.my_post_copyright .raw &#123; margin-left: 1em; width: 5em;&#125;.my_post_copyright a &#123; color: #808080; border-bottom:0;&#125;.my_post_copyright a:hover &#123; color: #a3d2a3; text-decoration: underline;&#125;.my_post_copyright:hover .fa-clipboard &#123; color: #000;&#125;.my_post_copyright .post-url:hover &#123; font-weight: normal;&#125;.my_post_copyright .copy-path &#123; margin-left: 1em; width: 1em; +mobile()&#123;display:none;&#125;&#125;.my_post_copyright .copy-path:hover &#123; color: #808080; cursor: pointer;&#125; 4,修改Blog/themes/next/layout/_macro/post.swig，在如图位置添加以下代码：12345&lt;div&gt; &#123;% if not is_index %&#125; &#123;% include &apos;my-copyright.swig&apos; %&#125; &#123;% endif %&#125;&lt;/div&gt; 5,在Blog/themes/next/source/css/_common/components/post/post.styl文件最后加入下面的代码：1@import &quot;my-post-copyright&quot; 6.在Markdown文章中加入copyright : ture：12345678910---title: Hexo-NexT主题配置date: 2018-01-20 20:41:08categories: Hexotags:- Hexo- NexTtop: 100copyright: ture--- 7,配置根目录下的_config.yml文件，配置为：123456# URL## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;url: https://jackLovewx.github.io/ //你的网站地址root: /permalink: :year/:month/:day/:title/permalink_defaults: 8,效果图如下所示：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -53,6 +59,9 @@
     <title><![CDATA[HEXO_添加侧栏推荐阅读]]></title>
     <url>%2F2018%2F11%2F23%2FHEXO-%E6%B7%BB%E5%8A%A0%E4%BE%A7%E6%A0%8F%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB%2F</url>
     <content type="text"><![CDATA[HEXO_添加侧栏推荐阅读1,编辑主题配置文件，如下配置即可：12345678# Blog rollslinks_icon: linklinks_title: 推荐阅读#links_layout: blocklinks_layout: inlinelinks: HEXO个人博客初级搭建: https://jacklovewx.github.io/2018/11/20/HEXO%E5%88%9D%E7%BA%A7%E6%90%AD%E5%BB%BA/#more 百 度: http://www.baidu.com 2,效果图：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -61,6 +70,9 @@
     <title><![CDATA[HEXO_添加底部桃心]]></title>
     <url>%2F2018%2F11%2F23%2FHEXO-%E6%B7%BB%E5%8A%A0%E5%BA%95%E9%83%A8%E6%A1%83%E5%BF%83%2F</url>
     <content type="text"><![CDATA[HEXO_添加底部桃心1,打开Blog/themes/next/layout/_partials/footer.swig搜索with-love，在fontawesom找到你喜欢的图标，在如下位置替换即可： 2,效果如下图所示：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -70,7 +82,7 @@
     <url>%2F2018%2F11%2F23%2FHEXO-%E6%B7%BB%E5%8A%A0DaoVoice%E5%9C%A8%E7%BA%BF%E8%81%94%E7%B3%BB%2F</url>
     <content type="text"><![CDATA[HEXO_添加DaoVoice在线联系1,首先到DaoVoice注册账号，登录成过后，进入到后台管理，点击应用设置——&gt;安装到网站查看安装代码和AppID。 2,将安装代码添加到blog/themes/next/layout/_partials/head.swig中：123456789&#123;% if theme.daovoice %&#125; &lt;script&gt; (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;) daovoice(&apos;init&apos;, &#123; app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot; &#125;); daovoice(&apos;update&apos;); &lt;/script&gt;&#123;% endif %&#125; 3编辑主题配置文件，添加如下代码：123# Online contact daovoice: truedaovoice_app_id: daovoice_app_id 4, 效果图如下所示：]]></content>
       <categories>
-        <category>搭建个人博客</category>
+        <category>个人博客搭建</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -91,6 +103,9 @@
     <title><![CDATA[HEXO_添加jiathis分享]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E6%B7%BB%E5%8A%A0jiathis%E5%88%86%E4%BA%AB%2F</url>
     <content type="text"><![CDATA[HEXO_添加jiathis分享1编辑主题配置文件，将jiathis改为ture即可：1234567# Share# This plugin is more useful in China, make sure you known how to use it.# And you can find the use guide at official webiste: http://www.jiathis.com/.# Warning: JiaThis does not support https.jiathis: ture ##uid: Get this uid from http://www.jiathis.com/#add_this_id: 2,效果如下图所示：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -99,6 +114,9 @@
     <title><![CDATA[HEXO_添加网页顶部进度加载条]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E6%B7%BB%E5%8A%A0%E7%BD%91%E9%A1%B5%E9%A1%B6%E9%83%A8%E8%BF%9B%E5%BA%A6%E5%8A%A0%E8%BD%BD%E6%9D%A1%2F</url>
     <content type="text"><![CDATA[HEXO_添加网页顶部进度加载条1,编辑主题配置文件，ctrl+f 搜索pace，将其值改为ture就可以了，选择一款你喜欢的样式。12345678910111213141516171819# Progress bar in the top during page loading.pace: tureThemes list:#pace-theme-big-counter#pace-theme-bounce#pace-theme-barber-shop#pace-theme-center-atom#pace-theme-center-circle#pace-theme-center-radar#pace-theme-center-simple#pace-theme-corner-indicator#pace-theme-fill-left#pace-theme-flash#pace-theme-loading-bar#pace-theme-mac-osx#pace-theme-minimal# For example# pace_theme: pace-theme-center-simplepace_theme: pace-theme-minimal]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -107,6 +125,9 @@
     <title><![CDATA[HEXO_实现文章统计功能]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD%2F</url>
     <content type="text"><![CDATA[HEXO_实现文章统计功能1安装Hexo插件，参考网站底部字数统计。2,编辑主题配置文件，配置如下：12345678# Post wordcount display settings# Dependencies: https://github.com/willin/hexo-wordcountpost_wordcount: item_text: true wordcount: true min2read: true totalcount: true separated_meta: true 3,效果图：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -115,6 +136,9 @@
     <title><![CDATA[HEXO_设置网站的图标Favicon]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E7%9A%84%E5%9B%BE%E6%A0%87Favicon%2F</url>
     <content type="text"><![CDATA[HEXO_设置网站的图标Favicon1,在图标网站找一张你喜欢的图标（大：32x32 小：16x16），图标网站：easyicon或者阿里巴巴矢量图标库。将下载下来的小图和中图放在blog/themes/next/source/images，将默认的两张图片替换掉。命名和默认的一样也可以自己定义： 2,修改主题配置文件，如果你自定义了图片名字，需要做修改：123456789# For example, you put your favicons into `hexo-site/source/images` directory.# Then need to rename &amp; redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.favicon: small: /images/favicon-16x16-next.png //16X16小图 medium: /images/favicon-32x32-next.png //32X32大图 apple_touch_icon: /images/apple-touch-icon-next.png //apple-touch-icon safari_pinned_tab: /images/logo.svg #android_manifest: /images/manifest.json #ms_browserconfig: /images/browserconfig.xml 3,修改后，效果如下：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -124,7 +148,7 @@
     <url>%2F2018%2F11%2F22%2FHEXO-%E7%BD%91%E7%AB%99%E5%BA%95%E9%83%A8%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%2F</url>
     <content type="text"><![CDATA[HEXO_网站底部字数统计1,安装hexo插件，切换到根目录：1npm install hexo-wordcount --save 2,在Blog/themes/next/layout/_partials/footer.swig末尾添加代码：1234&lt;div class=&quot;theme-info&quot;&gt; &lt;div class=&quot;powered-by&quot;&gt;&lt;/div&gt; &lt;span class=&quot;post-count&quot;&gt;博客全站共&#123;&#123; totalcount(site) &#125;&#125;字&lt;/span&gt;&lt;/div&gt; 3,效果图如下图所示：]]></content>
       <categories>
-        <category>hexo</category>
+        <category>个人博客搭建</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -134,6 +158,9 @@
     <title><![CDATA[HEXO_网站底部加上访问量]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E7%BD%91%E7%AB%99%E5%BA%95%E9%83%A8%E5%8A%A0%E4%B8%8A%E8%AE%BF%E9%97%AE%E9%87%8F%2F</url>
     <content type="text"><![CDATA[HEXO_网站底部加上访问量1,打开blog/themes/next/layout/_partials/footer.swig文件，在copyright加上如下代码：1&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt; 2,在适当的位置添加显示统计代码12345&lt;div class=&quot;powered-by&quot;&gt;&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt; 本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt; 3设置统计方式123456789//pv的方式，单个用户连续点击n篇文章，记录n次访问量&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt; 本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次&lt;/span&gt;//uv的方式，单个用户连续点击n篇文章，只记录1次访客数&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt; 本站总访问量&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次&lt;/span&gt;]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -142,6 +169,9 @@
     <title><![CDATA[HEXO_主页文章添加阴影效果]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C%2F</url>
     <content type="text"><![CDATA[HEXO_主页文章添加阴影效果1,打开blog\themes\next\source\css\_custom\custom.styl，添加以下代码：12345678// 主页文章添加阴影效果 .post &#123; margin-top: 60px; margin-bottom: 60px; padding: 25px; -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5); -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5); &#125; ###]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -150,6 +180,9 @@
     <title><![CDATA[HEXO_侧边栏社交小图标设置]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%A4%BE%E4%BA%A4%E5%B0%8F%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[HEXO_侧边栏社交小图标设置1,打开主题配置文件_config.yml，command+f搜索Social，将你有的社交账号前面的#号去掉。格式为：1[社交平台名]: [社交地址] || [图标名称] 12345678910111213#social: GitHub: https://github.com/yourname || github 简书: https://www.jianshu.com/xxxxxx || heartbeat 掘金: https://juejin.im/xxxxxxx || spinner #E-Mail: mailto:yourname@gmail.com || envelope #Google: https://plus.google.com/yourname || google #Twitter: https://twitter.com/yourname || twitter #FB Page: https://www.facebook.com/yourname || facebook #VK Group: https://vk.com/yourname || vk #StackOverflow: https://stackoverflow.com/yourname || stack-overflow #YouTube: https://youtube.com/yourname || youtube #Instagram: https://instagram.com/yourname || instagram #Skype: skype:yourname?call|chat || skype 2,图标可以去Font Awesome Icon网站去找，找到后复制名字到相应的位置即可。]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -158,6 +191,9 @@
     <title><![CDATA[HEXO_修改代码块自定义样式]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[HEXO_修改代码块自定义样式1,打开Blog\themes\next\source\css\_custom\custom.styl，添加以下代码：123456789101112131415// Custom styles.code &#123; color: #ff7600; background: #fbf7f8; margin: 2px;&#125;// 大代码块的自定义样式.highlight, pre &#123; margin: 5px 0; padding: 5px; border-radius: 3px;&#125;.highlight, code, pre &#123; border: 1px solid #d6d6d6;&#125;]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -166,6 +202,9 @@
     <title><![CDATA[HEXO_设置头像并设置动画效果]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C%2F</url>
     <content type="text"><![CDATA[HEXO_设置头像并设置动画效果1,在blog/_config.yml中添加头像链接地址：12//添加头像地址avatar: [ http://....] 2,设置头像圆角并旋转，打开blog/themes/next/source/css/_common/components/sidebar/sidebar-author.styl，添加以下代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354.site-author-image &#123; display: block; margin: 0 auto; padding: $site-author-image-padding; max-width: $site-author-image-width; height: $site-author-image-height; border: $site-author-image-border-width solid $site-author-image-border-color; /* 头像圆形 */ border-radius: 80px; -webkit-border-radius: 80px; -moz-border-radius: 80px; box-shadow: inset 0 -1px 0 #333sf; /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/ /* 鼠标经过头像旋转360度 */ -webkit-transition: -webkit-transform 1.0s ease-out; -moz-transition: -moz-transform 1.0s ease-out; transition: transform 1.0s ease-out;&#125;img:hover &#123; /* 鼠标经过停止头像旋转 -webkit-animation-play-state:paused; animation-play-state:paused;*/ /* 鼠标经过头像旋转360度 */ -webkit-transform: rotateZ(360deg); -moz-transform: rotateZ(360deg); transform: rotateZ(360deg);&#125;/* Z 轴旋转动画 */@-webkit-keyframes play &#123; 0% &#123; -webkit-transform: rotateZ(0deg); &#125; 100% &#123; -webkit-transform: rotateZ(-360deg); &#125;&#125;@-moz-keyframes play &#123; 0% &#123; -moz-transform: rotateZ(0deg); &#125; 100% &#123; -moz-transform: rotateZ(-360deg); &#125;&#125;@keyframes play &#123; 0% &#123; transform: rotateZ(0deg); &#125; 100% &#123; transform: rotateZ(-360deg); &#125;&#125;]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -174,6 +213,9 @@
     <title><![CDATA[HEXO_在文章末尾添加“文章结束标记]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E5%9C%A8%E6%96%87%E7%AB%A0%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0%E2%80%9C%E6%96%87%E7%AB%A0%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[HEXO_在文章末尾添加“文章结束标记1,在路径Blog\themes\next\layout\_macro文件夹中新建passage-end-tag.swig文件。12345//切换到路径_macrocd [_macro路径]//创建passage-end-tag.swig文件touch passage-end-tag.swig 2,在passage-end-tag.swig添加以下内容，直接用文本编辑器打开，粘贴以下内容后保存12345&lt;div&gt; &#123;% if not is_index %&#125; &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-paw&quot;&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt; &#123;% endif %&#125;&lt;/div&gt; 3,打开blog\themes\next\layout\_macro\post.swig，在post-body之后，post-footer之前（post-footer之前两个DIV），添加以下代码：12345&lt;div&gt; &#123;% if not is_index %&#125; &#123;% include &apos;passage-end-tag.swig&apos; %&#125; &#123;% endif %&#125;&lt;/div&gt; 4,添加位置，如下图所示： 5,修改主题配置文件_config.yml，在末尾添加：123# 文章末尾添加“本文结束”标记passage_end_tag: enabled: true 6,配置完成之后，效果如下：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -182,6 +224,9 @@
     <title><![CDATA[HEXO_修改底部标签样式]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[HEXO_修改底部标签样式1,修改blog\themes\next\layout\_macro\post.swig中文件，ctrl+f搜索rel=&quot;tag&quot;&gt;#，将#替换成&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;。输入以下命令，查看效果：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -190,6 +235,9 @@
     <title><![CDATA[HEXO_修改 hexo-theme-next 主题的样式]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E4%BF%AE%E6%94%B9-hexo-theme-next-%E4%B8%BB%E9%A2%98%E7%9A%84%E6%A0%B7%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[HEXO_修改 hexo-theme-next 主题的样式1,首先，找到 博客根目录\themes\next\source\css\_custom\custom.styl 并打开它 （一下配置全部在这个文件里面进行） 第一步： 修改文章内链接文本样式往刚刚打开的那个文件里添加如下代码： 1234567891011// 文章内链接文本样式 .post-body p a&#123; color: #0593d3; border-bottom: none; border-bottom: 1px solid #0593d3; &amp;:hover &#123; color: #fc6423; border-bottom: none; border-bottom: 1px solid #fc6423; &#125; &#125; 第二步： 修改选中字符的颜色添加如下代码： 1234567891011// 修改选中字符的颜色/* webkit, opera, IE9 */::selection &#123; background: #00c4b6; color: #f7f7f7; &#125;/* firefox */::-moz-selection &#123; background: #00c4b6; color: #f7f7f7; &#125; 第三步： 修改网站头部的颜色继续添加如下代码： 123456789101112131415// 修改网站头部颜色.headband &#123; height: 3px; background: #49b1f5;&#125;.site-meta &#123; padding: 20px 0; color: #fff; background: #49b1f5;&#125;.site-subtitle &#123; margin-top: 10px; font-size: 13px; color: #ffffff;&#125; 第四步： 修改网站内按键（button）的样式继续： 123456789101112// 修改按键（button）样式.btn &#123; color: #49b1f5; background: #fff; border: 2px solid #49b1f5;&#125;// 按键（button）点击时样式.btn:hover &#123; border-color: #49b1f5; color: #fff; background: #49b1f5;&#125; 第五步： 鼠标移动至文章标题时的效果最后一步了： 12345678910111213141516171819// 鼠标移动至文章标题时的效果.posts-expand .post-title-link::before &#123; content: &quot;&quot;; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background-color: #49b1f5; visibility: hidden; -webkit-transform: scaleX(0); -moz-transform: scaleX(0); -ms-transform: scaleX(0); -o-transform: scaleX(0); transform: scaleX(0); transition-duration: 0.2s; transition-timing-function: ease-in-out; transition-delay: 0s;&#125; 六 ：效果图：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -198,6 +246,9 @@
     <title><![CDATA[HEXO_添加RSS]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E6%B7%BB%E5%8A%A0RSS%2F</url>
     <content type="text"><![CDATA[HEXO_添加RSS1,切换到Blog文件夹（hexo init的文件夹）下 1cd blog 2,安装Hexo插件 1npm install --save hexo-generator-feed 3,安装成功之后，编辑blog/_config.yml`文件，在文件末尾添加 123# Extensions## Plugins: http://hexo.io/plugins/plugins: hexo-generate-feed 4,配置主题_config.yml文件，command+f搜索rss，在后面加上/atom.xml 12//注意：有一个空格rss: /atom.xml 5,之后hexo g hexo d 部署到github上，效果图：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -206,6 +257,9 @@
     <title><![CDATA[HEXO_在右上角或者左上角实现fork me on github]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E5%9C%A8%E5%8F%B3%E4%B8%8A%E8%A7%92%E6%88%96%E8%80%85%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%AE%9E%E7%8E%B0fork-me-on-github%2F</url>
     <content type="text"><![CDATA[HEXO_在右上角或者左上角实现fork me on github1,在GitHub Ribbons或GitHub Corners选择一款你喜欢的挂饰，拷贝方框内的代码： 2,将刚刚复制的挂饰代码，添加到Blog/themes/next/layout/_layout.swig文件中，添加位置如下图所示(放在&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;下方)： 3,效果图如下图所示：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -214,6 +268,9 @@
     <title><![CDATA[HEXO_设置动态背景]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%2F</url>
     <content type="text"><![CDATA[HEXO_设置动态背景1,主题配置文件（_config.yml）中找到canvas_nest，设置成ture就OK啦。 12# Canvas-nestcanvas_nest: ture]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -222,6 +279,9 @@
     <title><![CDATA[HEXO_创建关于我页面]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E5%88%9B%E5%BB%BA%E5%85%B3%E4%BA%8E%E6%88%91%E9%A1%B5%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[HEXO_创建关于我页面新建一个 about 页面： 1hexo new page &quot;about&quot; 菜单显示 about 链接，在主题的 _configy.yml 设置中将 menu 中 about 前面的注释去掉即可。 12345menu: home: / archives: /archives tags: /tags about: /about]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -230,6 +290,9 @@
     <title><![CDATA[HEXO_创建分类页面]]></title>
     <url>%2F2018%2F11%2F22%2FHEXO-%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[HEXO_创建分类页面添加一个 分类 页面，并在菜单中显示页面链接。 新建一个页面，命名为 categories 。命令如下： 1hexo new page categories 编辑刚新建的页面，将页面的类型设置为 categories ，主题将自动为这个页面显示所有分类。 1234title: 分类date: 2014-12-22 12:39:04type: &quot;categories&quot;--- 注意：如果有启用多说 或者 Disqus 评论，默认页面也会带有评论。需要关闭的话，请添加字段 comments 并将值设置为 false，如： 12345title: 分类date: 2014-12-22 12:39:04type: &quot;categories&quot;comments: false--- 在菜单中添加链接。编辑主题的 _config.yml ，将 menu 中的 categories: /categories 注释去掉，如下: 12345menu: home: / categories: /categories archives: /archives tags: /tags]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -238,22 +301,20 @@
     <title><![CDATA[HEXO_创建标签云页面]]></title>
     <url>%2F2018%2F11%2F21%2FHEXO%E2%80%94-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AF%B9%E5%BA%94%E7%9A%84menu%E6%96%87%E4%BB%B6%E5%A4%B9%2F</url>
     <content type="text"><![CDATA[HEXO进阶(二)_创建标签云页面没有创建Menu对应的文件夹，Blog/source文件目录如下： 在博客网站点击标签菜单可能会提示： can not get tegs 比如要创建标签文件夹，终端中输入（前提在Hexo文件路径下） 123hexo new page &quot;tags&quot;输出：INFO Created: ~/Desktop/MyBlog/Blog/source/tags/index.md 成功过后目录如下： 编辑Blog/source/tags中index.md文件，添加type: &quot;tags&quot;，其他Menu也同理创建。 123title: tagsdate: 2018-01-20 18:57:48type: &quot;tags&quot; 在菜单中添加链接。编辑主题的 _config.yml ，添加 tags 到 menu 中，如下: 1234menu: home: / archives: /archives tags: /tags]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[test]]></title>
-    <url>%2F2018%2F11%2F21%2Ftest%2F</url>
-    <content type="text"><![CDATA[fdsafdsa]]></content>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[HEXO_修改主题及网站配置]]></title>
     <url>%2F2018%2F11%2F21%2FHEXO_%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E5%8F%8A%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[HEXO进阶(二)_修改主题及网站配置1，修改站点配置文件(_config.yml)注 ： 对应的目录 ：blog/_config.yml/，blog 为 hexo init 初始化文件夹的名称，替换成你自己初始化文件夹的名称。 修改 depoly ： 1234deploy: type: git repo: git@github.com:username.github.io.git branch: master repo的值是：登陆你的github，然后找到你创建的仓库，话不多说上图： 点击绿色标记的那个图标复制地址然后换到repo那里 注意要使用 UseSSH,不能用UseHttps。 2，修改主题默认的主题真的很捞，我们去换一个主题，这里我选用的是Next主题 通过 git 方式下载项目，命令如下 ： 12$ cd themes$ git clone https://github.com/iissnan/hexo-theme-next next 第一部步是进入到 themes 下面， 第二步是拷贝远程主题到该目录下。下载完成后，我的博客 themes 下就多了一个 next 文件夹。如图 ： 在站点文件夹中修改_config.yml ​ theme ：next 注 ：把默认主题 landscape 切换成 next。 3修改menu默认 menu 菜单显示 home、archives，根据自己的需要去掉注释。 4修改 Schemes ： next 主题对应的有四个风格，Muse、Mist、Pisces、Gemini，默认为 Muse。 根据自己的喜欢设置即可 5，编辑主题配置文件，启用自动摘录 :123auto_excerpt: enable: true length: 150 注 ：修改 auto_excerpt 为 true，允许自动摘录，显示部分，点击阅读全文。]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
@@ -262,6 +323,9 @@
     <title><![CDATA[devops前后端交互流程]]></title>
     <url>%2F2018%2F11%2F21%2Fdevops%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[Devops前后端数据交互流程前言：本文以devops前端登陆功能来分析前后端数据交互的流程1，首先打开devops-web模块下的 2,login-normal.vue页面分析： 可以看到的是这个form引入了一个名为loginForm。我们跟踪源代码找到这个loginForm 可以看到这个form其实是定义了username和password的初始值。我们找到之前login-form的提交位置： 提交这个表单时会默认调用handleLogin这个方法我们去找到这个方法： 发现这个方法其实时调用了IUserController里面的login这个方法并且把username和password参数传入那么既然调用这个Controller，那么就绝对有导入相关Controller的配置我们找到： 现在我们明白时导入了action文件夹下面的controller我们切换到actions文件夹下面： 打开这个js文件发现里面定义了许多的Controller而我们的IUserController就在其中： 我们去api文件夹下面寻找IUserController： api文件夹下面定义了一系列的Controller IUserController也是定义在其中通过上图我们可以看到 url 和 parameters这俩个属性，parameters传入了username和password,url：正是去调用后端接口的地址：/api/uc/users/login去devops-specs下面找到IUserController这个接口： 我们发现这个接口的@Path的值刚好与之前的url相对应起来然后直接去调用login方法就可以了我们可以再找到IUserController的实现类 UserController： 到此，登陆功能从前端到后端的数据交互的流程已经分析完毕了，当然这只是大概的分析，具体的细节还要做进一步的研究。]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
       <tags>
         <tag>devops</tag>
         <tag>vue</tag>
@@ -271,6 +335,9 @@
     <title><![CDATA[Devops开发环境搭建及前后端交互流程]]></title>
     <url>%2F2018%2F11%2F21%2FDevops%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[Devops - web模块环境搭建前言： ​ 安装nodejs npm 并且升级到最新版本。 一：解压源码包：​ 将devops源码包解压会得到如图所示的项目目录： ​ 二：将源码导入EOS-STUDIO中：(devops是一个maven工程，选择导入maven，将整个项目直接导入) 三：修改settings.xml文件打开刚刚导入的项目，打开pom.xml文件会发现报错 这是由于我们的setting.xml文件没有指定的缘故那么接下来我们就去设置setting.xml文件 (settings.xml文件在我们导入的项目devoper中) 点击首选项–&gt;选择Maven–&gt;UserSettings 设置上图所示的settings.xml路径 然后apply,确定，发现我们的pom文件没有报错了。 四：设置web模块的访问端口和ip地址打开devops-web模块–&gt;打开config下的index.js文件 host:改为localhost port:随意 五：安装依赖找到解压后的devops-web那个文件夹，点击进入。打开cmd执行 “npm install ”命令 执行之后会发现在该文件夹下会生成一个node_modules 六：修改webpack.dev.conf.js 打开webpack.dev.conf.js文件，把new CopyWebpackPlugin 里面的from字段的值改为上图所示的地址。 (不修改的话，在访问web模块时会报错) 七：启动并访问web模块找到解压后的devops-web那个文件夹，点击进入。打开cmd执行 “npm run dev ”命令 执行命令后会自动弹出页面我们只需稍等片刻。。。 OK至此为止，devops的web模块也就搭建完毕了。]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
       <tags>
         <tag>devops</tag>
       </tags>
@@ -279,6 +346,9 @@
     <title><![CDATA[HEXO_初级搭建]]></title>
     <url>%2F2018%2F11%2F20%2FHEXO%E5%88%9D%E7%BA%A7%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[HEXO个人博客搭建（初级）相关步骤：1、安装Node.js和配置好Node.js环境，打开cmd命令行，成功界面如下 ： 2、安装Git和配置好Git环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择成功配置的界面如图 ： 3、Github账户注册和新建项目，项目必须要遵守格式：账户名.github.io，不然接下来会有很多麻烦。并且需要勾选Initialize this repository with a README ： 4、安装Hexo在自己认为合适的地方创个文件夹，我是在D盘建了一个blog文件夹。然后通过命令行进入到该文件夹里面 ： 在blog目录下，输入npm install hexo -g，开始安装Hexo ： 输入hexo -v，检查hexo是否安装成功 ： 输入hexo init，初始化该文件夹（waiting。。。。。） ： 看到最终执行完的的“Start blogging with Hexo！ 就成功了 输入npm install，安装所需要的组件 ： 输入hexo g，首次体验Hexo 输入hexo s，开启服务器，访问该网址，正式体验Hexo ：默认端口是 4000 那么出现如下图就成功了 5、将Hexo与Github page联系起来，设置Git的user name和email（如果是第一次的话） 邮箱和用户名替换成自己的 输入cd ~/.ssh，检查是否由.ssh的文件夹 输入ls，列出该文件下的内容。下图说明存在 输入ssh-keygen -t rsa -C “1219787757@qq.com”，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：C:\Users\Administrator.ssh）。 输入eval “$(ssh-agent -s)”，添加密钥到ssh-agent 再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent 登录Github，点击头像下的settings，添加ssh 新建一个new ssh key，将id_rsa.pub文件里的内容复制上去 输入ssh -T git@github.com，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了 6、配置Deployment，在blog文件夹中，找到_config.yml文件，修改repo值（在末尾） repo值是你在github项目里的ssh（右下角） ：点击右面的那个图标按钮直接复制即可 7、新建一篇博客，在cmd执行命令：hexo new post “博客名” 这时候在文件夹_posts目录下将会看到已经创建的文件 （__post文件在blog/source下面可以找到）： 在生成以及部署文章之前，需要安装一个扩展：npm install hexo-deployer-git –save ： 使用编辑器编好文章，那么就可以使用命令：hexo d -g，生成以及部署了 ： 部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章 ： 到此位置基础的HEXO+github就已经搭建完成了。]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
