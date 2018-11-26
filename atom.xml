@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackLovewx.github.io/"/>
-  <updated>2018-11-26T01:28:40.737Z</updated>
+  <updated>2018-11-23T09:20:58.052Z</updated>
   <id>https://jackLovewx.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>HEXO_添加外链网易云音乐</title>
-    <link href="https://jackLovewx.github.io/2018/11/23/HEXO-%E6%B7%BB%E5%8A%A0%E5%A4%96%E9%93%BE%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
-    <id>https://jackLovewx.github.io/2018/11/23/HEXO-添加外链网易云音乐/</id>
-    <published>2018-11-23T09:22:25.000Z</published>
-    <updated>2018-11-26T01:28:40.737Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-添加外链网易云音乐"><a href="#HEXO-添加外链网易云音乐" class="headerlink" title="HEXO_添加外链网易云音乐"></a>HEXO_添加外链网易云音乐</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-添加外链网易云音乐&quot;&gt;&lt;a href=&quot;#HEXO-添加外链网易云音乐&quot; class=&quot;headerlink&quot; title=&quot;HEXO_添加外链网易云音乐&quot;&gt;&lt;/a&gt;HEXO_添加外链网易云音乐&lt;/h2&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
   
   <entry>
     <title>HEXO_更换背景图片</title>
@@ -475,6 +452,29 @@
       
       
         &lt;h2 id=&quot;HEXO-修改底部标签样式&quot;&gt;&lt;a href=&quot;#HEXO-修改底部标签样式&quot; class=&quot;headerlink&quot; title=&quot;HEXO_修改底部标签样式&quot;&gt;&lt;/a&gt;HEXO_修改底部标签样式&lt;/h2&gt;&lt;h3 id=&quot;1-修改blog-themes-next-
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO_修改 hexo-theme-next 主题的样式</title>
+    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E4%BF%AE%E6%94%B9-hexo-theme-next-%E4%B8%BB%E9%A2%98%E7%9A%84%E6%A0%B7%E5%BC%8F/"/>
+    <id>https://jackLovewx.github.io/2018/11/22/HEXO-修改-hexo-theme-next-主题的样式/</id>
+    <published>2018-11-22T07:14:08.000Z</published>
+    <updated>2018-11-22T07:28:43.998Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-修改-hexo-theme-next-主题的样式"><a href="#HEXO-修改-hexo-theme-next-主题的样式" class="headerlink" title="HEXO_修改 hexo-theme-next 主题的样式"></a>HEXO_修改 hexo-theme-next 主题的样式</h2><p>1,首先，找到 <code>博客根目录\themes\next\source\css\_custom\custom.styl</code> 并打开它 （一下配置全部在这个文件里面进行）</p><h3 id="第一步：-修改文章内链接文本样式"><a href="#第一步：-修改文章内链接文本样式" class="headerlink" title="第一步： 修改文章内链接文本样式"></a>第一步： 修改文章内链接文本样式</h3><p>往刚刚打开的那个文件里添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 文章内链接文本样式 </span><br><span class="line">.post-body p a&#123; </span><br><span class="line">    color: #0593d3; </span><br><span class="line">    border-bottom: none; </span><br><span class="line">    border-bottom: 1px solid #0593d3; </span><br><span class="line">    &amp;:hover &#123; </span><br><span class="line">        color: #fc6423; </span><br><span class="line">        border-bottom: none; </span><br><span class="line">        border-bottom: 1px solid #fc6423; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="第二步：-修改选中字符的颜色"><a href="#第二步：-修改选中字符的颜色" class="headerlink" title="第二步： 修改选中字符的颜色"></a>第二步： 修改选中字符的颜色</h3><p>添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 修改选中字符的颜色</span><br><span class="line">/* webkit, opera, IE9 */</span><br><span class="line">::selection &#123; </span><br><span class="line">    background: #00c4b6;</span><br><span class="line">    color: #f7f7f7; </span><br><span class="line">&#125;</span><br><span class="line">/* firefox */</span><br><span class="line">::-moz-selection &#123; </span><br><span class="line">    background: #00c4b6;</span><br><span class="line">    color: #f7f7f7;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="第三步：-修改网站头部的颜色"><a href="#第三步：-修改网站头部的颜色" class="headerlink" title="第三步： 修改网站头部的颜色"></a>第三步： 修改网站头部的颜色</h3><p>继续添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 修改网站头部颜色</span><br><span class="line">.headband &#123;</span><br><span class="line">    height: 3px;</span><br><span class="line">    background: #49b1f5;</span><br><span class="line">&#125;</span><br><span class="line">.site-meta &#123;</span><br><span class="line">    padding: 20px 0;</span><br><span class="line">    color: #fff;</span><br><span class="line">    background: #49b1f5;</span><br><span class="line">&#125;</span><br><span class="line">.site-subtitle &#123;</span><br><span class="line">    margin-top: 10px;</span><br><span class="line">    font-size: 13px;</span><br><span class="line">    color: #ffffff;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="第四步：-修改网站内按键（button）的样式"><a href="#第四步：-修改网站内按键（button）的样式" class="headerlink" title="第四步： 修改网站内按键（button）的样式"></a>第四步： 修改网站内按键（button）的样式</h3><p>继续：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 修改按键（button）样式</span><br><span class="line">.btn &#123;</span><br><span class="line">    color: #49b1f5;</span><br><span class="line">    background: #fff;</span><br><span class="line">    border: 2px solid #49b1f5;</span><br><span class="line">&#125;</span><br><span class="line">// 按键（button）点击时样式</span><br><span class="line">.btn:hover &#123;</span><br><span class="line">  border-color: #49b1f5;</span><br><span class="line">  color: #fff;</span><br><span class="line">  background: #49b1f5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="第五步：-鼠标移动至文章标题时的效果"><a href="#第五步：-鼠标移动至文章标题时的效果" class="headerlink" title="第五步： 鼠标移动至文章标题时的效果"></a>第五步： 鼠标移动至文章标题时的效果</h3><p>最后一步了：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 鼠标移动至文章标题时的效果</span><br><span class="line">.posts-expand .post-title-link::before &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 2px;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    background-color: #49b1f5;</span><br><span class="line">    visibility: hidden;</span><br><span class="line">    -webkit-transform: scaleX(0);</span><br><span class="line">    -moz-transform: scaleX(0);</span><br><span class="line">    -ms-transform: scaleX(0);</span><br><span class="line">    -o-transform: scaleX(0);</span><br><span class="line">    transform: scaleX(0);</span><br><span class="line">    transition-duration: 0.2s;</span><br><span class="line">    transition-timing-function: ease-in-out;</span><br><span class="line">    transition-delay: 0s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="六-：效果图："><a href="#六-：效果图：" class="headerlink" title="六 ：效果图："></a>六 ：效果图：</h3><p><img src="/2018/11/22/HEXO-修改-hexo-theme-next-主题的样式/1.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-修改-hexo-theme-next-主题的样式&quot;&gt;&lt;a href=&quot;#HEXO-修改-hexo-theme-next-主题的样式&quot; class=&quot;headerlink&quot; title=&quot;HEXO_修改 hexo-theme-next 主题的样式&quot;&gt;&lt;/a
       
     
     </summary>
