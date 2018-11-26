@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackLovewx.github.io/"/>
-  <updated>2018-11-26T05:14:04.677Z</updated>
+  <updated>2018-11-26T05:33:32.275Z</updated>
   <id>https://jackLovewx.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://jackLovewx.github.io/2018/11/26/test/"/>
+    <id>https://jackLovewx.github.io/2018/11/26/test/</id>
+    <published>2018-11-26T05:33:02.000Z</published>
+    <updated>2018-11-26T05:33:32.275Z</updated>
+    
+    <content type="html"><![CDATA[<p>test</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;test&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>HEXO_github与自己域名绑定</title>
@@ -480,31 +502,6 @@
       
       
         &lt;h2 id=&quot;HEXO-设置头像并设置动画效果&quot;&gt;&lt;a href=&quot;#HEXO-设置头像并设置动画效果&quot; class=&quot;headerlink&quot; title=&quot;HEXO_设置头像并设置动画效果&quot;&gt;&lt;/a&gt;HEXO_设置头像并设置动画效果&lt;/h2&gt;&lt;h3 id=&quot;1-在blog-c
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_在文章末尾添加“文章结束标记</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E5%9C%A8%E6%96%87%E7%AB%A0%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0%E2%80%9C%E6%96%87%E7%AB%A0%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AE%B0/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-在文章末尾添加“文章结束标记/</id>
-    <published>2018-11-22T07:43:56.000Z</published>
-    <updated>2018-11-26T05:19:48.191Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-在文章末尾添加“文章结束标记"><a href="#HEXO-在文章末尾添加“文章结束标记" class="headerlink" title="HEXO_在文章末尾添加“文章结束标记"></a>HEXO_在文章末尾添加“文章结束标记</h2><h3 id="1-在路径Blog-themes-next-layout-macro文件夹中新建passage-end-tag-swig文件。"><a href="#1-在路径Blog-themes-next-layout-macro文件夹中新建passage-end-tag-swig文件。" class="headerlink" title="1,在路径Blog\themes\next\layout\_macro文件夹中新建passage-end-tag.swig文件。"></a>1,在路径<code>Blog\themes\next\layout\_macro</code>文件夹中新建<code>passage-end-tag.swig</code>文件。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//切换到路径_macro</span><br><span class="line">cd [_macro路径]</span><br><span class="line"></span><br><span class="line">//创建passage-end-tag.swig文件</span><br><span class="line">touch passage-end-tag.swig</span><br></pre></td></tr></table></figure><h3 id="2-在passage-end-tag-swig添加以下内容，直接用文本编辑器打开，粘贴以下内容后保存"><a href="#2-在passage-end-tag-swig添加以下内容，直接用文本编辑器打开，粘贴以下内容后保存" class="headerlink" title="2,在passage-end-tag.swig添加以下内容，直接用文本编辑器打开，粘贴以下内容后保存"></a>2,在passage-end-tag.swig添加以下内容，直接用文本编辑器打开，粘贴以下内容后保存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-paw&quot;&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h3 id="3-打开blog-themes-next-layout-macro-post-swig，在post-body之后，post-footer之前（post-footer之前两个DIV），添加以下代码："><a href="#3-打开blog-themes-next-layout-macro-post-swig，在post-body之后，post-footer之前（post-footer之前两个DIV），添加以下代码：" class="headerlink" title="3,打开blog\themes\next\layout\_macro\post.swig，在post-body之后，post-footer之前（post-footer之前两个DIV），添加以下代码："></a>3,打开<code>blog\themes\next\layout\_macro\post.swig</code>，在<code>post-body</code>之后，<code>post-footer</code>之前（<strong>post-footer之前两个DIV</strong>），添加以下代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;% if not is_index %&#125;</span><br><span class="line">    &#123;% include &apos;passage-end-tag.swig&apos; %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h3 id="4-添加位置，如下图所示："><a href="#4-添加位置，如下图所示：" class="headerlink" title="4,添加位置，如下图所示："></a>4,添加位置，如下图所示：</h3><p> <img src="/2018/11/22/HEXO-在文章末尾添加“文章结束标记/2.png" alt=""></p><h3 id="5-修改主题配置文件-config-yml，在末尾添加："><a href="#5-修改主题配置文件-config-yml，在末尾添加：" class="headerlink" title="5,修改主题配置文件_config.yml，在末尾添加："></a>5,修改主题配置文件<strong>_config.yml</strong>，在末尾添加：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 文章末尾添加“本文结束”标记</span><br><span class="line">passage_end_tag:</span><br><span class="line">  enabled: true</span><br></pre></td></tr></table></figure><h3 id="6-配置完成之后，效果如下："><a href="#6-配置完成之后，效果如下：" class="headerlink" title="6,配置完成之后，效果如下："></a>6,配置完成之后，效果如下：</h3><p> <img src="/2018/11/22/HEXO-在文章末尾添加“文章结束标记/1.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-在文章末尾添加“文章结束标记&quot;&gt;&lt;a href=&quot;#HEXO-在文章末尾添加“文章结束标记&quot; class=&quot;headerlink&quot; title=&quot;HEXO_在文章末尾添加“文章结束标记&quot;&gt;&lt;/a&gt;HEXO_在文章末尾添加“文章结束标记&lt;/h2&gt;&lt;h3 i
       
     
     </summary>

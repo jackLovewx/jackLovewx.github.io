@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2F2018%2F11%2F26%2Ftest%2F</url>
+    <content type="text"><![CDATA[test]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[HEXO_github与自己域名绑定]]></title>
     <url>%2F2018%2F11%2F26%2FHEXO-github%E4%B8%8E%E8%87%AA%E5%B7%B1%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A%2F</url>
     <content type="text"><![CDATA[HEXO_github与自己域名绑定1，首先登录阿里云，搜索域名或者在控制台找到域名。进入之后，首先查询你要申请的域名，如果查不到就表示可以注册。2，成功申请域名之后，将域名和Github绑定，Github的IP地址是192.30.252.153或192.30.252.154。所以我们在填写解析的时候，就解析这个地址。至于Github是怎么找到我们的仓库的，这个在CNAME设置。3，进入域名解析之后1，点击【新增解析】；依次填写相应内容。2，“记录类型”选择A；”主机记录”填写www；”解析线路”选择默认；3，“记录值”填写github提供的IP地址，192.30.252.153或192.30.252.154；4，“TTL”默认10分钟，自己可以另行设置也可；5，最后点击【保存】。6，域名成功解析之后，在你Github上面的仓库中创建CNAME，然后输入你申请域名的地址。然后你再输 入你的域名就可以访问Github博客了。4，如果后面上传博客出404错误原因是在上传博客时CNAME文件没有了。所以解决办法就是进入自己的github在自己的仓库中重新创建CNAME文件，并添加自己的域名。]]></content>
