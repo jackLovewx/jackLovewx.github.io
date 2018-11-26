@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackLovewx.github.io/"/>
-  <updated>2018-11-26T03:00:11.903Z</updated>
+  <updated>2018-11-26T03:35:29.208Z</updated>
   <id>https://jackLovewx.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO_github与自己域名绑定</title>
+    <link href="https://jackLovewx.github.io/2018/11/26/HEXO-github%E4%B8%8E%E8%87%AA%E5%B7%B1%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/"/>
+    <id>https://jackLovewx.github.io/2018/11/26/HEXO-github与自己域名绑定/</id>
+    <published>2018-11-26T03:31:59.000Z</published>
+    <updated>2018-11-26T03:35:29.208Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HEXO-github与自己域名绑定"><a href="#HEXO-github与自己域名绑定" class="headerlink" title="HEXO_github与自己域名绑定"></a>HEXO_github与自己域名绑定</h2><h3 id="1，首先登录阿里云，搜索域名或者在控制台找到域名。进入之后，首先查询你要申请的域名，如果查不到就表示可以注册。"><a href="#1，首先登录阿里云，搜索域名或者在控制台找到域名。进入之后，首先查询你要申请的域名，如果查不到就表示可以注册。" class="headerlink" title="1，首先登录阿里云，搜索域名或者在控制台找到域名。进入之后，首先查询你要申请的域名，如果查不到就表示可以注册。"></a>1，首先登录阿里云，搜索域名或者在控制台找到域名。进入之后，首先查询你要申请的域名，如果查不到就表示可以注册。</h3><h3 id="2，成功申请域名之后，将域名和Github绑定，Github的IP地址是192-30-252-153或192-30-252-154。所以我们在填写解析的时候，就解析这个地址。至于Github是怎么找到我们的仓库的，这个在CNAME设置。"><a href="#2，成功申请域名之后，将域名和Github绑定，Github的IP地址是192-30-252-153或192-30-252-154。所以我们在填写解析的时候，就解析这个地址。至于Github是怎么找到我们的仓库的，这个在CNAME设置。" class="headerlink" title="2，成功申请域名之后，将域名和Github绑定，Github的IP地址是192.30.252.153或192.30.252.154。所以我们在填写解析的时候，就解析这个地址。至于Github是怎么找到我们的仓库的，这个在CNAME设置。"></a>2，成功申请域名之后，将域名和Github绑定，Github的IP地址是192.30.252.153或192.30.252.154。所以我们在填写解析的时候，就解析这个地址。至于Github是怎么找到我们的仓库的，这个在CNAME设置。</h3><h3 id="3，进入域名解析之后"><a href="#3，进入域名解析之后" class="headerlink" title="3，进入域名解析之后"></a>3，进入域名解析之后</h3><h4 id="1，点击【新增解析】；依次填写相应内容。"><a href="#1，点击【新增解析】；依次填写相应内容。" class="headerlink" title="1，点击【新增解析】；依次填写相应内容。"></a>1，点击【新增解析】；依次填写相应内容。</h4><h4 id="2，“记录类型”选择A；”主机记录”填写www；”解析线路”选择默认；"><a href="#2，“记录类型”选择A；”主机记录”填写www；”解析线路”选择默认；" class="headerlink" title="2，“记录类型”选择A；”主机记录”填写www；”解析线路”选择默认；"></a>2，“记录类型”选择A；”主机记录”填写www；”解析线路”选择默认；</h4><h4 id="3，“记录值”填写github提供的IP地址，192-30-252-153或192-30-252-154；"><a href="#3，“记录值”填写github提供的IP地址，192-30-252-153或192-30-252-154；" class="headerlink" title="3，“记录值”填写github提供的IP地址，192.30.252.153或192.30.252.154；"></a>3，“记录值”填写github提供的IP地址，192.30.252.153或192.30.252.154；</h4><h4 id="4，“TTL”默认10分钟，自己可以另行设置也可；"><a href="#4，“TTL”默认10分钟，自己可以另行设置也可；" class="headerlink" title="4，“TTL”默认10分钟，自己可以另行设置也可；"></a>4，“TTL”默认10分钟，自己可以另行设置也可；</h4><h4 id="5，最后点击【保存】。"><a href="#5，最后点击【保存】。" class="headerlink" title="5，最后点击【保存】。"></a>5，最后点击【保存】。</h4><h3 id="4，域名成功解析之后，在你Github上面的仓库中创建CNAME，然后输入你申请域名的地址。然后你再输入你的域名就可以访问Github博客了。"><a href="#4，域名成功解析之后，在你Github上面的仓库中创建CNAME，然后输入你申请域名的地址。然后你再输入你的域名就可以访问Github博客了。" class="headerlink" title="4，域名成功解析之后，在你Github上面的仓库中创建CNAME，然后输入你申请域名的地址。然后你再输入你的域名就可以访问Github博客了。"></a>4，域名成功解析之后，在你Github上面的仓库中创建CNAME，然后输入你申请域名的地址。然后你再输入你的域名就可以访问Github博客了。</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HEXO-github与自己域名绑定&quot;&gt;&lt;a href=&quot;#HEXO-github与自己域名绑定&quot; class=&quot;headerlink&quot; title=&quot;HEXO_github与自己域名绑定&quot;&gt;&lt;/a&gt;HEXO_github与自己域名绑定&lt;/h2&gt;&lt;h3 id=&quot;1
+      
+    
+    </summary>
+    
+      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>HEXO_添加live2d看板动画</title>
@@ -454,29 +479,6 @@
       
       
         &lt;h2 id=&quot;HEXO-在文章末尾添加“文章结束标记&quot;&gt;&lt;a href=&quot;#HEXO-在文章末尾添加“文章结束标记&quot; class=&quot;headerlink&quot; title=&quot;HEXO_在文章末尾添加“文章结束标记&quot;&gt;&lt;/a&gt;HEXO_在文章末尾添加“文章结束标记&lt;/h2&gt;&lt;h3 i
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_修改底部标签样式</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E4%BF%AE%E6%94%B9%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-修改底部标签样式/</id>
-    <published>2018-11-22T07:35:01.000Z</published>
-    <updated>2018-11-22T07:38:14.329Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-修改底部标签样式"><a href="#HEXO-修改底部标签样式" class="headerlink" title="HEXO_修改底部标签样式"></a>HEXO_修改底部标签样式</h2><h3 id="1-修改blog-themes-next-layout-macro-post-swig中文件，ctrl-f搜索rel-quot-tag-quot-gt-，将-替换成-lt-i-class-quot-fa-fa-tag-quot-gt-lt-i-gt-。输入以下命令，查看效果："><a href="#1-修改blog-themes-next-layout-macro-post-swig中文件，ctrl-f搜索rel-quot-tag-quot-gt-，将-替换成-lt-i-class-quot-fa-fa-tag-quot-gt-lt-i-gt-。输入以下命令，查看效果：" class="headerlink" title="1,修改blog\themes\next\layout\_macro\post.swig中文件，ctrl+f搜索rel=&quot;tag&quot;&gt;#，将#替换成&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;。输入以下命令，查看效果："></a>1,修改<code>blog\themes\next\layout\_macro\post.swig</code>中文件，<code>ctrl+f</code>搜索<code>rel=&quot;tag&quot;&gt;#</code>，将<code>#</code>替换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>。输入以下命令，查看效果：</h3><p><img src="/2018/11/22/HEXO-修改底部标签样式/1.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-修改底部标签样式&quot;&gt;&lt;a href=&quot;#HEXO-修改底部标签样式&quot; class=&quot;headerlink&quot; title=&quot;HEXO_修改底部标签样式&quot;&gt;&lt;/a&gt;HEXO_修改底部标签样式&lt;/h2&gt;&lt;h3 id=&quot;1-修改blog-themes-next-
       
     
     </summary>

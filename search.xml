@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HEXO_github与自己域名绑定]]></title>
+    <url>%2F2018%2F11%2F26%2FHEXO-github%E4%B8%8E%E8%87%AA%E5%B7%B1%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A%2F</url>
+    <content type="text"><![CDATA[HEXO_github与自己域名绑定1，首先登录阿里云，搜索域名或者在控制台找到域名。进入之后，首先查询你要申请的域名，如果查不到就表示可以注册。2，成功申请域名之后，将域名和Github绑定，Github的IP地址是192.30.252.153或192.30.252.154。所以我们在填写解析的时候，就解析这个地址。至于Github是怎么找到我们的仓库的，这个在CNAME设置。3，进入域名解析之后1，点击【新增解析】；依次填写相应内容。2，“记录类型”选择A；”主机记录”填写www；”解析线路”选择默认；3，“记录值”填写github提供的IP地址，192.30.252.153或192.30.252.154；4，“TTL”默认10分钟，自己可以另行设置也可；5，最后点击【保存】。4，域名成功解析之后，在你Github上面的仓库中创建CNAME，然后输入你申请域名的地址。然后你再输入你的域名就可以访问Github博客了。]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HEXO_添加live2d看板动画]]></title>
     <url>%2F2018%2F11%2F26%2FHEXO-%E6%B7%BB%E5%8A%A0live2d%E7%9C%8B%E6%9D%BF%E5%8A%A8%E7%94%BB%2F</url>
     <content type="text"><![CDATA[HEXO_添加live2d看板动画1,官网代码官网地址配置：https://www.npmjs.com/package/hexo-helper-live2d 2,按如下步骤执行1,首先检查博客主目录下面的 package.json里是否有&quot;hexo-helper-live2d&quot;: &quot;^3.0.3&quot;,依赖，有的话可以先卸载 使用命令：npm uninstall hexo-helper-live2d 之后再安装：npm install --save hexo-helper-live2d 2,下载各种动画model 地址： https://github.com/xiazeyu/live2d-widget-models.git 3,下载好之后将packages里的所有动画模板拷贝到博客的node_modules目录里 4,配置博客站点配置文件，_config.yml 1234567891011live2d: enable: true pluginModelPath: assets/ model: use: live2d-widget-model-epsilon2_1 #模板目录，在node_modules里 display: position: right width: 150 height: 300 mobile: show: false #是否在手机进行显示 5,开始部署: ​ hexo clean ​ hexo g -d 6,效果图：]]></content>
