@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HEXO_添加live2d看板动画]]></title>
+    <url>%2F2018%2F11%2F26%2FHEXO-%E6%B7%BB%E5%8A%A0live2d%E7%9C%8B%E6%9D%BF%E5%8A%A8%E7%94%BB%2F</url>
+    <content type="text"><![CDATA[HEXO_添加live2d看板动画1,官网代码官网地址配置：https://www.npmjs.com/package/hexo-helper-live2d 2,按如下步骤执行1,首先检查博客主目录下面的 package.json里是否有&quot;hexo-helper-live2d&quot;: &quot;^3.0.3&quot;,依赖，有的话可以先卸载 使用命令：npm uninstall hexo-helper-live2d 之后再安装：npm install --save hexo-helper-live2d 2,下载各种动画model 地址： https://github.com/xiazeyu/live2d-widget-models.git 3,下载好之后将packages里的所有动画模板拷贝到博客的node_modules目录里 4,配置博客站点配置文件，_config.yml 1234567891011live2d: enable: true pluginModelPath: assets/ model: use: live2d-widget-model-epsilon2_1 #模板目录，在node_modules里 display: position: right width: 150 height: 300 mobile: show: false #是否在手机进行显示 5,开始部署: ​ hexo clean ​ hexo g -d 6,效果图：]]></content>
+      <categories>
+        <category>个人博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HEXO_更换背景图片]]></title>
     <url>%2F2018%2F11%2F23%2FHEXO-%E6%9B%B4%E6%8D%A2%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%2F</url>
     <content type="text"><![CDATA[HEXO_更换背景图片1,背景图片来源 （可根据自己的喜好设置图片的url）2，修改背景样式打开文档下themes\next\source\css\ _custom\custom.styl文件，这个是Next故意留给用户自己个性化定制一些样式的文件，添加以下代码： body { background:url(https://source.unsplash.com/random/1600x900); background-repeat: repeat; background-attachment:fixed; background-position:50% 50%;}url可更换为自己喜欢的图片的地址。 repeat：是否重复出现 attachment：定义背景图片随滚动轴的移动方式 position：设置背景图像的起始位置。 3，效果图：]]></content>
