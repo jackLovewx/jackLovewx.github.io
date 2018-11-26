@@ -1985,7 +1985,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e57f59;
+  background: #ffffaf;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2920,7 +2920,7 @@ body {
 .main-inner {
   margin-top: 60px;
   padding: 60px 60px 60px 60px;
-  background: #fff;
+  background: rgba(176,190,197,0.639);
   opacity: 0.8;
   min-height: 500px;
 }
