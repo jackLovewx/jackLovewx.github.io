@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackLovewx.github.io/"/>
-  <updated>2018-11-27T14:02:21.227Z</updated>
+  <updated>2018-11-27T14:48:40.810Z</updated>
   <id>https://jackLovewx.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible02_运维自动化之ansible</title>
+    <link href="https://jackLovewx.github.io/2018/11/27/Ansible02-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8Bansible/"/>
+    <id>https://jackLovewx.github.io/2018/11/27/Ansible02-运维自动化之ansible/</id>
+    <published>2018-11-27T14:15:24.000Z</published>
+    <updated>2018-11-27T14:48:40.810Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible02-运维自动化之ansible"><a href="#Ansible02-运维自动化之ansible" class="headerlink" title="Ansible02_运维自动化之ansible"></a>Ansible02_运维自动化之ansible</h2><h3 id="1-Ansible-一个主机控制多台主机"><a href="#1-Ansible-一个主机控制多台主机" class="headerlink" title="1,Ansible:一个主机控制多台主机"></a>1,Ansible:一个主机控制多台主机</h3><p>这个主机被称为：主控端</p><p>被控制的多台主机称为：被控端</p><h3 id="2，Ansible特性"><a href="#2，Ansible特性" class="headerlink" title="2，Ansible特性"></a>2，Ansible特性</h3><p>模块化：调用特定的模块完成特定的任务</p><p>基于Python语言实现</p><p>部署简单</p><p>安全：基于OpenSession</p><p>支持Playbook任务编排</p><p>幂等性：一个任务执行一遍和执行N遍的效果是一样的，不因重复发的执行带来意外的情况</p><p>无需代理，不依赖KPI</p><h3 id="3，Ansible架构图："><a href="#3，Ansible架构图：" class="headerlink" title="3，Ansible架构图："></a>3，Ansible架构图：</h3><p><img src="/2018/11/27/Ansible02-运维自动化之ansible/1.png" alt=""></p><p><img src="/2018/11/27/Ansible02-运维自动化之ansible/2.png" alt=""></p><h3 id="4-Ansible的主要组成部分"><a href="#4-Ansible的主要组成部分" class="headerlink" title="4,Ansible的主要组成部分"></a>4,Ansible的主要组成部分</h3><p>​    1，PlayBooks:任务剧本，编排任务集的配置文件，由ansible顺序执行，通常是Json格式的yml文件</p><p>​    2，Inventory：管理主机清单  /etc./ansible/hosts</p><p>​    3，Modules:Ansible执行命令的功能模块</p><p>​    4，plugins：模块功能的补充</p><p>​    5，API：供第三方程序调用的借口</p><p>​    6，Ansible：ansible的命令工具</p><h3 id="5，Ansible的安装："><a href="#5，Ansible的安装：" class="headerlink" title="5，Ansible的安装："></a>5，Ansible的安装：</h3><p>​    yum install ansible</p><p>如果在执行ansible的命令时报错：</p><p>ERROR! Unexpected Exception, this is probably a bug: (cryptography 0.8.2 (/usr/lib64/python2.7/site-packages), Requirement.parse(‘cryptography&gt;=1.1‘)) </p><p>解决方案：</p><p>删除列出的软件包，重新安装ansible即可</p><h4 id="root-kazihuo-rpm-qa-grep-python-crypto"><a href="#root-kazihuo-rpm-qa-grep-python-crypto" class="headerlink" title="[root@kazihuo ~]# rpm -qa |grep python-crypto"></a>[root@kazihuo ~]# rpm -qa |grep python-crypto</h4><p>[root@kazihuo ~]# yum -y remove python-cryptography</p><p>[root@kazihuo ~]# yum -y install ansible</p><h3 id="6，Ansible相关配置文件："><a href="#6，Ansible相关配置文件：" class="headerlink" title="6，Ansible相关配置文件："></a>6，Ansible相关配置文件：</h3><p>/etc/ansible/ansible.cfg：主配置文件</p><p>/etc/ansible/hosts：主机清单配置文件</p><p>​    风格：  [webservers]</p><p>​             192.168.10.128                    </p><p>​             192.168.10.129            或者  192.168.10.12[….]</p><p>​             192.168.10.130</p><p>/etc/ansible/roles：存放角色目录 </p><h3 id="7-程序："><a href="#7-程序：" class="headerlink" title="7.程序："></a>7.程序：</h3><p>/usr/bin/ansible：主程序，临时命令的执行工具</p><p>/usr/bin/ansible-doc：查看配置文档，模块功能查看工具</p><p>/usr/bin/ansible-galaxy：下载/上传代码</p><p>/usr/bin/ansible-playbook：定制自动化服务</p><p>/usr/bin/ansible-vault：文件加密工具</p><p>/usr/bin/ansible-console：基于console界面与用户交互的执行工具</p><h3 id="8-Ansible配置文件-etc-ansible-ansible-cfg"><a href="#8-Ansible配置文件-etc-ansible-ansible-cfg" class="headerlink" title="8,Ansible配置文件 /etc/ansible/ansible.cfg"></a>8,Ansible配置文件 /etc/ansible/ansible.cfg</h3><h4 id="invengory-etc-ansible-hosts-主机列表配置文件"><a href="#invengory-etc-ansible-hosts-主机列表配置文件" class="headerlink" title="#invengory=etc/ansible/hosts   #主机列表配置文件"></a>#invengory=etc/ansible/hosts   #主机列表配置文件</h4><h4 id="libraay-usr-share-my-modules-库文件的存放目录"><a href="#libraay-usr-share-my-modules-库文件的存放目录" class="headerlink" title="#libraay=/usr/share/my-modules/     #库文件的存放目录"></a>#libraay=/usr/share/my-modules/     #库文件的存放目录</h4><h4 id="remote-tmp-HOME-ansible-tmp-临时py命令存放在远程主机目录"><a href="#remote-tmp-HOME-ansible-tmp-临时py命令存放在远程主机目录" class="headerlink" title="#remote_tmp=$HOME/.ansible/tmp    #临时py命令存放在远程主机目录"></a>#remote_tmp=$HOME/.ansible/tmp    #临时py命令存放在远程主机目录</h4><h4 id="local-tmp-HOME-ansible-tmp-本机的临时命令执行目录"><a href="#local-tmp-HOME-ansible-tmp-本机的临时命令执行目录" class="headerlink" title="#local_tmp=$HOME/.ansible/tmp  #本机的临时命令执行目录"></a>#local_tmp=$HOME/.ansible/tmp  #本机的临时命令执行目录</h4><h4 id="forks-5-默认的并发数"><a href="#forks-5-默认的并发数" class="headerlink" title="#forks =5  #默认的并发数"></a>#forks =5  #默认的并发数</h4><h4 id="sudo-user-root-默认的sudo用户"><a href="#sudo-user-root-默认的sudo用户" class="headerlink" title="#sudo-user=root #默认的sudo用户"></a>#sudo-user=root #默认的sudo用户</h4><h4 id="ask-sudo-pass-True-每次执行ansible命令是否询问ssh密码"><a href="#ask-sudo-pass-True-每次执行ansible命令是否询问ssh密码" class="headerlink" title="#ask-sudo-pass=True #每次执行ansible命令是否询问ssh密码"></a>#ask-sudo-pass=True #每次执行ansible命令是否询问ssh密码</h4><h4 id="ask-pass-True"><a href="#ask-pass-True" class="headerlink" title="#ask-pass=True"></a>#ask-pass=True</h4><h4 id="remote-port-22"><a href="#remote-port-22" class="headerlink" title="#remote-port=22"></a>#remote-port=22</h4><h4 id="host-key-checking-False-检测对应服务器的Host-key建议取消注释"><a href="#host-key-checking-False-检测对应服务器的Host-key建议取消注释" class="headerlink" title="#host-key-checking-False  #检测对应服务器的Host-key建议取消注释"></a>#host-key-checking-False  #检测对应服务器的Host-key建议取消注释</h4><h3 id="9，Ansible系列命令："><a href="#9，Ansible系列命令：" class="headerlink" title="9，Ansible系列命令："></a>9，Ansible系列命令：</h3><p>ansible</p><p>ansible-doc</p><p>​    </p><p>ansible-playbook</p><p>ansible-vault</p><p>ansible-console</p><p>ansible-galaxy</p><p>ansible-pull</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible02-运维自动化之ansible&quot;&gt;&lt;a href=&quot;#Ansible02-运维自动化之ansible&quot; class=&quot;headerlink&quot; title=&quot;Ansible02_运维自动化之ansible&quot;&gt;&lt;/a&gt;Ansible02_运维自动化之a
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible01_运维自动化发展历程及技术应用</title>
@@ -477,31 +502,6 @@
       
       
         &lt;h2 id=&quot;HEXO-侧边栏社交小图标设置&quot;&gt;&lt;a href=&quot;#HEXO-侧边栏社交小图标设置&quot; class=&quot;headerlink&quot; title=&quot;HEXO_侧边栏社交小图标设置&quot;&gt;&lt;/a&gt;HEXO_侧边栏社交小图标设置&lt;/h2&gt;&lt;h3 id=&quot;1-打开主题配置文件-co
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_修改代码块自定义样式</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E5%9D%97%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-修改代码块自定义样式/</id>
-    <published>2018-11-22T07:59:28.000Z</published>
-    <updated>2018-11-26T05:19:16.668Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-修改代码块自定义样式"><a href="#HEXO-修改代码块自定义样式" class="headerlink" title="HEXO_修改代码块自定义样式"></a>HEXO_修改代码块自定义样式</h2><h3 id="1-打开Blog-themes-next-source-css-custom-custom-styl，添加以下代码："><a href="#1-打开Blog-themes-next-source-css-custom-custom-styl，添加以下代码：" class="headerlink" title="1,打开Blog\themes\next\source\css\_custom\custom.styl，添加以下代码："></a>1,打开<code>Blog\themes\next\source\css\_custom\custom.styl</code>，添加以下代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Custom styles.</span><br><span class="line">code &#123;</span><br><span class="line">    color: #ff7600;</span><br><span class="line">    background: #fbf7f8;</span><br><span class="line">    margin: 2px;</span><br><span class="line">&#125;</span><br><span class="line">// 大代码块的自定义样式</span><br><span class="line">.highlight, pre &#123;</span><br><span class="line">    margin: 5px 0;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    border-radius: 3px;</span><br><span class="line">&#125;</span><br><span class="line">.highlight, code, pre &#123;</span><br><span class="line">    border: 1px solid #d6d6d6;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-修改代码块自定义样式&quot;&gt;&lt;a href=&quot;#HEXO-修改代码块自定义样式&quot; class=&quot;headerlink&quot; title=&quot;HEXO_修改代码块自定义样式&quot;&gt;&lt;/a&gt;HEXO_修改代码块自定义样式&lt;/h2&gt;&lt;h3 id=&quot;1-打开Blog-them
       
     
     </summary>
