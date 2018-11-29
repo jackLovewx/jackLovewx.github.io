@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackLovewx.github.io/"/>
-  <updated>2018-11-29T08:43:25.772Z</updated>
+  <updated>2018-11-29T09:09:12.588Z</updated>
   <id>https://jackLovewx.github.io/</id>
   
   <author>
@@ -17,27 +17,16 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Ansible03_配置基于key的验证</title>
-    <link href="https://jackLovewx.github.io/2018/11/27/Ansible03-%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8Ekey%E7%9A%84%E9%AA%8C%E8%AF%81/"/>
-    <id>https://jackLovewx.github.io/2018/11/27/Ansible03-配置基于key的验证/</id>
-    <published>2018-11-27T14:15:24.000Z</published>
-    <updated>2018-11-29T08:43:25.772Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ansible03-配置基于key的验证"><a href="#Ansible03-配置基于key的验证" class="headerlink" title="Ansible03_配置基于key的验证"></a>Ansible03_配置基于key的验证</h2><h3 id="0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。"><a href="#0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。" class="headerlink" title="0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。"></a>0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。</h3><h3 id="1，在安装完成之后，我们到对应的hosts文件下去配置远程主机："><a href="#1，在安装完成之后，我们到对应的hosts文件下去配置远程主机：" class="headerlink" title="1，在安装完成之后，我们到对应的hosts文件下去配置远程主机："></a>1，在安装完成之后，我们到对应的hosts文件下去配置远程主机：</h3><p>/etc/ansible/hosts：主机清单配置文件</p><p>​    风格：  [webservers]</p><p>​             192.168.10.128                    </p><p>​             192.168.10.129            或者  192.168.10.12[….]</p><p>​             192.168.10.130</p><p>2，配置完主机之后，接下来要与其他的主机建立连接，那么，如果按普通的方式，在链接的时候，需要对远程主机输入验证密码 也就是说在命令上加上  -k  这样未免也太过麻烦了。比如：</p><p>​    ansible webservers -m command  -k  -a   ‘  ls  /root  ‘</p><p>所以解决的方案就是来为每一台远程主机配置基于key的验证：</p><p>在终端输入以下命令：</p><p>​    1，ssh-keygen</p><p>​    2，ssh-copy-id    192.168.10.129  (有几个远程主机就加几个，重复执行即可)</p>]]></content>
+    <title>test2</title>
+    <link href="https://jackLovewx.github.io/2018/11/29/test2/"/>
+    <id>https://jackLovewx.github.io/2018/11/29/test2/</id>
+    <published>2018-11-29T09:09:12.000Z</published>
+    <updated>2018-11-29T09:09:12.588Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;Ansible03-配置基于key的验证&quot;&gt;&lt;a href=&quot;#Ansible03-配置基于key的验证&quot; class=&quot;headerlink&quot; title=&quot;Ansible03_配置基于key的验证&quot;&gt;&lt;/a&gt;Ansible03_配置基于key的验证&lt;/h2&gt;&lt;
-      
-    
     </summary>
     
-      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
     
   </entry>
   
@@ -55,6 +44,31 @@
       
       
         &lt;h2 id=&quot;Ansible02-配置文件及命令概览&quot;&gt;&lt;a href=&quot;#Ansible02-配置文件及命令概览&quot; class=&quot;headerlink&quot; title=&quot;Ansible02_配置文件及命令概览&quot;&gt;&lt;/a&gt;Ansible02_配置文件及命令概览&lt;/h2&gt;&lt;h3 i
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible03_配置基于key的验证</title>
+    <link href="https://jackLovewx.github.io/2018/11/27/Ansible03-%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8Ekey%E7%9A%84%E9%AA%8C%E8%AF%81/"/>
+    <id>https://jackLovewx.github.io/2018/11/27/Ansible03-配置基于key的验证/</id>
+    <published>2018-11-27T14:15:24.000Z</published>
+    <updated>2018-11-29T08:43:25.772Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible03-配置基于key的验证"><a href="#Ansible03-配置基于key的验证" class="headerlink" title="Ansible03_配置基于key的验证"></a>Ansible03_配置基于key的验证</h2><h3 id="0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。"><a href="#0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。" class="headerlink" title="0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。"></a>0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。</h3><h3 id="1，在安装完成之后，我们到对应的hosts文件下去配置远程主机："><a href="#1，在安装完成之后，我们到对应的hosts文件下去配置远程主机：" class="headerlink" title="1，在安装完成之后，我们到对应的hosts文件下去配置远程主机："></a>1，在安装完成之后，我们到对应的hosts文件下去配置远程主机：</h3><p>/etc/ansible/hosts：主机清单配置文件</p><p>​    风格：  [webservers]</p><p>​             192.168.10.128                    </p><p>​             192.168.10.129            或者  192.168.10.12[….]</p><p>​             192.168.10.130</p><p>2，配置完主机之后，接下来要与其他的主机建立连接，那么，如果按普通的方式，在链接的时候，需要对远程主机输入验证密码 也就是说在命令上加上  -k  这样未免也太过麻烦了。比如：</p><p>​    ansible webservers -m command  -k  -a   ‘  ls  /root  ‘</p><p>所以解决的方案就是来为每一台远程主机配置基于key的验证：</p><p>在终端输入以下命令：</p><p>​    1，ssh-keygen</p><p>​    2，ssh-copy-id    192.168.10.129  (有几个远程主机就加几个，重复执行即可)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible03-配置基于key的验证&quot;&gt;&lt;a href=&quot;#Ansible03-配置基于key的验证&quot; class=&quot;headerlink&quot; title=&quot;Ansible03_配置基于key的验证&quot;&gt;&lt;/a&gt;Ansible03_配置基于key的验证&lt;/h2&gt;&lt;
       
     
     </summary>
@@ -477,31 +491,6 @@
       
       
         &lt;h2 id=&quot;HEXO-网站底部加上访问量&quot;&gt;&lt;a href=&quot;#HEXO-网站底部加上访问量&quot; class=&quot;headerlink&quot; title=&quot;HEXO_网站底部加上访问量&quot;&gt;&lt;/a&gt;HEXO_网站底部加上访问量&lt;/h2&gt;&lt;h3 id=&quot;1-打开blog-themes-n
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_主页文章添加阴影效果</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-主页文章添加阴影效果/</id>
-    <published>2018-11-22T08:47:42.000Z</published>
-    <updated>2018-11-26T05:20:03.593Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-主页文章添加阴影效果"><a href="#HEXO-主页文章添加阴影效果" class="headerlink" title="HEXO_主页文章添加阴影效果"></a>HEXO_主页文章添加阴影效果</h2><h3 id="1-打开blog-themes-next-source-css-custom-custom-styl，添加以下代码："><a href="#1-打开blog-themes-next-source-css-custom-custom-styl，添加以下代码：" class="headerlink" title="1,打开blog\themes\next\source\css\_custom\custom.styl，添加以下代码："></a>1,打开<code>blog\themes\next\source\css\_custom\custom.styl</code>，添加以下代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line"> .post &#123;</span><br><span class="line">   margin-top: 60px;</span><br><span class="line">   margin-bottom: 60px;</span><br><span class="line">   padding: 25px;</span><br><span class="line">   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><p>### </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-主页文章添加阴影效果&quot;&gt;&lt;a href=&quot;#HEXO-主页文章添加阴影效果&quot; class=&quot;headerlink&quot; title=&quot;HEXO_主页文章添加阴影效果&quot;&gt;&lt;/a&gt;HEXO_主页文章添加阴影效果&lt;/h2&gt;&lt;h3 id=&quot;1-打开blog-them
       
     
     </summary>
