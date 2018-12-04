@@ -101,18 +101,18 @@
 
 
 
-<meta name="description" content="Ansible04_ansible命令执行过程及常用模块1，ansible命令执行过程：​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg ​    2，加载自己的模块文件，如command ping 等等 ​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户，  ​         /.ansibl">
+<meta name="description" content="Ansible04_ansible命令执行过程1，ansible命令执行过程：​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg ​    2，加载自己的模块文件，如command ping 等等 ​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户，  ​         /.ansible/tmp">
 <meta name="keywords" content="Ansible">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ansible04_ansible命令执行过程及常用模块">
 <meta property="og:url" content="https://jackLovewx.github.io/2018/11/27/Ansible04-ansible命令执行过程及常用模块/index.html">
 <meta property="og:site_name" content="Mustang">
-<meta property="og:description" content="Ansible04_ansible命令执行过程及常用模块1，ansible命令执行过程：​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg ​    2，加载自己的模块文件，如command ping 等等 ​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户，  ​         /.ansibl">
+<meta property="og:description" content="Ansible04_ansible命令执行过程1，ansible命令执行过程：​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg ​    2，加载自己的模块文件，如command ping 等等 ​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户，  ​         /.ansible/tmp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T09:32:08.632Z">
+<meta property="og:updated_time" content="2018-12-03T06:56:52.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible04_ansible命令执行过程及常用模块">
-<meta name="twitter:description" content="Ansible04_ansible命令执行过程及常用模块1，ansible命令执行过程：​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg ​    2，加载自己的模块文件，如command ping 等等 ​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户，  ​         /.ansibl">
+<meta name="twitter:description" content="Ansible04_ansible命令执行过程1，ansible命令执行过程：​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg ​    2，加载自己的模块文件，如command ping 等等 ​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户，  ​         /.ansible/tmp">
 
 
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  184
+                  169
                 </span>
               
 
@@ -447,7 +447,7 @@
       
 
       
-        <h2 id="Ansible04-ansible命令执行过程及常用模块"><a href="#Ansible04-ansible命令执行过程及常用模块" class="headerlink" title="Ansible04_ansible命令执行过程及常用模块"></a>Ansible04_ansible命令执行过程及常用模块</h2><h3 id="1，ansible命令执行过程："><a href="#1，ansible命令执行过程：" class="headerlink" title="1，ansible命令执行过程："></a>1，ansible命令执行过程：</h3><p>​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg</p>
+        <h2 id="Ansible04-ansible命令执行过程"><a href="#Ansible04-ansible命令执行过程" class="headerlink" title="Ansible04_ansible命令执行过程"></a>Ansible04_ansible命令执行过程</h2><h3 id="1，ansible命令执行过程："><a href="#1，ansible命令执行过程：" class="headerlink" title="1，ansible命令执行过程："></a>1，ansible命令执行过程：</h3><p>​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg</p>
 <p>​    2，加载自己的模块文件，如command ping 等等</p>
 <p>​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户， </p>
 <p>​         /.ansible/tmp/ansible-tmp-数字/xxxxx.py文件</p>
@@ -457,7 +457,7 @@
 <h3 id="2，执行状态："><a href="#2，执行状态：" class="headerlink" title="2，执行状态："></a>2，执行状态：</h3><p>​    绿色：成功，不需要做改变的操作</p>
 <p>​    黄色：成功，并且对目标主机进行了变更操作</p>
 <p>​    红色：执行失败。</p>
-<h3 id="3，Ansible常用模块详细介绍："><a href="#3，Ansible常用模块详细介绍：" class="headerlink" title="3，Ansible常用模块详细介绍："></a>3，Ansible常用模块详细介绍：</h3>
+
       
     </div>
     
@@ -475,7 +475,7 @@
   <p><span>本文标题:</span><a href="/2018/11/27/Ansible04-ansible命令执行过程及常用模块/">Ansible04_ansible命令执行过程及常用模块</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Mustang 的个人博客">Mustang</a></p>
   <p><span>发布时间:</span>2018年11月27日 - 22:11</p>
-  <p><span>最后更新:</span>2018年11月29日 - 17:11</p>
+  <p><span>最后更新:</span>2018年12月03日 - 14:12</p>
   <p><span>原始链接:</span><a href="/2018/11/27/Ansible04-ansible命令执行过程及常用模块/" title="Ansible04_ansible命令执行过程及常用模块">https://jackLovewx.github.io/2018/11/27/Ansible04-ansible命令执行过程及常用模块/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jackLovewx.github.io/2018/11/27/Ansible04-ansible命令执行过程及常用模块/" aria-label="复制成功！"></i></span>
   </p>
@@ -528,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/27/Ansible03-配置基于key的验证/" rel="next" title="Ansible03_配置基于key的验证">
-                <i class="fa fa-chevron-left"></i> Ansible03_配置基于key的验证
+              <a href="/2018/11/27/Ansible02-运维自动化之ansible/" rel="next" title="Ansible02_运维自动化之ansible">
+                <i class="fa fa-chevron-left"></i> Ansible02_运维自动化之ansible
               </a>
             
           </div>
@@ -538,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/27/Ansible02-运维自动化之ansible/" rel="prev" title="Ansible02_运维自动化之ansible">
-                Ansible02_运维自动化之ansible <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/29/test2/" rel="prev" title="test2">
+                test2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -672,7 +672,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -780,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ansible04-ansible命令执行过程及常用模块"><span class="nav-number">1.</span> <span class="nav-text">Ansible04_ansible命令执行过程及常用模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，ansible命令执行过程："><span class="nav-number">1.1.</span> <span class="nav-text">1，ansible命令执行过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，执行状态："><span class="nav-number">1.2.</span> <span class="nav-text">2，执行状态：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3，Ansible常用模块详细介绍："><span class="nav-number">1.3.</span> <span class="nav-text">3，Ansible常用模块详细介绍：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ansible04-ansible命令执行过程"><span class="nav-number">1.</span> <span class="nav-text">Ansible04_ansible命令执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，ansible命令执行过程："><span class="nav-number">1.1.</span> <span class="nav-text">1，ansible命令执行过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，执行状态："><span class="nav-number">1.2.</span> <span class="nav-text">2，执行状态：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -815,7 +815,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.5k</span>
+    <span title="Site words total count">11.7k</span>
   
 </div>
 
@@ -843,7 +843,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8.5k字</span>
+  <span class="post-count">博客全站共11.7k字</span>
 </div>
 
 

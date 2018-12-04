@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ansible10_roles详细介绍]]></title>
+    <url>%2F2018%2F12%2F04%2FAnsible10-roles%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[Ansible10_roles详细介绍1,Roles:角色ansible自1.2版本引入的新特性，用于层次性，结构化的组织playbook，角色能够根据层次性结构自动转载变量文件 tasks以及handlers等，要使用角色只需在playbook中使用include指令即可，简单来讲，角色就是通过分别将变量，文件 任务，模板以及处理器放置于单独的目录中，并且可以快捷的include他们的一种机制，角色一般用于基于主机构建服务的 场景中，但是也可以用于构建守护进程等场景中。 复杂场景：建议使用roles，代码的复用度高 2，Roles的目录结构每个角色，以特定的层级目录结构进行组织 roles目录机构：​ playbook.yml ​ roles/ ​ project/ ​ tasks:定义task，role的基本元素，至少包含一个名为main.yml的文件，其他文件在此文件中include包含 ​ files:存放有copy或者script模块等调用的文件 ​ vars:不常用，定义变量，至少有一个名为main.yml文件。 ​ default:不常用，设定默认变量时，使用此目录中的main.yml文件 ​ templates:template模块查找说需要的模板文件的目录 handlers:至少有一个名为main.yml文件，其他文件用include包含 ​ meta:不常用，定义当前角色的特殊设定，及依赖关系，至少包含main.yml文件 3，角色应用的综合示例：以http服务器为例1，mkdir roles 2，mkdir app 3，mkdir tasks template vars handlers files 4，tree可以查看目录结构 tasks（任务）： 5，创建组：group 组名：app 系统组： system=yes gid=123 6，创建用户：user 用户名：app 将用户添加到组中，系统用户， shell=/sbin/nologin 7，安装包：yum 包：httpd 8，拷贝一些模板文件：/etc/httpd/conf/http.conf 复制到 /templates下改名为 http.conf.j2 ​ 修改问价内容，该Listen为 该user为 ​ 该group为 9，准备变量文件 /var/main.yml ——–username: app groupname: app 10,编写template.yml任务， src dest 11，添加 handlers和 notify 12，启动服务 13，重启服务]]></content>
+      <categories>
+        <category>Ansible学习</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ansible09_Playbook详细介绍]]></title>
+    <url>%2F2018%2F12%2F03%2FAnsible09-Playbook%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[Ansible09_Playbook详细介绍一：playbook简介：1,playbook是由一个或者多个play组成的列表 2，play的主要作用在于将事先归并为一组的主机装扮成事先通过ansible的task定义好的角色 ​ 从根本上讲，所谓task无非是调用ansible的一个module，将多个play组织在一个playbook中， ​ 可以让他们联同起来按事先编排的机制协同工作。 3，playbook采用的是yml语言编写 二，playbook的工作流程： 1,流程解析： 我们编写了一个playbook，然后去调用playbook，最终也是用ansible命令执行的，去调用一个一个的play， 当然每个play都有自己的任务，那么任务的执行本质来讲就是来调用模块，模块在执行的时候，要看看是针对 主机清单中的哪些主机执行的 2，如果说ansible的单个模块相当于linux中的单行命令，那么playbook就相当于脚本的概念，将许多命令放在 脚本里面，按照自己定义的顺序执行。 三playbook的核心元素概览1，hosts：执行的远程主机列表 2，tasks：任务集 3，varniables：内置变量或者自定义变量在playbook中调用 4，templates：模板，可替换模板文件中的变量，并实现一些简单逻辑的文件 5，Handlers:和notify配合使用，有特定的条件触发的操作，满足条件执行，否则就不执行 6，tags：标签，执行某任务的执行，用于选择playbook中部分代码，ansible具有幂等性，因此会自动跳过 ​ 没有变化的部分。 eg： ansible-playbook -t tagname useradd.yml 四：playbook的基础组件1,hosts: ​ playbook中每一个play的目的都是为了让某一个或者某些主机以某个指定的用户身份执行任务， ​ hosts用于执行要执行的指定任务的主机，事先电仪在主机清单中。 形式： ​ 192.168.10.129或者192.168.10.* ​ webservers或者webservers:dbservers或者webservers&amp;appservers或者webservers:! appservers 2,remote_user: ​ 可用于host和task中，也可以通过指定其sudo的方式在远程主机上执行任务 3，tasks：任务列表 使用ignore-errors来忽略错误信息。 上图是一个基本的playbook的结构。 五，运行playbook1，方式： ​ ansible-playbook xxxx.yml 2,常见选项： ​ –check 或者 -C : 只检查语法，不真正的运行 ​ –list-hosts:列出运行任务的主机 ​ –limit 主机列表：只针对主机列表中的主机执行 -v：显示过程 --v显示详细的过程 ​ 示例： ​ ansible-playbookl file.yml -C ​ ansible-playbook file,.yml ​ ansible-playbook file.yml –limit webservers 六：handlers和notify结合使用触发条件1，handlers：相当于一个触发器 ​ 是task列表，这些task于之前task本质相同，用于关注的资源发生变化时，才会执行一定的操作 2，notify：此action可以用于在每个play的最后触发，这样可以避免多次有改变发生时，每次都执行的 ​ 操作，仅在所有的变化发生完成后一次性执行指定操作，在notify中列出的操作成为handler，即 ​ notify中调用handler中定义的操作。 七，变量的使用：1， 变量名：仅能由字母，数字，下划线组成，且只能以字母开头。 2，变量的来源： ​ 1，ansible的setup模块中，这些变量定义了本机的系统信息。 ​ 可以使用 ansible webservers -m setup -a ‘filter=address‘用过滤器查找相关的变量 ​ 2，在/etc/ansible/hosts中定义 ​ 普通变量：主机组中主机单独定义，优先级高于公共变量 ​ 公共变量：针对主机组中所有主机定义同一变量 ​ 3，通过命令行指定变量，优先级最高 ansible-playbook -e varname=value ​ 4，在playbook中定义变量： ​ vars: ​ var1: value1 ​ var2: value2 ​ 5，在角色中定义 3，变量的调用方式： ​ 通过 来调用变量，变量名前后加空格。 4，变量的优先级： ​ -e &gt; playbok &gt; 主机清单 定义的变量 八：模板templates的使用​ 1，根据西永的配置文件状态，生成对用的文件 ​ 2，文本文件嵌套有Jinja2语言，使用字面量，有如下形式： ​ 字符串：使用单引号或者双引号 ​ 数字：整数，浮点型 ​ 列表：[item1,item2,item…] ​ 元组:(item1,item2,item…) ​ 字典：{key:value,key2:value…} ​ 布尔：true、false ​ 算术运算： + - * // / % ​ 比较：== != &gt; &lt; &gt;= &lt;= ​ 逻辑： and or not ​ for if when ​ 3,when:条件测试：如果需要根据变量facts，或者此前任务的执行结果来作为某task执行与否的前提时，需要用到 ​ 通过when语句实现在task中，jinja2语法格式。在task后添加when子句即可使用条件测试 ​ eg： - name: ‘shut down RedHat flavored systemc’ ​ command: /sbin/shutdown -h now ​ when: ansible -os_family == “RedHat” ​ 4,迭代：with_items ​ 当有需要重复性的执行的任务时，可以使用迭代机制 ​ 对迭代项目的应用，固定变量名为item，要在task中使用with_items给定要迭代的元素列表 ​ ​ eg:需求：创建三个用户将用户加到刚刚创建的组中。 ​ ​ ​]]></content>
+      <categories>
+        <category>Ansible学习</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ansible08_ansible-console介绍]]></title>
+    <url>%2F2018%2F12%2F03%2FAnsible08-ansible-console%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[Ansible08_ansible-console介绍1.ansible2.0新增，可以交互执行命令2,root@test(2)[f:10] $解析：root为当前的执行用户，test为当前操作的主机组 (2)为当前组的主机数量，[f:10] 10代表并发数 3，设置并发数： eg：forks n4,切换组： cd 主机组 eg：cd webservers5，列出所有的内置命令 ? 或者help6,列出当前组的主机列表：list6，示例：root@all(2)[f:5]$ listroot@all(2)[f:5]$ cd webserversroot@all(2)[f:5]$ yum name=httpd state=presentroot@all(2)[f:5]$ service name=httpd state=started]]></content>
+      <categories>
+        <category>Ansible学习</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ansible07_Ansible-vault介绍]]></title>
+    <url>%2F2018%2F12%2F03%2FAnsible07-Ansible-vault%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[Ansible07_Ansible-vault介绍1，功能：管理加密解密yml文件的2，相关命令：加密：ansible-vault encrypt hello.yml解密：ansible-vault decrypt hello.yml查看：ansible-vault view hello.yml编辑加密文件：ansible-vault edithello.yml修改口令：ansible-vault rekey hello.yml创建新文件：ansible-vault create hello.yml]]></content>
+      <categories>
+        <category>Ansible学习</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ansible06_galaxy介绍]]></title>
+    <url>%2F2018%2F12%2F03%2FAnsible06-galaxy%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[Ansible06_galaxy介绍1，ansible-falaxy：链接ansible网络的一个工具 2，链接https://galaxy.ansible.com 下载对应的roles 3，安装： ​ ansible-galaxy install geerlingguy.redis 下载之后会提示下载到哪个目录了在最后一行 4，删除galaxy： ansible-galaxy remove geerlingguy.redis 总结：可以联网下载自己所需的角色，下载之后可以改成自己能用的]]></content>
+      <categories>
+        <category>Ansible学习</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ansible05_常用模块详细介绍]]></title>
+    <url>%2F2018%2F12%2F03%2FAnsible05-%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[Ansible05_常用模块详细介绍首先介绍一下ansible命令的格式写法： ansible all -m command -a ‘ xxxxxxx ‘all：代表的是所有的被控端，all也可以替换成为部分被控端的组的名称 -m：指定要用哪个模块 command：默认模块，可以忽略不写 ‘xxxxx’：代表的是要执行的命令 比如： ls /data/ ‘df -h’ 查看分区利用率 注：Ansible所有的模块我们在使用的时候都可以通过 ansible-doc 模块名 来查询相应的用法1，Command模块：参数： ​ chdir：切换到某一个文件夹再执行命令 ​ creates：如果后该参数后面跟一个文件或者文件夹，如果存在，将不执行后面的命令 ​ removes：如果该参数和面跟一个文件或者文件夹，如果不存在，将不执行和面的命令 不支持的条件： 此命令不支持命令中带有 | $ 变量 &lt; &gt; &amp; 等等 得使用shell模块实现 2，Shell模块：参数： ​ 和command类似 eg： ​ ansible all -m shell -a ‘ps aux grep|nginx’ 3,Script:运行脚本的模块tips：在编写脚本的时候，应该遵循规范在第一行加上： #!/bin/basheg: echo hostname &gt; test.shchmod +x test.shansible all - m script -a ‘./test.sh’4.copy模块：从主控端复制文件到被控端ansible all -m copy -a ‘src=/root/test.sh dest=/tmp/test.sh backup=yes’ 参数：src:主控端的路径 ​ dest:要复制到被控端的文件路径 ​ backup=yes：将原来的文件做一个备份，如果目标存在先进行备份再复制 5，fetch模块：从被控端取文件到主控端与copy相反： 但是只能抓取被控端的一个文件，如果想抓取多个，将多个文件进行打包再fetch过来， 命令格式：抓取：ansible all -m ==fetch== -a ‘src=/root/log.tar.xz dest=/data/‘打包：ansible all -m shell -a ‘tar Jcf log.tar.xz /var/log/*.log’预览：tar tvf log.tar.xz6,File模块：设置文件的属性创建一个文件：ansible all -m file -a ‘path=/root/test owner=wx ==state=touch==’删除一个文件：ansible all -m file -a ‘path=/root/test ==state=absent’==创建一文件夹：ansible all -m file -a ‘path=/root/test ==state=directory==’复制文件到被控端：ansible all -m file -a ‘==src=/app/test/file dest=/app/test/file==’7,hostname模块:管理主机名eg: ansible 192.168.10.129 -m ==hostname== -a ‘==name===hostOne’8，Cron模块：计划任务先查询广播路径： which wall —&gt;/usr/bin/wall支持时间： minute hour day month weekday命令：创建名为name的任务 ：ansible all -m cron -a ‘minute=* job=”/usr/bin/wall” NBA Warning name=warningcron’禁用任务：ansible all -m cron -a ‘==disabled=true== job=”/usr/bin/wall NBA Warning” name=warningcron’启用任务：将上面的disabled改为false即可删除任务：ansible all -m cron -a ‘job=”/usr/bin/wall NBAWarning” name=warincron ==state=absent==’查看任务：crontab -e9,yum模块：管理包前提：被控端都有yum3，检查yum仓库/etc/yum.repos.d/base.repo 安装：ansible all -m yum -a ‘name=httpd’查看一已经安装的包：ansible all -m yum -a ‘list=installed’卸载包：ansible all -m yum -a ‘name=httpd ==state=absent==’查看是否卸载了：ansible all -m shell -a ‘rpm -q httpd’如果要安装多个包使用逗号隔开即可 yum更新缓存：update_cache=yes 10,service模块：管理服务state:代表状态，状态不同服务也不同 enabled:代表的是开机是否自启动 开启服务:ansible all -m service -a ‘name=httpd state=started enabled=yes’停止服务：ansible all -m service -a ‘name=httpd state=restarted’重启服务：ansible all -m service -a ‘name=httpd state=stopped’确认开机是否自启动了： systemctl is-enabled httpd确认是否启动了：systemctl status httpd11,user模块:管理用户创建一个用户：ansible all -m user -a ‘name=wenxin shell=/sbin/nologin system=yes groups=root uid=80’查看用户：ansible all -a ‘getent passwd wenxin’删除用户： ansible all -m user -a ‘name=wenixn state=absent’12.group模块：管理组创建组： ansible all -m group -a ‘name=nginx system=yes gid=82’验证：ansible all -m shel -a ‘getent group nginx’删除：ansible all =m group -a ‘name=nginx state=absent’13ping模块：检查主控端和被控端的连通性命令：ansible all -m ping14,总结：ansible中的模块有1000多个我只是学了常用的13个模块，如果想要学习新的模块可以到官网。平时在学习的过程中可以使用： ansible-doc -s 模块名 来看看这个模块怎么用。####]]></content>
+      <categories>
+        <category>Ansible学习</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[test2]]></title>
     <url>%2F2018%2F11%2F29%2Ftest2%2F</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[Ansible03_配置基于key的验证]]></title>
-    <url>%2F2018%2F11%2F27%2FAnsible03-%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8Ekey%E7%9A%84%E9%AA%8C%E8%AF%81%2F</url>
-    <content type="text"><![CDATA[Ansible03_配置基于key的验证0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。1，在安装完成之后，我们到对应的hosts文件下去配置远程主机：/etc/ansible/hosts：主机清单配置文件 ​ 风格： [webservers] ​ 192.168.10.128 ​ 192.168.10.129 或者 192.168.10.12[….] ​ 192.168.10.130 2，配置完主机之后，接下来要与其他的主机建立连接，那么，如果按普通的方式，在链接的时候，需要对远程主机输入验证密码 也就是说在命令上加上 -k 这样未免也太过麻烦了。比如： ​ ansible webservers -m command -k -a ‘ ls /root ‘ 所以解决的方案就是来为每一台远程主机配置基于key的验证： 在终端输入以下命令： ​ 1，ssh-keygen ​ 2，ssh-copy-id 192.168.10.129 (有几个远程主机就加几个，重复执行即可)]]></content>
+    <title><![CDATA[Ansible04_ansible命令执行过程及常用模块]]></title>
+    <url>%2F2018%2F11%2F27%2FAnsible04-ansible%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[Ansible04_ansible命令执行过程1，ansible命令执行过程：​ 1，加载自己的配置文件，默认在目录 /etc/ansible/ansible.cfg ​ 2，加载自己的模块文件，如command ping 等等 ​ 3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户， ​ /.ansible/tmp/ansible-tmp-数字/xxxxx.py文件 ​ 4，给文件进行 +x 加执行权限操作 ​ 5，执行并且返回结果 ​ 6，删除临时文件，然后退出 2，执行状态：​ 绿色：成功，不需要做改变的操作 ​ 黄色：成功，并且对目标主机进行了变更操作 ​ 红色：执行失败。]]></content>
       <categories>
         <category>Ansible学习</category>
       </categories>
@@ -28,9 +94,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Ansible04_ansible命令执行过程及常用模块]]></title>
-    <url>%2F2018%2F11%2F27%2FAnsible04-ansible%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%2F</url>
-    <content type="text"><![CDATA[Ansible04_ansible命令执行过程及常用模块1，ansible命令执行过程：​ 1，加载自己的配置文件，默认在目录 /etc/ansible/ansible.cfg ​ 2，加载自己的模块文件，如command ping 等等 ​ 3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户， ​ /.ansible/tmp/ansible-tmp-数字/xxxxx.py文件 ​ 4，给文件进行 +x 加执行权限操作 ​ 5，执行并且返回结果 ​ 6，删除临时文件，然后退出 2，执行状态：​ 绿色：成功，不需要做改变的操作 ​ 黄色：成功，并且对目标主机进行了变更操作 ​ 红色：执行失败。 3，Ansible常用模块详细介绍：]]></content>
+    <title><![CDATA[Ansible03_配置基于key的验证]]></title>
+    <url>%2F2018%2F11%2F27%2FAnsible03-%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8Ekey%E7%9A%84%E9%AA%8C%E8%AF%81%2F</url>
+    <content type="text"><![CDATA[Ansible03_配置基于key的验证0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。1，在安装完成之后，我们到对应的hosts文件下去配置远程主机：/etc/ansible/hosts：主机清单配置文件 ​ 风格： [webservers] ​ 192.168.10.128 ​ 192.168.10.129 或者 192.168.10.12[….] ​ 192.168.10.130 2，配置完主机之后，接下来要与其他的主机建立连接，那么，如果按普通的方式，在链接的时候，需要对远程主机输入验证密码 也就是说在命令上加上 -k 这样未免也太过麻烦了。比如： ​ ansible webservers -m command -k -a ‘ ls /root ‘ 所以解决的方案就是来为每一台远程主机配置基于key的验证： 在终端输入以下命令： ​ 1，ssh-keygen ​ 2，ssh-copy-id 192.168.10.129 (有几个远程主机就加几个，重复执行即可)]]></content>
       <categories>
         <category>Ansible学习</category>
       </categories>

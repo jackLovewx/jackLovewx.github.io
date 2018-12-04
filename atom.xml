@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jackLovewx.github.io/"/>
-  <updated>2018-11-29T09:09:12.588Z</updated>
+  <updated>2018-12-04T05:43:50.610Z</updated>
   <id>https://jackLovewx.github.io/</id>
   
   <author>
@@ -15,6 +15,156 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible10_roles详细介绍</title>
+    <link href="https://jackLovewx.github.io/2018/12/04/Ansible10-roles%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://jackLovewx.github.io/2018/12/04/Ansible10-roles详细介绍/</id>
+    <published>2018-12-04T02:32:48.000Z</published>
+    <updated>2018-12-04T05:43:50.610Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible10-roles详细介绍"><a href="#Ansible10-roles详细介绍" class="headerlink" title="Ansible10_roles详细介绍"></a>Ansible10_roles详细介绍</h2><h3 id="1-Roles-角色"><a href="#1-Roles-角色" class="headerlink" title="1,Roles:角色"></a>1,Roles:角色</h3><p>ansible自1.2版本引入的新特性，用于层次性，结构化的组织playbook，角色能够根据层次性结构自动转载变量文件</p><p>tasks以及handlers等，要使用角色只需在playbook中使用include指令即可，简单来讲，角色就是通过分别将变量，文件</p><p>任务，模板以及处理器放置于单独的目录中，并且可以快捷的include他们的一种机制，角色一般用于基于主机构建服务的</p><p>场景中，但是也可以用于构建守护进程等场景中。</p><p>复杂场景：建议使用roles，代码的复用度高</p><h3 id="2，Roles的目录结构"><a href="#2，Roles的目录结构" class="headerlink" title="2，Roles的目录结构"></a>2，Roles的目录结构</h3><p>每个角色，以特定的层级目录结构进行组织</p><h4 id="roles目录机构："><a href="#roles目录机构：" class="headerlink" title="roles目录机构："></a>roles目录机构：</h4><p>​    playbook.yml</p><p>​    roles/</p><p>​      project/</p><p>​        tasks:定义task，role的基本元素，至少包含一个名为main.yml的文件，其他文件在此文件中include包含</p><p>​        files:存放有copy或者script模块等调用的文件</p><p>​        vars:不常用，定义变量，至少有一个名为main.yml文件。</p><p>​        default:不常用，设定默认变量时，使用此目录中的main.yml文件</p><p>​        templates:template模块查找说需要的模板文件的目录</p><pre><code>handlers:至少有一个名为main.yml文件，其他文件用include包含</code></pre><p>​        meta:不常用，定义当前角色的特殊设定，及依赖关系，至少包含main.yml文件 </p><h3 id="3，角色应用的综合示例：以http服务器为例"><a href="#3，角色应用的综合示例：以http服务器为例" class="headerlink" title="3，角色应用的综合示例：以http服务器为例"></a>3，角色应用的综合示例：以http服务器为例</h3><p>1，mkdir roles</p><p>2，mkdir  app</p><p>3，mkdir tasks template vars handlers files</p><p>4，tree可以查看目录结构</p><p>tasks（任务）：</p><p>5，创建组：group 组名：app  系统组： system=yes gid=123 </p><p>6，创建用户：user  用户名：app 将用户添加到组中，系统用户， shell=/sbin/nologin</p><p>7，安装包：yum  包：httpd</p><p>8，拷贝一些模板文件：/etc/httpd/conf/http.conf 复制到 /templates下改名为 http.conf.j2</p><p>​      修改问价内容，该Listen为  该user为 </p><p>​      该group为 </p><p>9，准备变量文件 /var/main.yml ——–username: app   groupname: app</p><p>10,编写template.yml任务，  src dest</p><p>11，添加 handlers和 notify</p><p>12，启动服务</p><p>13，重启服务</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible10-roles详细介绍&quot;&gt;&lt;a href=&quot;#Ansible10-roles详细介绍&quot; class=&quot;headerlink&quot; title=&quot;Ansible10_roles详细介绍&quot;&gt;&lt;/a&gt;Ansible10_roles详细介绍&lt;/h2&gt;&lt;h3 i
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible09_Playbook详细介绍</title>
+    <link href="https://jackLovewx.github.io/2018/12/03/Ansible09-Playbook%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://jackLovewx.github.io/2018/12/03/Ansible09-Playbook详细介绍/</id>
+    <published>2018-12-03T08:29:15.000Z</published>
+    <updated>2018-12-04T02:31:40.905Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible09-Playbook详细介绍"><a href="#Ansible09-Playbook详细介绍" class="headerlink" title="Ansible09_Playbook详细介绍"></a>Ansible09_Playbook详细介绍</h2><h3 id="一：playbook简介："><a href="#一：playbook简介：" class="headerlink" title="一：playbook简介："></a>一：playbook简介：</h3><p>1,playbook是由一个或者多个play组成的列表</p><p>2，play的主要作用在于将事先归并为一组的主机装扮成事先通过ansible的task定义好的角色</p><p>​      从根本上讲，所谓task无非是调用ansible的一个module，将多个play组织在一个playbook中，</p><p>​      可以让他们联同起来按事先编排的机制协同工作。</p><p>3，playbook采用的是yml语言编写</p><h3 id="二，playbook的工作流程："><a href="#二，playbook的工作流程：" class="headerlink" title="二，playbook的工作流程："></a>二，playbook的工作流程：</h3><p><img src="/2018/12/03/Ansible09-Playbook详细介绍/1.jpg" alt=""></p><p>1,流程解析：</p><p> 我们编写了一个playbook，然后去调用playbook，最终也是用ansible命令执行的，去调用一个一个的play，</p><p>当然每个play都有自己的任务，那么任务的执行本质来讲就是来调用模块，模块在执行的时候，要看看是针对</p><p>主机清单中的哪些主机执行的</p><p>2，如果说ansible的单个模块相当于linux中的单行命令，那么playbook就相当于脚本的概念，将许多命令放在</p><p>脚本里面，按照自己定义的顺序执行。</p><h3 id="三playbook的核心元素概览"><a href="#三playbook的核心元素概览" class="headerlink" title="三playbook的核心元素概览"></a>三playbook的核心元素概览</h3><p>1，hosts：执行的远程主机列表</p><p>2，tasks：任务集</p><p>3，varniables：内置变量或者自定义变量在playbook中调用</p><p>4，templates：模板，可替换模板文件中的变量，并实现一些简单逻辑的文件</p><p>5，Handlers:和notify配合使用，有特定的条件触发的操作，满足条件执行，否则就不执行</p><p>6，tags：标签，执行某任务的执行，用于选择playbook中部分代码，ansible具有幂等性，因此会自动跳过</p><p>​      没有变化的部分。</p><pre><code>eg： ansible-playbook -t tagname useradd.yml</code></pre><h3 id="四：playbook的基础组件"><a href="#四：playbook的基础组件" class="headerlink" title="四：playbook的基础组件"></a>四：playbook的基础组件</h3><p>1,hosts:</p><p>​    playbook中每一个play的目的都是为了让某一个或者某些主机以某个指定的用户身份执行任务，</p><p>​    hosts用于执行要执行的指定任务的主机，事先电仪在主机清单中。</p><p>   形式：</p><p>​    192.168.10.129或者192.168.10.*</p><p>​    webservers或者webservers:dbservers或者webservers&amp;appservers或者webservers:! appservers</p><p>2,remote_user:</p><p>​        可用于host和task中，也可以通过指定其sudo的方式在远程主机上执行任务</p><p>3，tasks：任务列表</p><p>使用ignore-errors来忽略错误信息。<img src="/2018/12/03/Ansible09-Playbook详细介绍/2.jpg" alt="1543827227812"></p><p>上图是一个基本的playbook的结构。</p><h3 id="五，运行playbook"><a href="#五，运行playbook" class="headerlink" title="五，运行playbook"></a>五，运行playbook</h3><p>1，方式： </p><p>​        ansible-playbook   xxxx.yml</p><p>2,常见选项：</p><p>​        –check  或者 -C :  只检查语法，不真正的运行</p><p>​        –list-hosts:列出运行任务的主机</p><p>​        –limit  主机列表：只针对主机列表中的主机执行</p><pre><code>-v：显示过程  --v显示详细的过程</code></pre><p>​    示例：</p><p>​        ansible-playbookl file.yml -C</p><p>​        ansible-playbook file,.yml</p><p>​        ansible-playbook file.yml –limit webservers</p><h3 id="六：handlers和notify结合使用触发条件"><a href="#六：handlers和notify结合使用触发条件" class="headerlink" title="六：handlers和notify结合使用触发条件"></a>六：handlers和notify结合使用触发条件</h3><p>1，handlers：相当于一个触发器</p><p>​      是task列表，这些task于之前task本质相同，用于关注的资源发生变化时，才会执行一定的操作</p><p>2，notify：此action可以用于在每个play的最后触发，这样可以避免多次有改变发生时，每次都执行的</p><p>​      操作，仅在所有的变化发生完成后一次性执行指定操作，在notify中列出的操作成为handler，即</p><p>​      notify中调用handler中定义的操作。 </p><h3 id="七，变量的使用："><a href="#七，变量的使用：" class="headerlink" title="七，变量的使用："></a>七，变量的使用：</h3><p>1， 变量名：仅能由字母，数字，下划线组成，且只能以字母开头。</p><p>2，变量的来源：</p><p>​    1，ansible的setup模块中，这些变量定义了本机的系统信息。</p><p>​          可以使用 ansible webservers -m setup -a ‘filter=<em>address</em>‘用过滤器查找相关的变量</p><p>​     2，在/etc/ansible/hosts中定义</p><p>​           普通变量：主机组中主机单独定义，优先级高于公共变量</p><p>​            公共变量：针对主机组中所有主机定义同一变量</p><p>​     3，通过命令行指定变量，优先级最高</p><pre><code>ansible-playbook -e varname=value</code></pre><p>​     4，在playbook中定义变量：</p><p>​        vars:</p><p>​                  var1: value1</p><p>​                 var2: value2</p><p>​     5，在角色中定义</p><p>3，变量的调用方式：</p><p>​    通过   来调用变量，变量名前后加空格。</p><p>4，变量的优先级：</p><p>​    -e &gt;  playbok &gt;  主机清单 定义的变量</p><h3 id="八：模板templates的使用"><a href="#八：模板templates的使用" class="headerlink" title="八：模板templates的使用"></a>八：模板templates的使用</h3><p>​    1，根据西永的配置文件状态，生成对用的文件</p><p>​    2，文本文件嵌套有Jinja2语言，使用字面量，有如下形式：</p><p>​        字符串：使用单引号或者双引号</p><p>​        数字：整数，浮点型</p><p>​        列表：[item1,item2,item…]</p><p>​        元组:(item1,item2,item…)</p><p>​        字典：{key:value,key2:value…}</p><p>​        布尔：true、false</p><p>​        算术运算： + - *  //  /  % </p><p>​        比较：==  !=  &gt;  &lt;  &gt;=  &lt;=</p><p>​        逻辑： and  or   not</p><p>​        for  if  when</p><p>​    3,when:条件测试：如果需要根据变量facts，或者此前任务的执行结果来作为某task执行与否的前提时，需要用到</p><p>​              通过when语句实现在task中，jinja2语法格式。在task后添加when子句即可使用条件测试</p><p>​         eg： - name: ‘shut down RedHat flavored systemc’</p><p>​            command: /sbin/shutdown  -h  now</p><p>​            when:  ansible -os_family == “RedHat”        </p><p>​    4,迭代：with_items</p><p>​       当有需要重复性的执行的任务时，可以使用迭代机制</p><p>​       对迭代项目的应用，固定变量名为item，要在task中使用with_items给定要迭代的元素列表</p><p>​        <img src="/2018/12/03/Ansible09-Playbook详细介绍/3png" alt="1543889853566"></p><p>​    eg:需求：创建三个用户将用户加到刚刚创建的组中。</p><p>​    <img src="/2018/12/03/Ansible09-Playbook详细介绍/4.png" alt="1543889947561"></p><p>​        </p><p>​    </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible09-Playbook详细介绍&quot;&gt;&lt;a href=&quot;#Ansible09-Playbook详细介绍&quot; class=&quot;headerlink&quot; title=&quot;Ansible09_Playbook详细介绍&quot;&gt;&lt;/a&gt;Ansible09_Playbook详细
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible08_ansible-console介绍</title>
+    <link href="https://jackLovewx.github.io/2018/12/03/Ansible08-ansible-console%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://jackLovewx.github.io/2018/12/03/Ansible08-ansible-console介绍/</id>
+    <published>2018-12-03T08:18:52.000Z</published>
+    <updated>2018-12-03T08:25:02.309Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible08-ansible-console介绍"><a href="#Ansible08-ansible-console介绍" class="headerlink" title="Ansible08_ansible-console介绍"></a>Ansible08_ansible-console介绍</h2><h4 id="1-ansible2-0新增，可以交互执行命令"><a href="#1-ansible2-0新增，可以交互执行命令" class="headerlink" title="1.ansible2.0新增，可以交互执行命令"></a>1.ansible2.0新增，可以交互执行命令</h4><h4 id="2-root-test-2-f-10"><a href="#2-root-test-2-f-10" class="headerlink" title="2,root@test(2)[f:10] $"></a>2,root@test(2)[f:10] $</h4><p>解析：root为当前的执行用户，test为当前操作的主机组</p><pre><code>(2)为当前组的主机数量，[f:10] 10代表并发数</code></pre><h4 id="3，设置并发数：-eg：forks-n"><a href="#3，设置并发数：-eg：forks-n" class="headerlink" title="3，设置并发数： eg：forks  n"></a>3，设置并发数： eg：forks  n</h4><h4 id="4-切换组：-cd-主机组-eg：cd-webservers"><a href="#4-切换组：-cd-主机组-eg：cd-webservers" class="headerlink" title="4,切换组：  cd  主机组  eg：cd webservers"></a>4,切换组：  cd  主机组  eg：cd webservers</h4><h4 id="5，列出所有的内置命令-或者help"><a href="#5，列出所有的内置命令-或者help" class="headerlink" title="5，列出所有的内置命令  ? 或者help"></a>5，列出所有的内置命令  ? 或者help</h4><h4 id="6-列出当前组的主机列表：list"><a href="#6-列出当前组的主机列表：list" class="headerlink" title="6,列出当前组的主机列表：list"></a>6,列出当前组的主机列表：list</h4><h4 id="6，示例："><a href="#6，示例：" class="headerlink" title="6，示例："></a>6，示例：</h4><h3 id="root-all-2-f-5-list"><a href="#root-all-2-f-5-list" class="headerlink" title="root@all(2)[f:5]$ list"></a>root@all(2)[f:5]$ list</h3><h3 id="root-all-2-f-5-cd-webservers"><a href="#root-all-2-f-5-cd-webservers" class="headerlink" title="root@all(2)[f:5]$ cd webservers"></a>root@all(2)[f:5]$ cd webservers</h3><h3 id="root-all-2-f-5-yum-name-httpd-state-present"><a href="#root-all-2-f-5-yum-name-httpd-state-present" class="headerlink" title="root@all(2)[f:5]$ yum name=httpd state=present"></a>root@all(2)[f:5]$ yum name=httpd state=present</h3><h3 id="root-all-2-f-5-service-name-httpd-state-started"><a href="#root-all-2-f-5-service-name-httpd-state-started" class="headerlink" title="root@all(2)[f:5]$ service name=httpd state=started"></a>root@all(2)[f:5]$ service name=httpd state=started</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible08-ansible-console介绍&quot;&gt;&lt;a href=&quot;#Ansible08-ansible-console介绍&quot; class=&quot;headerlink&quot; title=&quot;Ansible08_ansible-console介绍&quot;&gt;&lt;/a&gt;Ansib
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible07_Ansible-vault介绍</title>
+    <link href="https://jackLovewx.github.io/2018/12/03/Ansible07-Ansible-vault%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://jackLovewx.github.io/2018/12/03/Ansible07-Ansible-vault介绍/</id>
+    <published>2018-12-03T08:13:24.000Z</published>
+    <updated>2018-12-03T08:16:52.182Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible07-Ansible-vault介绍"><a href="#Ansible07-Ansible-vault介绍" class="headerlink" title="Ansible07_Ansible-vault介绍"></a>Ansible07_Ansible-vault介绍</h2><h3 id="1，功能：管理加密解密yml文件的"><a href="#1，功能：管理加密解密yml文件的" class="headerlink" title="1，功能：管理加密解密yml文件的"></a>1，功能：管理加密解密yml文件的</h3><h3 id="2，相关命令："><a href="#2，相关命令：" class="headerlink" title="2，相关命令："></a>2，相关命令：</h3><h4 id="加密：ansible-vault-encrypt-hello-yml"><a href="#加密：ansible-vault-encrypt-hello-yml" class="headerlink" title="加密：ansible-vault encrypt hello.yml"></a>加密：ansible-vault encrypt hello.yml</h4><h4 id="解密：ansible-vault-decrypt-hello-yml"><a href="#解密：ansible-vault-decrypt-hello-yml" class="headerlink" title="解密：ansible-vault decrypt hello.yml"></a>解密：ansible-vault decrypt hello.yml</h4><h4 id="查看：ansible-vault-view-hello-yml"><a href="#查看：ansible-vault-view-hello-yml" class="headerlink" title="查看：ansible-vault view hello.yml"></a>查看：ansible-vault view hello.yml</h4><h4 id="编辑加密文件：ansible-vault-edithello-yml"><a href="#编辑加密文件：ansible-vault-edithello-yml" class="headerlink" title="编辑加密文件：ansible-vault edithello.yml"></a>编辑加密文件：ansible-vault edithello.yml</h4><h4 id="修改口令：ansible-vault-rekey-hello-yml"><a href="#修改口令：ansible-vault-rekey-hello-yml" class="headerlink" title="修改口令：ansible-vault rekey hello.yml"></a>修改口令：ansible-vault rekey hello.yml</h4><h4 id="创建新文件：ansible-vault-create-hello-yml"><a href="#创建新文件：ansible-vault-create-hello-yml" class="headerlink" title="创建新文件：ansible-vault create hello.yml"></a>创建新文件：ansible-vault create hello.yml</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible07-Ansible-vault介绍&quot;&gt;&lt;a href=&quot;#Ansible07-Ansible-vault介绍&quot; class=&quot;headerlink&quot; title=&quot;Ansible07_Ansible-vault介绍&quot;&gt;&lt;/a&gt;Ansible07_A
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible06_galaxy介绍</title>
+    <link href="https://jackLovewx.github.io/2018/12/03/Ansible06-galaxy%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://jackLovewx.github.io/2018/12/03/Ansible06-galaxy介绍/</id>
+    <published>2018-12-03T08:08:26.000Z</published>
+    <updated>2018-12-03T08:12:40.785Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible06-galaxy介绍"><a href="#Ansible06-galaxy介绍" class="headerlink" title="Ansible06_galaxy介绍"></a>Ansible06_galaxy介绍</h2><p>1，ansible-falaxy：链接ansible网络的一个工具</p><p>2，链接<a href="https://galaxy.ansible.com" target="_blank" rel="noopener">https://galaxy.ansible.com</a> 下载对应的roles</p><p>3，安装：</p><p>​        ansible-galaxy install geerlingguy.redis  下载之后会提示下载到哪个目录了在最后一行</p><p>4，删除galaxy：</p><pre><code>ansible-galaxy remove geerlingguy.redis</code></pre><h3 id="总结：可以联网下载自己所需的角色，下载之后可以改成自己能用的"><a href="#总结：可以联网下载自己所需的角色，下载之后可以改成自己能用的" class="headerlink" title="总结：可以联网下载自己所需的角色，下载之后可以改成自己能用的"></a>总结：可以联网下载自己所需的角色，下载之后可以改成自己能用的</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible06-galaxy介绍&quot;&gt;&lt;a href=&quot;#Ansible06-galaxy介绍&quot; class=&quot;headerlink&quot; title=&quot;Ansible06_galaxy介绍&quot;&gt;&lt;/a&gt;Ansible06_galaxy介绍&lt;/h2&gt;&lt;p&gt;1，ansi
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible05_常用模块详细介绍</title>
+    <link href="https://jackLovewx.github.io/2018/12/03/Ansible05-%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://jackLovewx.github.io/2018/12/03/Ansible05-常用模块详细介绍/</id>
+    <published>2018-12-03T06:57:52.000Z</published>
+    <updated>2018-12-04T05:52:27.550Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible05-常用模块详细介绍"><a href="#Ansible05-常用模块详细介绍" class="headerlink" title="Ansible05_常用模块详细介绍"></a>Ansible05_常用模块详细介绍</h2><p>首先介绍一下ansible命令的格式写法：</p><h3 id="ansible-all-m-command-a-‘-xxxxxxx-‘"><a href="#ansible-all-m-command-a-‘-xxxxxxx-‘" class="headerlink" title="ansible    all     -m    command   -a   ‘ xxxxxxx ‘"></a>ansible    all     -m    command   -a   ‘ xxxxxxx ‘</h3><p>all：代表的是所有的被控端，all也可以替换成为部分被控端的组的名称</p><p>-m：指定要用哪个模块</p><p>command：默认模块，可以忽略不写</p><p>‘xxxxx’：代表的是要执行的命令  比如：  ls  /data/      ‘df -h’  查看分区利用率</p><h3 id="注：Ansible所有的模块我们在使用的时候都可以通过-ansible-doc-模块名-来查询相应的用法"><a href="#注：Ansible所有的模块我们在使用的时候都可以通过-ansible-doc-模块名-来查询相应的用法" class="headerlink" title="注：Ansible所有的模块我们在使用的时候都可以通过 ansible-doc  模块名   来查询相应的用法"></a>注：Ansible所有的模块我们在使用的时候都可以通过 ansible-doc  模块名   来查询相应的用法</h3><h3 id="1，Command模块："><a href="#1，Command模块：" class="headerlink" title="1，Command模块："></a>1，Command模块：</h3><p>参数： </p><p>​      chdir：切换到某一个文件夹再执行命令</p><p>​      creates：如果后该参数后面跟一个文件或者文件夹，如果存在，将不执行后面的命令</p><p>​      removes：如果该参数和面跟一个文件或者文件夹，如果不存在，将不执行和面的命令</p><p>不支持的条件：<br>      此命令不支持命令中带有  |   $  变量   &lt;   &gt;  &amp;  等等 得使用shell模块实现</p><h3 id="2，Shell模块："><a href="#2，Shell模块：" class="headerlink" title="2，Shell模块："></a>2，Shell模块：</h3><p>参数：</p><p>​        和command类似</p><p>eg：</p><p>​         ansible all -m shell -a ‘ps aux grep|nginx’</p><h3 id="3-Script-运行脚本的模块"><a href="#3-Script-运行脚本的模块" class="headerlink" title="3,Script:运行脚本的模块"></a>3,Script:运行脚本的模块</h3><h4 id="tips：在编写脚本的时候，应该遵循规范在第一行加上：-bin-bash"><a href="#tips：在编写脚本的时候，应该遵循规范在第一行加上：-bin-bash" class="headerlink" title="tips：在编写脚本的时候，应该遵循规范在第一行加上：   #!/bin/bash"></a>tips：在编写脚本的时候，应该遵循规范在第一行加上：   #!/bin/bash</h4><h4 id="eg-echo-hostname-gt-test-sh"><a href="#eg-echo-hostname-gt-test-sh" class="headerlink" title="eg:    echo hostname &gt; test.sh"></a>eg:    echo hostname &gt; test.sh</h4><h4 id="chmod-x-test-sh"><a href="#chmod-x-test-sh" class="headerlink" title="chmod +x test.sh"></a>chmod +x test.sh</h4><h4 id="ansible-all-m-script-a-‘-test-sh’"><a href="#ansible-all-m-script-a-‘-test-sh’" class="headerlink" title="ansible all - m script -a ‘./test.sh’"></a>ansible all - m script -a ‘./test.sh’</h4><h3 id="4-copy模块：从主控端复制文件到被控端"><a href="#4-copy模块：从主控端复制文件到被控端" class="headerlink" title="4.copy模块：从主控端复制文件到被控端"></a>4.copy模块：从主控端复制文件到被控端</h3><p>ansible all -m copy -a ‘src=/root/test.sh dest=/tmp/test.sh backup=yes’</p><h4 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h4><pre><code>src:主控端的路径</code></pre><p>​        dest:要复制到被控端的文件路径</p><p>​    backup=yes：将原来的文件做一个备份，如果目标存在先进行备份再复制</p><h3 id="5，fetch模块："><a href="#5，fetch模块：" class="headerlink" title="5，fetch模块："></a>5，fetch模块：</h3><p>从被控端取文件到主控端与copy相反：</p><p>但是只能抓取被控端的一个文件，如果想抓取多个，将多个文件进行打包再fetch过来，</p><h4 id="命令格式："><a href="#命令格式：" class="headerlink" title="命令格式："></a>命令格式：</h4><h4 id="抓取：ansible-all-m-fetch-a-‘src-root-log-tar-xz-dest-data-‘"><a href="#抓取：ansible-all-m-fetch-a-‘src-root-log-tar-xz-dest-data-‘" class="headerlink" title="抓取：ansible all -m ==fetch== -a ‘src=/root/log.tar.xz dest=/data/‘"></a>抓取：ansible all -m ==fetch== -a ‘src=/root/log.tar.xz dest=/data/‘</h4><h4 id="打包：ansible-all-m-shell-a-‘tar-Jcf-log-tar-xz-var-log-log’"><a href="#打包：ansible-all-m-shell-a-‘tar-Jcf-log-tar-xz-var-log-log’" class="headerlink" title="打包：ansible all -m shell -a ‘tar Jcf log.tar.xz   /var/log/*.log’"></a>打包：ansible all -m shell -a ‘tar Jcf log.tar.xz   /var/log/*.log’</h4><h4 id="预览：tar-tvf-log-tar-xz"><a href="#预览：tar-tvf-log-tar-xz" class="headerlink" title="预览：tar tvf log.tar.xz"></a>预览：tar tvf log.tar.xz</h4><h3 id="6-File模块：设置文件的属性"><a href="#6-File模块：设置文件的属性" class="headerlink" title="6,File模块：设置文件的属性"></a>6,File模块：设置文件的属性</h3><h4 id="创建一个文件：ansible-all-m-file-a-‘path-root-test-owner-wx-state-touch-’"><a href="#创建一个文件：ansible-all-m-file-a-‘path-root-test-owner-wx-state-touch-’" class="headerlink" title="创建一个文件：ansible all -m file -a ‘path=/root/test owner=wx ==state=touch==’"></a>创建一个文件：ansible all -m file -a ‘path=/root/test owner=wx ==state=touch==’</h4><h4 id="删除一个文件：ansible-all-m-file-a-‘path-root-test-state-absent’"><a href="#删除一个文件：ansible-all-m-file-a-‘path-root-test-state-absent’" class="headerlink" title="删除一个文件：ansible all -m file -a ‘path=/root/test ==state=absent’=="></a>删除一个文件：ansible all -m file -a ‘path=/root/test ==state=absent’==</h4><h4 id="创建一文件夹：ansible-all-m-file-a-‘path-root-test-state-directory-’"><a href="#创建一文件夹：ansible-all-m-file-a-‘path-root-test-state-directory-’" class="headerlink" title="创建一文件夹：ansible all -m file -a ‘path=/root/test ==state=directory==’"></a>创建一文件夹：ansible all -m file -a ‘path=/root/test ==state=directory==’</h4><h4 id="复制文件到被控端：ansible-all-m-file-a-‘-src-app-test-file-dest-app-test-file-’"><a href="#复制文件到被控端：ansible-all-m-file-a-‘-src-app-test-file-dest-app-test-file-’" class="headerlink" title="复制文件到被控端：ansible all -m file -a ‘==src=/app/test/file dest=/app/test/file==’"></a>复制文件到被控端：ansible all -m file -a ‘==src=/app/test/file dest=/app/test/file==’</h4><h3 id="7-hostname模块-管理主机名"><a href="#7-hostname模块-管理主机名" class="headerlink" title="7,hostname模块:管理主机名"></a>7,hostname模块:管理主机名</h3><h4 id="eg-ansible-192-168-10-129-m-hostname-a-‘-name-hostOne’"><a href="#eg-ansible-192-168-10-129-m-hostname-a-‘-name-hostOne’" class="headerlink" title="eg:    ansible 192.168.10.129 -m ==hostname== -a ‘==name===hostOne’"></a>eg:    ansible 192.168.10.129 -m ==hostname== -a ‘==name===hostOne’</h4><h3 id="8，Cron模块：计划任务"><a href="#8，Cron模块：计划任务" class="headerlink" title="8，Cron模块：计划任务"></a>8，Cron模块：计划任务</h3><h4 id="先查询广播路径：-which-wall-—-gt-usr-bin-wall"><a href="#先查询广播路径：-which-wall-—-gt-usr-bin-wall" class="headerlink" title="先查询广播路径： which wall  —&gt;/usr/bin/wall"></a>先查询广播路径： which wall  —&gt;/usr/bin/wall</h4><h4 id="支持时间：-minute-hour-day-month-weekday"><a href="#支持时间：-minute-hour-day-month-weekday" class="headerlink" title="支持时间： minute  hour day month weekday"></a>支持时间： minute  hour day month weekday</h4><h4 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h4><h4 id="创建名为name的任务-：ansible-all-m-cron-a-‘minute-job-”-usr-bin-wall”-NBA-Warning-name-warningcron’"><a href="#创建名为name的任务-：ansible-all-m-cron-a-‘minute-job-”-usr-bin-wall”-NBA-Warning-name-warningcron’" class="headerlink" title="创建名为name的任务 ：ansible all  -m cron -a ‘minute=* job=”/usr/bin/wall” NBA Warning name=warningcron’"></a>创建名为name的任务 ：ansible all  -m cron -a ‘minute=* job=”/usr/bin/wall” NBA Warning name=warningcron’</h4><h4 id="禁用任务：ansible-all-m-cron-a-‘-disabled-true-job-”-usr-bin-wall-NBA-Warning”-name-warningcron’"><a href="#禁用任务：ansible-all-m-cron-a-‘-disabled-true-job-”-usr-bin-wall-NBA-Warning”-name-warningcron’" class="headerlink" title="禁用任务：ansible all -m cron -a ‘==disabled=true== job=”/usr/bin/wall NBA Warning” name=warningcron’"></a>禁用任务：ansible all -m cron -a ‘==disabled=true== job=”/usr/bin/wall NBA Warning” name=warningcron’</h4><h4 id="启用任务：将上面的disabled改为false即可"><a href="#启用任务：将上面的disabled改为false即可" class="headerlink" title="启用任务：将上面的disabled改为false即可"></a>启用任务：将上面的disabled改为false即可</h4><h4 id="删除任务：ansible-all-m-cron-a-‘job-”-usr-bin-wall-NBAWarning”-name-warincron-state-absent-’"><a href="#删除任务：ansible-all-m-cron-a-‘job-”-usr-bin-wall-NBAWarning”-name-warincron-state-absent-’" class="headerlink" title="删除任务：ansible all -m cron -a ‘job=”/usr/bin/wall NBAWarning” name=warincron ==state=absent==’"></a>删除任务：ansible all -m cron -a ‘job=”/usr/bin/wall NBAWarning” name=warincron ==state=absent==’</h4><h4 id="查看任务：crontab-e"><a href="#查看任务：crontab-e" class="headerlink" title="查看任务：crontab  -e"></a>查看任务：crontab  -e</h4><h3 id="9-yum模块：管理包"><a href="#9-yum模块：管理包" class="headerlink" title="9,yum模块：管理包"></a>9,yum模块：管理包</h3><h4 id="前提：被控端都有yum3，检查yum仓库"><a href="#前提：被控端都有yum3，检查yum仓库" class="headerlink" title="前提：被控端都有yum3，检查yum仓库"></a>前提：被控端都有yum3，检查yum仓库</h4><p>/etc/yum.repos.d/base.repo</p><h4 id="安装：ansible-all-m-yum-a-‘name-httpd’"><a href="#安装：ansible-all-m-yum-a-‘name-httpd’" class="headerlink" title="安装：ansible all -m yum -a ‘name=httpd’"></a>安装：ansible all -m yum -a ‘name=httpd’</h4><h4 id="查看一已经安装的包：ansible-all-m-yum-a-‘list-installed’"><a href="#查看一已经安装的包：ansible-all-m-yum-a-‘list-installed’" class="headerlink" title="查看一已经安装的包：ansible all -m yum -a ‘list=installed’"></a>查看一已经安装的包：ansible all -m yum -a ‘list=installed’</h4><h4 id="卸载包：ansible-all-m-yum-a-‘name-httpd-state-absent-’"><a href="#卸载包：ansible-all-m-yum-a-‘name-httpd-state-absent-’" class="headerlink" title="卸载包：ansible all -m yum -a ‘name=httpd ==state=absent==’"></a>卸载包：ansible all -m yum -a ‘name=httpd ==state=absent==’</h4><h4 id="查看是否卸载了：ansible-all-m-shell-a-‘rpm-q-httpd’"><a href="#查看是否卸载了：ansible-all-m-shell-a-‘rpm-q-httpd’" class="headerlink" title="查看是否卸载了：ansible all -m shell -a ‘rpm -q httpd’"></a>查看是否卸载了：ansible all -m shell -a ‘rpm -q httpd’</h4><p>如果要安装多个包使用逗号隔开即可</p><p>yum更新缓存：update_cache=yes</p><h3 id="10-service模块：管理服务"><a href="#10-service模块：管理服务" class="headerlink" title="10,service模块：管理服务"></a>10,service模块：管理服务</h3><p>state:代表状态，状态不同服务也不同</p><p>enabled:代表的是开机是否自启动</p><h4 id="开启服务-ansible-all-m-service-a-‘name-httpd-state-started-enabled-yes’"><a href="#开启服务-ansible-all-m-service-a-‘name-httpd-state-started-enabled-yes’" class="headerlink" title="开启服务:ansible  all -m service -a ‘name=httpd state=started enabled=yes’"></a>开启服务:ansible  all -m service -a ‘name=httpd state=started enabled=yes’</h4><h4 id="停止服务：ansible-all-m-service-a-‘name-httpd-state-restarted’"><a href="#停止服务：ansible-all-m-service-a-‘name-httpd-state-restarted’" class="headerlink" title="停止服务：ansible  all -m service -a ‘name=httpd state=restarted’"></a>停止服务：ansible  all -m service -a ‘name=httpd state=restarted’</h4><h4 id="重启服务：ansible-all-m-service-a-‘name-httpd-state-stopped’"><a href="#重启服务：ansible-all-m-service-a-‘name-httpd-state-stopped’" class="headerlink" title="重启服务：ansible  all -m service -a ‘name=httpd state=stopped’"></a>重启服务：ansible  all -m service -a ‘name=httpd state=stopped’</h4><h4 id="确认开机是否自启动了：-systemctl-is-enabled-httpd"><a href="#确认开机是否自启动了：-systemctl-is-enabled-httpd" class="headerlink" title="确认开机是否自启动了：  systemctl  is-enabled httpd"></a>确认开机是否自启动了：  systemctl  is-enabled httpd</h4><h4 id="确认是否启动了：systemctl-status-httpd"><a href="#确认是否启动了：systemctl-status-httpd" class="headerlink" title="确认是否启动了：systemctl status httpd"></a>确认是否启动了：systemctl status httpd</h4><h3 id="11-user模块-管理用户"><a href="#11-user模块-管理用户" class="headerlink" title="11,user模块:管理用户"></a>11,user模块:管理用户</h3><h4 id="创建一个用户：ansible-all-m-user-a-‘name-wenxin-shell-sbin-nologin-system-yes-groups-root-uid-80’"><a href="#创建一个用户：ansible-all-m-user-a-‘name-wenxin-shell-sbin-nologin-system-yes-groups-root-uid-80’" class="headerlink" title="创建一个用户：ansible all -m user -a ‘name=wenxin shell=/sbin/nologin system=yes groups=root uid=80’"></a>创建一个用户：ansible all -m user -a ‘name=wenxin shell=/sbin/nologin system=yes groups=root uid=80’</h4><h4 id="查看用户：ansible-all-a-‘getent-passwd-wenxin’"><a href="#查看用户：ansible-all-a-‘getent-passwd-wenxin’" class="headerlink" title="查看用户：ansible all -a ‘getent passwd wenxin’"></a>查看用户：ansible all -a ‘getent passwd wenxin’</h4><h4 id="删除用户：-ansible-all-m-user-a-‘name-wenixn-state-absent’"><a href="#删除用户：-ansible-all-m-user-a-‘name-wenixn-state-absent’" class="headerlink" title="删除用户： ansible all -m user -a ‘name=wenixn state=absent’"></a>删除用户： ansible all -m user -a ‘name=wenixn state=absent’</h4><h3 id="12-group模块：管理组"><a href="#12-group模块：管理组" class="headerlink" title="12.group模块：管理组"></a>12.group模块：管理组</h3><h4 id="创建组：-ansible-all-m-group-a-‘name-nginx-system-yes-gid-82’"><a href="#创建组：-ansible-all-m-group-a-‘name-nginx-system-yes-gid-82’" class="headerlink" title="创建组： ansible all -m group -a ‘name=nginx system=yes gid=82’"></a>创建组： ansible all -m group -a ‘name=nginx system=yes gid=82’</h4><h4 id="验证：ansible-all-m-shel-a-‘getent-group-nginx’"><a href="#验证：ansible-all-m-shel-a-‘getent-group-nginx’" class="headerlink" title="验证：ansible all -m shel -a ‘getent group nginx’"></a>验证：ansible all -m shel -a ‘getent group nginx’</h4><h4 id="删除：ansible-all-m-group-a-‘name-nginx-state-absent’"><a href="#删除：ansible-all-m-group-a-‘name-nginx-state-absent’" class="headerlink" title="删除：ansible all =m group -a ‘name=nginx state=absent’"></a>删除：ansible all =m group -a ‘name=nginx state=absent’</h4><h3 id="13ping模块："><a href="#13ping模块：" class="headerlink" title="13ping模块："></a>13ping模块：</h3><h4 id="检查主控端和被控端的连通性"><a href="#检查主控端和被控端的连通性" class="headerlink" title="检查主控端和被控端的连通性"></a>检查主控端和被控端的连通性</h4><h4 id="命令：ansible-all-m-ping"><a href="#命令：ansible-all-m-ping" class="headerlink" title="命令：ansible all -m ping"></a>命令：ansible all -m ping</h4><h3 id="14-总结：ansible中的模块有1000多个我只是学了常用的13个模块，如果想要学习新的模块可以到官网。"><a href="#14-总结：ansible中的模块有1000多个我只是学了常用的13个模块，如果想要学习新的模块可以到官网。" class="headerlink" title="14,总结：ansible中的模块有1000多个我只是学了常用的13个模块，如果想要学习新的模块可以到官网。"></a>14,总结：ansible中的模块有1000多个我只是学了常用的13个模块，如果想要学习新的模块可以到官网。</h3><h3 id="平时在学习的过程中可以使用：-ansible-doc-s-模块名-来看看这个模块怎么用。"><a href="#平时在学习的过程中可以使用：-ansible-doc-s-模块名-来看看这个模块怎么用。" class="headerlink" title="平时在学习的过程中可以使用：  ansible-doc    -s     模块名   来看看这个模块怎么用。"></a>平时在学习的过程中可以使用：  ansible-doc    -s     模块名   来看看这个模块怎么用。</h3><p>#### </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible05-常用模块详细介绍&quot;&gt;&lt;a href=&quot;#Ansible05-常用模块详细介绍&quot; class=&quot;headerlink&quot; title=&quot;Ansible05_常用模块详细介绍&quot;&gt;&lt;/a&gt;Ansible05_常用模块详细介绍&lt;/h2&gt;&lt;p&gt;首先介绍一下
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>test2</title>
@@ -27,6 +177,31 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Ansible04_ansible命令执行过程及常用模块</title>
+    <link href="https://jackLovewx.github.io/2018/11/27/Ansible04-ansible%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
+    <id>https://jackLovewx.github.io/2018/11/27/Ansible04-ansible命令执行过程及常用模块/</id>
+    <published>2018-11-27T14:15:24.000Z</published>
+    <updated>2018-12-03T06:56:52.734Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ansible04-ansible命令执行过程"><a href="#Ansible04-ansible命令执行过程" class="headerlink" title="Ansible04_ansible命令执行过程"></a>Ansible04_ansible命令执行过程</h2><h3 id="1，ansible命令执行过程："><a href="#1，ansible命令执行过程：" class="headerlink" title="1，ansible命令执行过程："></a>1，ansible命令执行过程：</h3><p>​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg</p><p>​    2，加载自己的模块文件，如command ping 等等</p><p>​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户， </p><p>​         /.ansible/tmp/ansible-tmp-数字/xxxxx.py文件</p><p>​    4，给文件进行  +x  加执行权限操作</p><p>​    5，执行并且返回结果</p><p>​    6，删除临时文件，然后退出</p><h3 id="2，执行状态："><a href="#2，执行状态：" class="headerlink" title="2，执行状态："></a>2，执行状态：</h3><p>​    绿色：成功，不需要做改变的操作</p><p>​    黄色：成功，并且对目标主机进行了变更操作</p><p>​    红色：执行失败。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Ansible04-ansible命令执行过程&quot;&gt;&lt;a href=&quot;#Ansible04-ansible命令执行过程&quot; class=&quot;headerlink&quot; title=&quot;Ansible04_ansible命令执行过程&quot;&gt;&lt;/a&gt;Ansible04_ansible
+      
+    
+    </summary>
+    
+      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
     
   </entry>
   
@@ -44,31 +219,6 @@
       
       
         &lt;h2 id=&quot;Ansible02-配置文件及命令概览&quot;&gt;&lt;a href=&quot;#Ansible02-配置文件及命令概览&quot; class=&quot;headerlink&quot; title=&quot;Ansible02_配置文件及命令概览&quot;&gt;&lt;/a&gt;Ansible02_配置文件及命令概览&lt;/h2&gt;&lt;h3 i
-      
-    
-    </summary>
-    
-      <category term="Ansible学习" scheme="https://jackLovewx.github.io/categories/Ansible%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Ansible" scheme="https://jackLovewx.github.io/tags/Ansible/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ansible04_ansible命令执行过程及常用模块</title>
-    <link href="https://jackLovewx.github.io/2018/11/27/Ansible04-ansible%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    <id>https://jackLovewx.github.io/2018/11/27/Ansible04-ansible命令执行过程及常用模块/</id>
-    <published>2018-11-27T14:15:24.000Z</published>
-    <updated>2018-11-29T09:32:08.632Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ansible04-ansible命令执行过程及常用模块"><a href="#Ansible04-ansible命令执行过程及常用模块" class="headerlink" title="Ansible04_ansible命令执行过程及常用模块"></a>Ansible04_ansible命令执行过程及常用模块</h2><h3 id="1，ansible命令执行过程："><a href="#1，ansible命令执行过程：" class="headerlink" title="1，ansible命令执行过程："></a>1，ansible命令执行过程：</h3><p>​    1，加载自己的配置文件，默认在目录  /etc/ansible/ansible.cfg</p><p>​    2，加载自己的模块文件，如command ping 等等</p><p>​    3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户， </p><p>​         /.ansible/tmp/ansible-tmp-数字/xxxxx.py文件</p><p>​    4，给文件进行  +x  加执行权限操作</p><p>​    5，执行并且返回结果</p><p>​    6，删除临时文件，然后退出</p><h3 id="2，执行状态："><a href="#2，执行状态：" class="headerlink" title="2，执行状态："></a>2，执行状态：</h3><p>​    绿色：成功，不需要做改变的操作</p><p>​    黄色：成功，并且对目标主机进行了变更操作</p><p>​    红色：执行失败。</p><h3 id="3，Ansible常用模块详细介绍："><a href="#3，Ansible常用模块详细介绍：" class="headerlink" title="3，Ansible常用模块详细介绍："></a>3，Ansible常用模块详细介绍：</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Ansible04-ansible命令执行过程及常用模块&quot;&gt;&lt;a href=&quot;#Ansible04-ansible命令执行过程及常用模块&quot; class=&quot;headerlink&quot; title=&quot;Ansible04_ansible命令执行过程及常用模块&quot;&gt;&lt;/a&gt;An
       
     
     </summary>
@@ -341,156 +491,6 @@
       
       
         &lt;h2 id=&quot;HEXO-添加DaoVoice在线联系&quot;&gt;&lt;a href=&quot;#HEXO-添加DaoVoice在线联系&quot; class=&quot;headerlink&quot; title=&quot;HEXO_添加DaoVoice在线联系&quot;&gt;&lt;/a&gt;HEXO_添加DaoVoice在线联系&lt;/h2&gt;&lt;h3 i
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_博文置顶</title>
-    <link href="https://jackLovewx.github.io/2018/11/23/HEXO-%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6/"/>
-    <id>https://jackLovewx.github.io/2018/11/23/HEXO-博文置顶/</id>
-    <published>2018-11-23T01:53:42.000Z</published>
-    <updated>2018-11-26T05:16:21.696Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-博文置顶"><a href="#HEXO-博文置顶" class="headerlink" title="HEXO_博文置顶"></a>HEXO_博文置顶</h2><h3 id="1-修改hexo-generator-index插件，把node-modules-hexo-generator-index-lib-generator-js中代码替换为："><a href="#1-修改hexo-generator-index插件，把node-modules-hexo-generator-index-lib-generator-js中代码替换为：" class="headerlink" title="1,修改hexo-generator-index插件，把node_modules/hexo-generator-index/lib/generator.js中代码替换为："></a>1,修改<strong>hexo-generator-index</strong>插件，把<code>node_modules/hexo-generator-index/lib/generator.js</code>中代码替换为：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">var pagination = require(&apos;hexo-pagination&apos;);</span><br><span class="line">module.exports = function(locals)&#123;</span><br><span class="line">  var config = this.config;</span><br><span class="line">  var posts = locals.posts;</span><br><span class="line">    posts.data = posts.data.sort(function(a, b) &#123;</span><br><span class="line">        if(a.top &amp;&amp; b.top) &#123; // 两篇文章top都有定义</span><br><span class="line">            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排</span><br><span class="line">            else return b.top - a.top; // 否则按照top值降序排</span><br><span class="line">        &#125;</span><br><span class="line">        else if(a.top &amp;&amp; !b.top) &#123; // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        else return b.date - a.date; // 都没定义按照文章日期降序排</span><br><span class="line">    &#125;);</span><br><span class="line">  var paginationDir = config.pagination_dir || &apos;page&apos;;</span><br><span class="line">  return pagination(&apos;&apos;, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [&apos;index&apos;, &apos;archive&apos;],</span><br><span class="line">    format: paginationDir + &apos;/%d/&apos;,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="2-文章添加Top值，值越大，越靠前："><a href="#2-文章添加Top值，值越大，越靠前：" class="headerlink" title="2,文章添加Top值，值越大，越靠前："></a>2,文章添加Top值，值越大，越靠前：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo-NexT主题配置</span><br><span class="line">date: 2018-01-20 20:41:08</span><br><span class="line">categories: Hexo</span><br><span class="line">tags:</span><br><span class="line">- Hexo</span><br><span class="line">- NexT</span><br><span class="line">top: 100</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-博文置顶&quot;&gt;&lt;a href=&quot;#HEXO-博文置顶&quot; class=&quot;headerlink&quot; title=&quot;HEXO_博文置顶&quot;&gt;&lt;/a&gt;HEXO_博文置顶&lt;/h2&gt;&lt;h3 id=&quot;1-修改hexo-generator-index插件，把node-modu
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_添加jiathis分享</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E6%B7%BB%E5%8A%A0jiathis%E5%88%86%E4%BA%AB/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-添加jiathis分享/</id>
-    <published>2018-11-22T14:23:41.000Z</published>
-    <updated>2018-11-26T05:18:00.411Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-添加jiathis分享"><a href="#HEXO-添加jiathis分享" class="headerlink" title="HEXO_添加jiathis分享"></a>HEXO_添加jiathis分享</h2><h3 id="1编辑主题配置文件，将jiathis改为ture即可："><a href="#1编辑主题配置文件，将jiathis改为ture即可：" class="headerlink" title="1编辑主题配置文件，将jiathis改为ture即可："></a>1编辑主题配置文件，将<strong>jiathis</strong>改为<strong>ture</strong>即可：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Share</span><br><span class="line"># This plugin is more useful in China, make sure you known how to use it.</span><br><span class="line"># And you can find the use guide at official webiste: http://www.jiathis.com/.</span><br><span class="line"># Warning: JiaThis does not support https.</span><br><span class="line">jiathis: ture</span><br><span class="line">  ##uid: Get this uid from http://www.jiathis.com/</span><br><span class="line">#add_this_id:</span><br></pre></td></tr></table></figure><h3 id="2-效果如下图所示："><a href="#2-效果如下图所示：" class="headerlink" title="2,效果如下图所示："></a>2,效果如下图所示：</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-添加jiathis分享&quot;&gt;&lt;a href=&quot;#HEXO-添加jiathis分享&quot; class=&quot;headerlink&quot; title=&quot;HEXO_添加jiathis分享&quot;&gt;&lt;/a&gt;HEXO_添加jiathis分享&lt;/h2&gt;&lt;h3 id=&quot;1编辑主题配置文件
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_添加网页顶部进度加载条</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E6%B7%BB%E5%8A%A0%E7%BD%91%E9%A1%B5%E9%A1%B6%E9%83%A8%E8%BF%9B%E5%BA%A6%E5%8A%A0%E8%BD%BD%E6%9D%A1/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-添加网页顶部进度加载条/</id>
-    <published>2018-11-22T14:04:53.000Z</published>
-    <updated>2018-11-26T05:18:34.673Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-添加网页顶部进度加载条"><a href="#HEXO-添加网页顶部进度加载条" class="headerlink" title="HEXO_添加网页顶部进度加载条"></a>HEXO_添加网页顶部进度加载条</h2><h3 id="1-编辑主题配置文件，ctrl-f-搜索pace，将其值改为ture就可以了，选择一款你喜欢的样式。"><a href="#1-编辑主题配置文件，ctrl-f-搜索pace，将其值改为ture就可以了，选择一款你喜欢的样式。" class="headerlink" title="1,编辑主题配置文件，ctrl+f 搜索pace，将其值改为ture就可以了，选择一款你喜欢的样式。"></a>1,编辑主题配置文件，ctrl+f 搜索<code>pace</code>，将其值改为<code>ture</code>就可以了，选择一款你喜欢的样式。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># Progress bar in the top during page loading.</span><br><span class="line">pace: ture</span><br><span class="line">Themes list:</span><br><span class="line">#pace-theme-big-counter</span><br><span class="line">#pace-theme-bounce</span><br><span class="line">#pace-theme-barber-shop</span><br><span class="line">#pace-theme-center-atom</span><br><span class="line">#pace-theme-center-circle</span><br><span class="line">#pace-theme-center-radar</span><br><span class="line">#pace-theme-center-simple</span><br><span class="line">#pace-theme-corner-indicator</span><br><span class="line">#pace-theme-fill-left</span><br><span class="line">#pace-theme-flash</span><br><span class="line">#pace-theme-loading-bar</span><br><span class="line">#pace-theme-mac-osx</span><br><span class="line">#pace-theme-minimal</span><br><span class="line"># For example</span><br><span class="line"># pace_theme: pace-theme-center-simple</span><br><span class="line">pace_theme: pace-theme-minimal</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-添加网页顶部进度加载条&quot;&gt;&lt;a href=&quot;#HEXO-添加网页顶部进度加载条&quot; class=&quot;headerlink&quot; title=&quot;HEXO_添加网页顶部进度加载条&quot;&gt;&lt;/a&gt;HEXO_添加网页顶部进度加载条&lt;/h2&gt;&lt;h3 id=&quot;1-编辑主题配置文
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_实现文章统计功能</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-实现文章统计功能/</id>
-    <published>2018-11-22T13:54:42.000Z</published>
-    <updated>2018-11-26T05:17:36.609Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-实现文章统计功能"><a href="#HEXO-实现文章统计功能" class="headerlink" title="HEXO_实现文章统计功能"></a>HEXO_实现文章统计功能</h2><h3 id="1安装Hexo插件，参考网站底部字数统计。"><a href="#1安装Hexo插件，参考网站底部字数统计。" class="headerlink" title="1安装Hexo插件，参考网站底部字数统计。"></a>1安装Hexo插件，参考<strong>网站底部字数统计</strong>。</h3><h3 id="2-编辑主题配置文件，配置如下："><a href="#2-编辑主题配置文件，配置如下：" class="headerlink" title="2,编辑主题配置文件，配置如下："></a>2,编辑主题配置文件，配置如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/willin/hexo-wordcount</span><br><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true</span><br><span class="line">  min2read: true</span><br><span class="line">  totalcount: true</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure><h3 id="3-效果图："><a href="#3-效果图：" class="headerlink" title="3,效果图："></a>3,效果图：</h3><p><img src="/2018/11/22/HEXO-实现文章统计功能/1.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-实现文章统计功能&quot;&gt;&lt;a href=&quot;#HEXO-实现文章统计功能&quot; class=&quot;headerlink&quot; title=&quot;HEXO_实现文章统计功能&quot;&gt;&lt;/a&gt;HEXO_实现文章统计功能&lt;/h2&gt;&lt;h3 id=&quot;1安装Hexo插件，参考网站底部字数统计。
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_设置网站的图标Favicon</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E7%9A%84%E5%9B%BE%E6%A0%87Favicon/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-设置网站的图标Favicon/</id>
-    <published>2018-11-22T13:30:15.000Z</published>
-    <updated>2018-11-26T05:17:29.560Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-设置网站的图标Favicon"><a href="#HEXO-设置网站的图标Favicon" class="headerlink" title="HEXO_设置网站的图标Favicon"></a>HEXO_设置网站的图标Favicon</h2><h3 id="1-在图标网站找一张你喜欢的图标（大：32x32-小：16x16），图标网站：easyicon或者阿里巴巴矢量图标库。将下载下来的小图和中图放在blog-themes-next-source-images，将默认的两张图片替换掉。命名和默认的一样也可以自己定义："><a href="#1-在图标网站找一张你喜欢的图标（大：32x32-小：16x16），图标网站：easyicon或者阿里巴巴矢量图标库。将下载下来的小图和中图放在blog-themes-next-source-images，将默认的两张图片替换掉。命名和默认的一样也可以自己定义：" class="headerlink" title="1,在图标网站找一张你喜欢的图标（大：32x32 小：16x16），图标网站：easyicon或者阿里巴巴矢量图标库。将下载下来的小图和中图放在blog/themes/next/source/images，将默认的两张图片替换掉。命名和默认的一样也可以自己定义："></a>1,在图标网站找一张你喜欢的图标（大：32x32 小：16x16），图标网站：<a href="http://www.easyicon.net/" target="_blank" rel="noopener">easyicon</a>或者<a href="http://www.iconfont.cn/" target="_blank" rel="noopener">阿里巴巴矢量图标库</a>。将下载下来的小图和中图放在<code>blog/themes/next/source/images</code>，将默认的两张图片替换掉。命名和默认的一样也可以自己定义：</h3><p><img src="/2018/11/22/HEXO-设置网站的图标Favicon/1.png" alt=""></p><p><img src="/2018/11/22/HEXO-设置网站的图标Favicon/2.png" alt=""></p><h3 id="2-修改主题配置文件，如果你自定义了图片名字，需要做修改："><a href="#2-修改主题配置文件，如果你自定义了图片名字，需要做修改：" class="headerlink" title="2,修改主题配置文件，如果你自定义了图片名字，需要做修改："></a>2,修改主题配置文件，如果你自定义了图片名字，需要做修改：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># For example, you put your favicons into `hexo-site/source/images` directory.</span><br><span class="line"># Then need to rename &amp; redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.</span><br><span class="line">favicon:</span><br><span class="line">  small: /images/favicon-16x16-next.png  //16X16小图</span><br><span class="line">  medium: /images/favicon-32x32-next.png  //32X32大图</span><br><span class="line">  apple_touch_icon: /images/apple-touch-icon-next.png  //apple-touch-icon </span><br><span class="line">  safari_pinned_tab: /images/logo.svg </span><br><span class="line">  #android_manifest: /images/manifest.json</span><br><span class="line">  #ms_browserconfig: /images/browserconfig.xml</span><br></pre></td></tr></table></figure><h3 id="3-修改后，效果如下："><a href="#3-修改后，效果如下：" class="headerlink" title="3,修改后，效果如下："></a>3,修改后，效果如下：</h3><p> <img src="/2018/11/22/HEXO-设置网站的图标Favicon/3.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-设置网站的图标Favicon&quot;&gt;&lt;a href=&quot;#HEXO-设置网站的图标Favicon&quot; class=&quot;headerlink&quot; title=&quot;HEXO_设置网站的图标Favicon&quot;&gt;&lt;/a&gt;HEXO_设置网站的图标Favicon&lt;/h2&gt;&lt;h3 i
-      
-    
-    </summary>
-    
-      <category term="个人博客搭建" scheme="https://jackLovewx.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="https://jackLovewx.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO_网站底部字数统计</title>
-    <link href="https://jackLovewx.github.io/2018/11/22/HEXO-%E7%BD%91%E7%AB%99%E5%BA%95%E9%83%A8%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/"/>
-    <id>https://jackLovewx.github.io/2018/11/22/HEXO-网站底部字数统计/</id>
-    <published>2018-11-22T09:24:50.000Z</published>
-    <updated>2018-11-26T05:19:02.864Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HEXO-网站底部字数统计"><a href="#HEXO-网站底部字数统计" class="headerlink" title="HEXO_网站底部字数统计"></a>HEXO_网站底部字数统计</h2><h3 id="1-安装hexo插件，切换到根目录："><a href="#1-安装hexo插件，切换到根目录：" class="headerlink" title="1,安装hexo插件，切换到根目录："></a>1,安装hexo插件，切换到根目录：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure><h3 id="2-在Blog-themes-next-layout-partials-footer-swig末尾添加代码："><a href="#2-在Blog-themes-next-layout-partials-footer-swig末尾添加代码：" class="headerlink" title="2,在Blog/themes/next/layout/_partials/footer.swig末尾添加代码："></a>2,在<code>Blog/themes/next/layout/_partials/footer.swig</code>末尾添加代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;theme-info&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;powered-by&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;span class=&quot;post-count&quot;&gt;博客全站共&#123;&#123; totalcount(site) &#125;&#125;字&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h3 id="3-效果图如下图所示："><a href="#3-效果图如下图所示：" class="headerlink" title="3,效果图如下图所示："></a>3,效果图如下图所示：</h3><p> <img src="/2018/11/22/HEXO-网站底部字数统计/1.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HEXO-网站底部字数统计&quot;&gt;&lt;a href=&quot;#HEXO-网站底部字数统计&quot; class=&quot;headerlink&quot; title=&quot;HEXO_网站底部字数统计&quot;&gt;&lt;/a&gt;HEXO_网站底部字数统计&lt;/h2&gt;&lt;h3 id=&quot;1-安装hexo插件，切换到根目录：&quot;&gt;&lt;
       
     
     </summary>
