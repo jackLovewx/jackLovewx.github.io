@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue01_核心]]></title>
+    <url>%2F2018%2F12%2F05%2FVue01-%E6%A0%B8%E5%BF%83%2F</url>
+    <content type="text"><![CDATA[Vue01_核心1，Vue的基本认识：1）一位华裔前Google工程师(尤雨溪)开发的前端js库 2）作用: 动态构建用户界面 3）特点： ​ *遵循MVVM模式 ​ *编码简洁, 体积小, 运行效率高, 移动/PC端开发 ​ *它本身只关注UI, 可以轻松引入vue插件和其它第三库开发项目 4）与其他前端JS框架的关联 ​ *借鉴angular的模板和数据绑定技术 ​ *借鉴react的组件化和虚拟DOM技术 5） vue包含一系列的扩展插件(库): * vue-cli: vue脚手架 * vue-resource(axios): ajax请求 * vue-router: 路由 * vuex: 状态管理 * vue-lazyload: 图片懒加载 * vue-scroller: 页面滑动相关 * mint-ui: 基于vue的组件库(移动端) * element-ui: 基于vue的组件库(PC端) 2，Vue的基本使用1）效果：一个输入框，里面输入数据，下面显示相应的数据。 2）步骤： 123456789&lt;!--1,引入vue.js2,创建Vue实例， 指定 el 选择器 data3，双向数据绑定： v-model4，显示数据： &#123;&#123;username&#125;&#125;5，理解 MVVM--&gt; 3）代码： 1234567891011121314 &lt;div id="mustang" &gt; &lt;input type="text" v-model="username"&gt; &lt;p&gt;&#123;&#123;username&#125;&#125;&lt;/p&gt; &lt;/div&gt;&lt;script type="text/javascript" src="../js/vue.js"&gt;&lt;/script&gt;&lt;script type="text/javascript"&gt; const vm = new Vue(&#123; el: '#mustang', data: &#123; username: 'mustang' &#125; &#125;)&lt;/script&gt; 3，理解MVVM： 4，模板语法1）模板的理解： ​ 动态的html页面 ​ 包含了一些Js语法代码：双大括号表达式和v-开头的指令 2）双大括号表达式： ​ 语法： ​ 功能：向页面输出数据 ​ 可以调用对象的方法 3）指令一：强制数据绑定 ​ 功能：指定变化的属性值 ​ 完整写法： v-bind:xxx=’yyy’ ​ 简洁语法： ：xxx=‘yyy’ 4）指令二：绑定事件监听 ​ 完整写法：v-on:keyup=’xxx’ v-on:keyup=’xxx(参数)’ ​ 简洁语法：@keyup=‘xxx’ @keyup.enter=’xxx’ 5）示例代码： 1234567891011121314151617181920212223242526272829303132333435&lt;body&gt;&lt;div id="app"&gt; &lt;!--双大括号表达式的用法--&gt; &lt;p&gt;双大括号表达式的用法&lt;/p&gt; &lt;p&gt;&#123;&#123;username&#125;&#125;&lt;/p&gt; &lt;p&gt;&#123;&#123;username.toUpperCase()&#125;&#125;&lt;/p&gt; &lt;hr&gt; &lt;!--强制数据绑定的用法--&gt; &lt;p&gt;强制数据绑定的用法:将一个文本理解为一个表达式&lt;/p&gt; &lt;img :src="imgUrl" &gt; &lt;hr&gt; &lt;!--强制数据帮顶顶的用法--&gt; &lt;p&gt;强制数据绑定的用法:绑定监听&lt;/p&gt; &lt;button @click="hello"&gt;点击弹出&lt;/button&gt; &lt;button @click="test('带参数的 Mustang')"&gt;点击弹出&lt;/button&gt;&lt;/div&gt;&lt;script type="text/javascript" src="../js/vue.js"&gt;&lt;/script&gt;&lt;script type="text/javascript"&gt; const vm = new Vue(&#123; el: '#app', data: &#123; username: 'Mustang', imgUrl: 'http://img1.imgtn.bdimg.com/it/u=4016276316,619558019&amp;fm=26&amp;gp=0.jpg' &#125;, methods: &#123; hello()&#123; alert('Hello Mustang') &#125;, test(content)&#123; alert(content) &#125; &#125; &#125;)&lt;/script&gt;&lt;/body&gt; 5，计算属性和监视1）计算属性： ​ 在computed属性对象中定义计算属性的方法 ​ 在页面中使用 来显示计算的结果 2） 监视属性： ​ 通过vm对象的$watch()或者watch配置来监视指定的属性 ​ 当属性变化时，回调函数会自动调用，在函数内部进行计算 3）计算属性高级： ​ 通过getter/setter实现对属性数据的监视和显示 ​ 计算属性存在缓存，多次读取只进行一次getter计算 4）示例代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546&lt;body&gt;&lt;div id="demo"&gt; 姓: &lt;input type="text" placeholder="First Name" v-model="firstName"&gt;&lt;br&gt; 名: &lt;input type="text" placeholder="Last Name" v-model="lastName"&gt;&lt;br&gt; &lt;!--fullName1是根据fistName和lastName计算产生--&gt; 姓名1(单向): &lt;input type="text" placeholder="Full Name1" v-model="fullName1"&gt;&lt;br&gt; 姓名2(单向): &lt;input type="text" placeholder="Full Name2" v-model="fullName2"&gt;&lt;br&gt; 姓名3(双向): &lt;input type="text" placeholder="Full Name3" v-model="fullName3"&gt;&lt;br&gt;&lt;/div&gt;&lt;script type="text/javascript" src="../js/vue.js"&gt;&lt;/script&gt;&lt;script type="text/javascript"&gt; const vm = new Vue(&#123; el: '#demo', data: &#123; firstName: 'wx', lastName: 'lt', fullName2: '' &#125;, computed: &#123; fullName1()&#123; return this.firstName+ '--'+this.lastName &#125;, fullName3: &#123; //// 当获取当前属性值时自动调用, 将返回值(根据相关的其它属性数据)作为属性值 get()&#123; return this.firstName+ " " + this.lastName &#125;, // 当属性值发生了改变时自动调用, 监视当前属性值变化, 同步更新相关的其它属性值 set(value)&#123; const names = value.split(' ') this.firstName = names[0] this.lastName = names[1] &#125; &#125; &#125;, watch: &#123; firstName: function (value) &#123; this.fullName2 = value + '-'+this.lastName &#125;, lastName: function (value) &#123; this.fullName2 = this.firstName + '-'+value &#125; &#125;, &#125;)&lt;/script&gt;&lt;/body&gt;]]></content>
+      <categories>
+        <category>vue学习</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ansible10_roles详细介绍]]></title>
     <url>%2F2018%2F12%2F04%2FAnsible10-roles%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%2F</url>
     <content type="text"><![CDATA[Ansible10_roles详细介绍1,Roles:角色ansible自1.2版本引入的新特性，用于层次性，结构化的组织playbook，角色能够根据层次性结构自动转载变量文件 tasks以及handlers等，要使用角色只需在playbook中使用include指令即可，简单来讲，角色就是通过分别将变量，文件 任务，模板以及处理器放置于单独的目录中，并且可以快捷的include他们的一种机制，角色一般用于基于主机构建服务的 场景中，但是也可以用于构建守护进程等场景中。 复杂场景：建议使用roles，代码的复用度高 2，Roles的目录结构每个角色，以特定的层级目录结构进行组织 roles目录机构：​ playbook.yml ​ roles/ ​ project/ ​ tasks:定义task，role的基本元素，至少包含一个名为main.yml的文件，其他文件在此文件中include包含 ​ files:存放有copy或者script模块等调用的文件 ​ vars:不常用，定义变量，至少有一个名为main.yml文件。 ​ default:不常用，设定默认变量时，使用此目录中的main.yml文件 ​ templates:template模块查找说需要的模板文件的目录 handlers:至少有一个名为main.yml文件，其他文件用include包含 ​ meta:不常用，定义当前角色的特殊设定，及依赖关系，至少包含main.yml文件 3，角色应用的综合示例：以http服务器为例1，mkdir roles 2，mkdir app 3，mkdir tasks template vars handlers files 4，tree可以查看目录结构 tasks（任务）： 5，创建组：group 组名：app 系统组： system=yes gid=123 6，创建用户：user 用户名：app 将用户添加到组中，系统用户， shell=/sbin/nologin 7，安装包：yum 包：httpd 8，拷贝一些模板文件：/etc/httpd/conf/http.conf 复制到 /templates下改名为 http.conf.j2 ​ 修改问价内容，该Listen为 该user为 ​ 该group为 9，准备变量文件 /var/main.yml ——–username: app groupname: app 10,编写template.yml任务， src dest 11，添加 handlers和 notify 12，启动服务 13，重启服务]]></content>
@@ -72,17 +83,6 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[Ansible04_ansible命令执行过程及常用模块]]></title>
-    <url>%2F2018%2F11%2F27%2FAnsible04-ansible%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%2F</url>
-    <content type="text"><![CDATA[Ansible04_ansible命令执行过程1，ansible命令执行过程：​ 1，加载自己的配置文件，默认在目录 /etc/ansible/ansible.cfg ​ 2，加载自己的模块文件，如command ping 等等 ​ 3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户， ​ /.ansible/tmp/ansible-tmp-数字/xxxxx.py文件 ​ 4，给文件进行 +x 加执行权限操作 ​ 5，执行并且返回结果 ​ 6，删除临时文件，然后退出 2，执行状态：​ 绿色：成功，不需要做改变的操作 ​ 黄色：成功，并且对目标主机进行了变更操作 ​ 红色：执行失败。]]></content>
-      <categories>
-        <category>Ansible学习</category>
-      </categories>
-      <tags>
-        <tag>Ansible</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Ansible02_运维自动化之ansible]]></title>
     <url>%2F2018%2F11%2F27%2FAnsible02-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B9%8Bansible%2F</url>
     <content type="text"><![CDATA[Ansible02_配置文件及命令概览1,Ansible:一个主机控制多台主机这个主机被称为：主控端 被控制的多台主机称为：被控端 2，Ansible特性模块化：调用特定的模块完成特定的任务 基于Python语言实现 部署简单 安全：基于OpenSession 支持Playbook任务编排 幂等性：一个任务执行一遍和执行N遍的效果是一样的，不因重复发的执行带来意外的情况 无需代理，不依赖KPI 3，Ansible架构图： 4,Ansible的主要组成部分​ 1，PlayBooks:任务剧本，编排任务集的配置文件，由ansible顺序执行，通常是Json格式的yml文件 ​ 2，Inventory：管理主机清单 /etc./ansible/hosts ​ 3，Modules:Ansible执行命令的功能模块 ​ 4，plugins：模块功能的补充 ​ 5，API：供第三方程序调用的借口 ​ 6，Ansible：ansible的命令工具 5，Ansible的安装：​ yum install ansible 如果在执行ansible的命令时报错： ERROR! Unexpected Exception, this is probably a bug: (cryptography 0.8.2 (/usr/lib64/python2.7/site-packages), Requirement.parse(‘cryptography&gt;=1.1‘)) 解决方案： 删除列出的软件包，重新安装ansible即可 [root@kazihuo ~]# rpm -qa |grep python-crypto[root@kazihuo ~]# yum -y remove python-cryptography [root@kazihuo ~]# yum -y install ansible 6，Ansible相关配置文件：/etc/ansible/ansible.cfg：主配置文件 /etc/ansible/hosts：主机清单配置文件 ​ 风格： [webservers] ​ 192.168.10.128 ​ 192.168.10.129 或者 9 192.168.10.12[….] ​ 192.168.10.130 /etc/ansible/roles：存放角色目录 7.程序：/usr/bin/ansible：主程序，临时命令的执行工具 /usr/bin/ansible-doc：查看配置文档，模块功能查看工具 /usr/bin/ansible-galaxy：下载/上传代码 /usr/bin/ansible-playbook：定制自动化服务 /usr/bin/ansible-vault：文件加密工具 /usr/bin/ansible-console：基于console界面与用户交互的执行工具 8,Ansible配置文件 /etc/ansible/ansible.cfg#invengory=etc/ansible/hosts #主机列表配置文件#libraay=/usr/share/my-modules/ #库文件的存放目录#remote_tmp=$HOME/.ansible/tmp #临时py命令存放在远程主机目录#local_tmp=$HOME/.ansible/tmp #本机的临时命令执行目录#forks =5 #默认的并发数#sudo-user=root #默认的sudo用户#ask-sudo-pass=True #每次执行ansible命令是否询问ssh密码#ask-pass=True#remote-port=22#host-key-checking-False #检测对应服务器的Host-key建议取消注释9，Ansible系列命令：没有注解的后面会详细说。ansible ansible-doc：显示模块帮助 ​ ansible-doc [module] ansible-doc -a : 显示所有模块的文档 （不常用） ​ ansible-doc –list 列出所有的可用模块 eg: ​ ansible-doc -s ping ：-s的作用就是显示指定模块的playbook片段 ​ ansible-doc ping : 查看指定模块(ping)的帮助用法 ​ ansible-doc -l : 列出所有模块 ansible-playbook ​ 执行playbook的工具 ansible-vault ​ 用于playbook的加密解密作用 ansible-console ansible-galaxy ansible-pull]]></content>
@@ -97,6 +97,17 @@
     <title><![CDATA[Ansible03_配置基于key的验证]]></title>
     <url>%2F2018%2F11%2F27%2FAnsible03-%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8Ekey%E7%9A%84%E9%AA%8C%E8%AF%81%2F</url>
     <content type="text"><![CDATA[Ansible03_配置基于key的验证0，ansible通过ssh实现配置管理，应用部署，任务执行等功能，建议配置ansible端基于秘钥认证的方式联系被管理的远程主机。1，在安装完成之后，我们到对应的hosts文件下去配置远程主机：/etc/ansible/hosts：主机清单配置文件 ​ 风格： [webservers] ​ 192.168.10.128 ​ 192.168.10.129 或者 192.168.10.12[….] ​ 192.168.10.130 2，配置完主机之后，接下来要与其他的主机建立连接，那么，如果按普通的方式，在链接的时候，需要对远程主机输入验证密码 也就是说在命令上加上 -k 这样未免也太过麻烦了。比如： ​ ansible webservers -m command -k -a ‘ ls /root ‘ 所以解决的方案就是来为每一台远程主机配置基于key的验证： 在终端输入以下命令： ​ 1，ssh-keygen ​ 2，ssh-copy-id 192.168.10.129 (有几个远程主机就加几个，重复执行即可)]]></content>
+      <categories>
+        <category>Ansible学习</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ansible04_ansible命令执行过程及常用模块]]></title>
+    <url>%2F2018%2F11%2F27%2FAnsible04-ansible%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[Ansible04_ansible命令执行过程1，ansible命令执行过程：​ 1，加载自己的配置文件，默认在目录 /etc/ansible/ansible.cfg ​ 2，加载自己的模块文件，如command ping 等等 ​ 3，通过ansible将模块或者命令生成对应的临时py文件，并且将该文件传输至被控端的 $用户， ​ /.ansible/tmp/ansible-tmp-数字/xxxxx.py文件 ​ 4，给文件进行 +x 加执行权限操作 ​ 5，执行并且返回结果 ​ 6，删除临时文件，然后退出 2，执行状态：​ 绿色：成功，不需要做改变的操作 ​ 黄色：成功，并且对目标主机进行了变更操作 ​ 红色：执行失败。]]></content>
       <categories>
         <category>Ansible学习</category>
       </categories>
