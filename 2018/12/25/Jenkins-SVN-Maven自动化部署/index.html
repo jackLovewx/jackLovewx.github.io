@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "ddc57f1f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jenkins,Svn,Maven,Linux,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mustang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Jenkins+SVN+Maven自动化部署一，Devops1，devops是开发和运维的缩写。 2，devops是一组实践，强调(IT研发，运维，测试)在应用和服务生命周期中的协作，和沟通，强调整个组织的合作，以及         交付和基础设施变更的自动化，从而实现持续集成，持续部署，持续交付。 DevOps平台四大模块 ​    项目管理：创建项目，项目需求 ​    运维平台：监控，日志收">
+<meta name="keywords" content="Jenkins,Svn,Maven,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins+SVN+Maven自动化部署">
+<meta property="og:url" content="https://jackLovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/index.html">
+<meta property="og:site_name" content="Mustang">
+<meta property="og:description" content="Jenkins+SVN+Maven自动化部署一，Devops1，devops是开发和运维的缩写。 2，devops是一组实践，强调(IT研发，运维，测试)在应用和服务生命周期中的协作，和沟通，强调整个组织的合作，以及         交付和基础设施变更的自动化，从而实现持续集成，持续部署，持续交付。 DevOps平台四大模块 ​    项目管理：创建项目，项目需求 ​    运维平台：监控，日志收">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jacklovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog/source/_posts/Jenkins-SVN-Maven自动化部署/1.png">
+<meta property="og:image" content="https://jacklovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog/source/_posts/Jenkins-SVN-Maven自动化部署/2png">
+<meta property="og:image" content="https://jacklovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog/source/_posts/Jenkins-SVN-Maven自动化部署/3.png">
+<meta property="og:image" content="https://jacklovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog/source/_posts/Jenkins-SVN-Maven自动化部署/4.png">
+<meta property="og:updated_time" content="2019-02-25T06:48:46.087Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jenkins+SVN+Maven自动化部署">
+<meta name="twitter:description" content="Jenkins+SVN+Maven自动化部署一，Devops1，devops是开发和运维的缩写。 2，devops是一组实践，强调(IT研发，运维，测试)在应用和服务生命周期中的协作，和沟通，强调整个组织的合作，以及         交付和基础设施变更的自动化，从而实现持续集成，持续部署，持续交付。 DevOps平台四大模块 ​    项目管理：创建项目，项目需求 ​    运维平台：监控，日志收">
+<meta name="twitter:image" content="https://jacklovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog/source/_posts/Jenkins-SVN-Maven自动化部署/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jackLovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/">
+
+
+
+
+
+  <title>Jenkins+SVN+Maven自动化部署 | Mustang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/jackLovewx/jackLovewx.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mustang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">温欣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jackLovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mustang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/aa0855bc961b63b3e60c5ff40a3fd4df.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mustang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Jenkins+SVN+Maven自动化部署</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T11:33:28+08:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/自动化部署/" itemprop="url" rel="index">
+                    <span itemprop="name">自动化部署</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/自动化部署/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Jenkins-SVN-Maven自动化部署"><a href="#Jenkins-SVN-Maven自动化部署" class="headerlink" title="Jenkins+SVN+Maven自动化部署"></a>Jenkins+SVN+Maven自动化部署</h2><h2 id="一，Devops"><a href="#一，Devops" class="headerlink" title="一，Devops"></a>一，Devops</h2><p>1，devops是开发和运维的缩写。</p>
+<p>2，devops是一组实践，强调(IT研发，运维，测试)在应用和服务生命周期中的协作，和沟通，强调整个组织的合作，以及         交付和基础设施变更的自动化，从而实现持续集成，持续部署，持续交付。</p>
+<p>DevOps平台四大模块</p>
+<p>​    项目管理：创建项目，项目需求</p>
+<p>​    运维平台：监控，日志收集，</p>
+<p>​    持续交付：提交完代码，自动打包，构建</p>
+<p>​    代码托管：svn或者gitlab代码提交</p>
+<h2 id="二、服务介绍"><a href="#二、服务介绍" class="headerlink" title="二、服务介绍"></a>二、服务介绍</h2><p><strong>很多事情不是光运维就可以决定的，还需要跟研发交流，我这里只是演示一个大概的持续交付的流程~</strong></p>
+<p><strong>2.1 Jenkins介绍</strong><br><code>Jenkins</code>只是一个平台，真正运作的都是插件。这就是jenkins流行的原因，因为jenkins什么插件都有<br><code>Hudson</code>是Jenkins的前身，是基于Java开发的一种持续集成工具，用于监控程序重复的工作，Hudson后来被收购，成为商业版。后来创始人又写了一个jenkins，jenkins在功能上远远超过hudson</p>
+<p><strong>2.2 Maven 介绍</strong><br>maven的用途<br>maven是一个项目构建和管理的工具，提供了帮助<code>管理 构建、文档、报告、依赖、scms、发布、分发</code>的方法。可以方便的编译代码、进行依赖管理、管理二进制库等等。<br>maven的好处在于可以将项目过程规范化、自动化、高效化以及强大的可扩展性<br>利用maven自身及其插件还可以获得代码检查报告、单元测试覆盖率、实现持续集成等等。</p>
+<p><strong>maven的核心概念介绍</strong></p>
+<blockquote>
+<p><strong>Pom</strong><br>pom是指project object Model。pom是一个xml，在maven2里为pom.xml。是maven工作的基础，在执行task或者goal时，maven会去项目根目录下读取pom.xml获得需要的配置信息</p>
+<p>pom文件中包含了项目的信息和maven build项目所需的配置</p>
+<p><strong>Artifact</strong><br>这个有点不好解释，大致说就是一个项目将要产生的文件，可以是jar文件，源文件，二进制文件，war文件，甚至是pom文件。每个artifact都由groupId:artifactId:version组成的标识符唯一识别。需要被使用(依赖)的artifact都要放在仓库(见Repository)中</p>
+<p><strong>Repositories</strong><br>Repositories是用来存储Artifact的。如果说我们的项目产生的Artifact是一个个小工具，那么Repositories就是一个仓库，里面有我们自己创建的工具，也可以储存别人造的工具，我们在项目中需要使用某种工具时，在pom中声明dependency，编译代码时就会根据dependency去下载工具（Artifact），供自己使用。</p>
+<p><strong>Build Lifecycle</strong><br>是指一个项目build的过程。maven的Build<br>Lifecycle分为三种，分别为default（处理项目的部署）、clean（处理项目的清理）、site（处理项目的文档生成）。他们都包含不同的lifecycle。<br>Build Lifecycle是由phases构成的</p>
+</blockquote>
+<p><strong>2.3 SVN介绍</strong>  </p>
+<p>SVN是近年来崛起的非常优秀的版本管理工具，与CVS管理工具一样，SVN是一个固态的跨平台的开源的版本控制系统。SVN版本管理工具管理者随时间改变的各种数据。这些数据放置在一个中央资料档案库<code>repository</code>中，这个档案库很像一个普通的文件服务器或者FTP服务器，但是，与其他服务器不同的是，SVN会备份并记录每个文件每一次的修改更新变动。这样我们就可以把任意一个时间点的档案恢复到想要的某一个旧的版本，当然也可以直接浏览指定的更新历史记录。</p>
+<p><strong>2.4 Nexus介绍</strong></p>
+<p>maven的仓库只有两大类：<strong>1.本地仓库</strong> <strong>2.远程仓库</strong>，在远程仓库中又分成了3种：<br><code>1 中央仓库 2 私服 3 其它公共库。</code></p>
+<p>私服是一种特殊的远程仓库，它是架设在局域网内的仓库服务，私服代理广域网上的远程仓库，供局域网内的Maven用户使用。当Maven需要下载构件的时候，它从私服请求，如果私服上不存在该构件，则从外部的远程仓库下载，缓存在私服上之后，再为Maven的下载请求提供服务。我们还可以把一些无法从外部仓库下载到的构件上传到私服上。</p>
+<p><strong>Maven私服的 特性：</strong></p>
+<blockquote>
+<ul>
+<li>1.节省自己的外网带宽：减少重复请求造成的外网带宽消耗</li>
+<li>2.加速Maven构件：如果项目配置了很多外部远程仓库的时候，构建速度就会大大降低</li>
+<li>3.部署第三方构件：有些构件无法从外部仓库获得的时候，我们可以把这些构件部署到内部仓库(私服)中，供内部maven项目使用</li>
+<li>4.提高稳定性，增强控制：Internet不稳定的时候，maven构建也会变的不稳定，一些私服软件还提供了其他的功能</li>
+<li>5.降低中央仓库的负荷：maven中央仓库被请求的数量是巨大的，配置私服也可以大大降低中央仓库的压力</li>
+</ul>
+<p><strong>因此我们在实际的项目中通常使用私服来间接访问中央仓库，项目通常不直接访问中央仓库</strong> </p>
+</blockquote>
+<h2 id="三、环境搭建"><a href="#三、环境搭建" class="headerlink" title="三、环境搭建"></a>三、环境搭建</h2><ul>
+<li>首先最新版本2.97 只支持java1.8，我们需要将jdk版本设置为1.8</li>
+<li>tomcat的版本最好也是8.0.x版本或者7.0，如果使用8.5可能会有问题</li>
+<li>系统我们使用Centos7</li>
+</ul>
+<h3 id="3-1安装jdk"><a href="#3-1安装jdk" class="headerlink" title="3.1安装jdk"></a>3.1安装jdk</h3><ol>
+<li><code>$ wget http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz</code>这种方式是不行的下载之后解压不了，直接先去下载下来再win7客户端使用sftp服务传上去。</li>
+<li><p>使用sftp方式上传：</p>
+<ol>
+<li>lcd  d:/packages  (路径填自己jdk的路径不要有中文)</li>
+<li>put jdk-8u121-linux-x64.tar.gz</li>
+</ol>
+<p>3，tar -zxf jdk-8u121-linux-x64.tar.gz -C  /usr/local      （路径随便）</p>
+<p>4，ln -s /usr/local/jdk1.8.0_121 /usr/local/jdk   （建立一个软连接方便操作）</p>
+<p>5，vim /etc/profile  （编辑etc目录下的profile文件）</p>
+<p>6，在上述文件中最上面添加：</p>
+<pre><code>    export JAVA_HOME=/usr/local/jdk
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+pathmunge () {
+  直接在pathmunge上面添加三句export就行
+</code></pre></li>
+</ol>
+<p>​    7，使用 java -version 查看jdk的版本  出现以下信息说明搞定：</p>
+<p>​            openjdk version “1.8.0_65”<br>            OpenJDK Runtime Environment (build 1.8.0_65-b17)<br>            OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)             </p>
+<h3 id="3-2安装Jenkins"><a href="#3-2安装Jenkins" class="headerlink" title="3.2安装Jenkins"></a>3.2安装Jenkins</h3><p>1，首先需要jdk我们已经安装好了</p>
+<p>2，使用yum的方式安装jenkins</p>
+<p>​    sudo wget -O /etc/yum.repos.d/jenkins.repo <a href="http://pkg.jenkins-ci.org/redhat/jenkins.repo" target="_blank" rel="noopener">http://pkg.jenkins-ci.org/redhat/jenkins.repo</a></p>
+<p>​    sudo rpm –import <a href="https://jenkins-ci.org/redhat/jenkins-ci.org.key" target="_blank" rel="noopener">https://jenkins-ci.org/redhat/jenkins-ci.org.key</a></p>
+<p>​    sudo yum install jenkins</p>
+<p>3，接下来配置jenkins端口</p>
+<p>​    vi /etc/sysconfig/jenkins</p>
+<p>​    查找/JENKINS_PORT，修改JENKINS_PORT=”8080”，默认为“8080”，我修改为了8088</p>
+<p>4，启动Jenkins：</p>
+<p>​    service jenkins restart </p>
+<p>5，在浏览器输入  ： <a href="http://192.168.10.138:8088" target="_blank" rel="noopener">http://192.168.10.138:8088</a>    (ip地址填自己主机的ip)</p>
+<p>6，发现不能访问，需要关闭主机的 防火墙功能。linux默认使用的firewall我们替换成为iptables</p>
+<h4 id="7，替换防火墙为iptables："><a href="#7，替换防火墙为iptables：" class="headerlink" title="7，替换防火墙为iptables："></a>7，替换防火墙为iptables：</h4><p>​    0，安装iptables：</p>
+<p>​         yum install iptables-services</p>
+<p>​    1，停止firewall： </p>
+<p>​         systemctl stop firewalld       </p>
+<p>​         systemctl  mask firewalld</p>
+<p>​         或者：systemctl stop firewalld.service &amp;&amp; systemctl disable firewalld.service 关闭服务并且禁止开机自启动</p>
+<p>​    2，开放443端口：</p>
+<p>​         iptables -A INPUT -p tcp –dport 443 -j ACCEPT </p>
+<pre><code>3，保存上述规则：
+</code></pre><p>​         service iptables save</p>
+<p>​     4，开启服务</p>
+<p>​         systemctl restart iptables.service</p>
+<p>​     5，编辑防火墙文件</p>
+<p>​        vi /etc/sysconfig/iptables  </p>
+<p>​            添加80和3306端口 等等（自己配置）：</p>
+<p>​            -A INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT        　　 #80端口开放</p>
+<p>​            -A INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT　　　 #3306端口开放</p>
+<p>​            -I INPUT -s 113.106.93.110 -p tcp –dport 8089 -j DROP                      　　　#禁止指定IP访问 8089</p>
+<p>​            -I INPUT -s 113.106.93.110 -p tcp –dport 8080 -j ACCEPT                 　　　#开放固定ipIP访问 8080</p>
+<p>​    6，重启防火墙使配置文件生效</p>
+<p>​         systemctl restart iptables.service </p>
+<p>​     7，设置iptables防火墙为开机自动启动：</p>
+<p>​         systemctl enable iptables.service </p>
+<p>​          8，关闭SELINUX：</p>
+<p>​             vi /etc/selinux/config  　</p>
+<p>​             注释以下配置  　</p>
+<p>​                SELINUX=enforcing  　</p>
+<p>​                SELINUXTYPE=targeted  　  　</p>
+<p>​             增加以下配置  　</p>
+<p>​                SELINUX=disabled  　  　</p>
+<p>​            使配置立即生效  　</p>
+<p>​                setenforce 0 </p>
+<p>​        9，上面工作完成，直接访问，会出现一个登陆的界面，需要密码。只需要将他提示的文件下的密码复制过来</p>
+<p>​                cat /var/lib/jenkins/secrets/initialAdminPassword</p>
+<p>​        10，到此jenkins安装就完成了</p>
+<h3 id="3-3安装tomcat"><a href="#3-3安装tomcat" class="headerlink" title="3,3安装tomcat"></a>3,3安装tomcat</h3><p>1，使用sftp服务将tomcat的压缩包上传到linux</p>
+<p>2，解压，然后进入bin目录执行 startup.sh</p>
+<p>3,  浏览器访问  8080 端口</p>
+<h3 id="3-4安装maven"><a href="#3-4安装maven" class="headerlink" title="3.4安装maven"></a>3.4安装maven</h3><p>1，使用sftp服务将maven的包上传到linux上面</p>
+<p>2，tar -zxf apache-maven-3.5.0-bin.tar.gz -C /usr/local   （解压安装包到usrl/local目录下）</p>
+<p>3，ln -s /usr/local/apache-maven-3.5.0/ /usr/local/maven    （建立软连接方便后续操作）</p>
+<p>4，编辑etc目录下的profile文件：vim /etc/profile </p>
+<p>5，source /etc/profile     (使配置文件生效)</p>
+<p>6，验证  ：   mvn  -v   </p>
+<p>出现下面内容说明成功：</p>
+<p>Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-03T12:39:06-07:00)<br>Maven home: /usr/local/maven<br>Java version: 1.8.0_121, vendor: Oracle Corporation<br>Java home: /usr/local/jdk1.8.0_121/jre<br>Default locale: en_US, platform encoding: UTF-8<br>OS name: “linux”, version: “3.10.0-327.el7.x86_64”, arch: “amd64”, family: “unix”</p>
+<h3 id="3-5安装svn服务"><a href="#3-5安装svn服务" class="headerlink" title="3.5安装svn服务"></a>3.5安装svn服务</h3><p>1，yum -y install subversion      （yum方式安装subversion）</p>
+<p>2，如果需要查看安装位置：  rpm -ql subversion</p>
+<p>3，在根目录下的var目录创建版本库目录：  cd /var                mkdir  svn          cd  svn           mkdir  svnrepos</p>
+<p>4，创建版本库：svnadmin create /var/svn/svnrepos/xxxxxx   (xxxxx是自己起的项目名)</p>
+<p>5，配置修改：进入conf文件夹看到三个文件</p>
+<p>​      authz：负责账号权限的管理，控制账号是否读写权限</p>
+<p>​      passwd：负责账号和密码的用户名单管理</p>
+<p>​          svnserve.conf：svn服务器配置文件</p>
+<p>​    1，vi authz–&gt;在文件的末尾添加   [/]   账号名称1=rw   账号名称2=rw</p>
+<p>​    2，vipasswd–&gt;账号密码文件无需做修改，也是直接将账号和密码信息追加到文件中即可，注意格式为：</p>
+<p>​          账号 = 密码 比如：admin=123123</p>
+<p>​    3，vi svnserve.conf –》将文件里的这些注释去掉：</p>
+<p>​        anon-access = read</p>
+<p>​        auth-access=write</p>
+<p>​        authz-db = authz</p>
+<p>​        realm = My First Repository</p>
+<p>6,启动svn服务： svnserve -d -r /var/svn/svnrepos </p>
+<p>7，在eclipse的svn资源研究库创建一个新的资源位置，然后搞一个工程上传测试ok了。</p>
+<h3 id="3-6至此所有的准备工作都已经做完了，我们可以去进行实际操作了！！！"><a href="#3-6至此所有的准备工作都已经做完了，我们可以去进行实际操作了！！！" class="headerlink" title="3.6至此所有的准备工作都已经做完了，我们可以去进行实际操作了！！！"></a>3.6至此所有的准备工作都已经做完了，我们可以去进行实际操作了！！！</h3><h2 id="四，搭建自动化部署环境"><a href="#四，搭建自动化部署环境" class="headerlink" title="四，搭建自动化部署环境"></a>四，搭建自动化部署环境</h2><p>1，首先需要配置jenkins：</p>
+<p>​    系统管理 ——&gt;全局工具配置——-&gt;:::::</p>
+<p>​    1,Maven的settings.xml配置：</p>
+<p>​        选择文件系统中的setting文件这个选项。linux命令echo $MAVEN_HOME查看settings文件目录</p>
+<p>​    2，JDK配置</p>
+<p>​        新增jdk，取消自动安装，nux命令echo $java_HOME查看jdk文件目录</p>
+<p>​        3，Maven配置</p>
+<p>​        新增maven，取消自动安装，nux命令echo $MAVEN_HOME查看maven路径</p>
+<hr>
+<p>​      系统管理———–&gt;插件管理—————–&gt;::::::</p>
+<p>​       1，安装<a href="https://plugins.jenkins.io/maven-plugin" target="_blank" rel="noopener">Maven Integration</a>插件</p>
+<p>​        2，安装<a href="https://plugins.jenkins.io/deploy" target="_blank" rel="noopener">Deploy to container</a>插件</p>
+<p>2，配置tomcat目录下的conf中的toncat_user文件添加如下内容</p>
+<p> ==<role rolename="manager-gui">==<br>  ==<role rolename="manager-script">==<br>  ==<role rolename="manager-jmx">==<br>  ==<role rolename="status">==<br>  ==<user username="tomcat_user" password="123123" roles="manager-gui,manager-script,manager-jmx,manager-status">==</user></role></role></role></role></p>
+<p>3，创建构建任务：</p>
+<p>​        命名项目名称：然后选择创建一个自由风格的项目</p>
+<p>​        进入配置</p>
+<p>​        ==配置源码管理：==</p>
+<p><img src="/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog\source\_posts\Jenkins-SVN-Maven自动化部署\1.png" alt="1545729838233">    </p>
+<p>上面的wenxin用户名密码就是在Jenkins文件中配置的允许访问的用户名和密码</p>
+<p>​    ==配置构建操作：==</p>
+<p><img src="/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog\source\_posts\Jenkins-SVN-Maven自动化部署\2png" alt="1545729887708"></p>
+<p>​    ==配置构建后操作：==</p>
+<p><img src="/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog\source\_posts\Jenkins-SVN-Maven自动化部署\3.png" alt="1545729918287"></p>
+<p>上面的tomcat_user就是上面再tmocat_user文件中配置的用户名和密码</p>
+<p>​    ==配置钩子函数（触发器）：==只要代码提交直接出发钩子函数，去构建。</p>
+<p><img src="/2018/12/25/Jenkins-SVN-Maven自动化部署/D:/blog\source\_posts\Jenkins-SVN-Maven自动化部署\4.png" alt="1545730125611"></p>
+<p>​    在jenkins版本库中，进入hooks文件：拷贝post-commit.tmpl文件并且命名为 post-commit</p>
+<p>​        cp post-commit.tmpl post-commit</p>
+<p>​    编辑这个文件将里面的注释然后添加curl指令：</p>
+<p>​        vim post-commit</p>
+<p>​        curl -X post -v -u admin:ba3cc30fc70f4345b92ff5d7aaff8113<br>        <a href="http://192.168.10.138:8088/job/devops/build?token=DEV_TOKEN" target="_blank" rel="noopener">http://192.168.10.138:8088/job/devops/build?token=DEV_TOKEN</a></p>
+
+      
+    </div>
+    
+    
+    
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/12/25/Jenkins-SVN-Maven自动化部署/">Jenkins+SVN+Maven自动化部署</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Mustang 的个人博客">Mustang</a></p>
+  <p><span>发布时间:</span>2018年12月25日 - 11:12</p>
+  <p><span>最后更新:</span>2019年02月25日 - 14:02</p>
+  <p><span>原始链接:</span><a href="/2018/12/25/Jenkins-SVN-Maven自动化部署/" title="Jenkins+SVN+Maven自动化部署">https://jackLovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jackLovewx.github.io/2018/12/25/Jenkins-SVN-Maven自动化部署/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+	</div>
+    
+
+    
+
+    
+   <div>
+	
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:25px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	
+   </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Jenkins/" rel="tag"><i class="fa fa-tag"></i> Jenkins</a>
+          
+            <a href="/tags/Svn/" rel="tag"><i class="fa fa-tag"></i> Svn</a>
+          
+            <a href="/tags/Maven/" rel="tag"><i class="fa fa-tag"></i> Maven</a>
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/14/Vue0202-组件化编程/" rel="next" title="Vue02_组件化编程">
+                <i class="fa fa-chevron-left"></i> Vue02_组件化编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/29/css3-flex布局/" rel="prev" title="css3_flex布局">
+                css3_flex布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+];
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+	<div id="gitalk-container">
+	</div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+	
+    <div class="sidebar-inner">
+	
+      
+	
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+		
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/aa0855bc961b63b3e60c5ff40a3fd4df.jpg" alt="Mustang">
+            
+              <p class="site-author-name" itemprop="name">Mustang</p>
+              <p class="site-description motion-element" itemprop="description">生活如此不易，笑对需要勇气。</p>
+			
+          </div>
+		  
+          <nav class="site-state motion-element">
+			
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+			
+          </nav>
+		  
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jackLovewx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1219787757@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/63445e24e8bf" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5a371ae551882512d0607108" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jacklovewx.github.io/2018/11/20/HEXO%E5%88%9D%E7%BA%A7%E6%90%AD%E5%BB%BA/#more" title="HEXO个人博客初级搭建" target="_blank">HEXO个人博客初级搭建</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="百 度" target="_blank">百 度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins-SVN-Maven自动化部署"><span class="nav-number">1.</span> <span class="nav-text">Jenkins+SVN+Maven自动化部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一，Devops"><span class="nav-number">2.</span> <span class="nav-text">一，Devops</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、服务介绍"><span class="nav-number">3.</span> <span class="nav-text">二、服务介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、环境搭建"><span class="nav-number">4.</span> <span class="nav-text">三、环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1安装jdk"><span class="nav-number">4.1.</span> <span class="nav-text">3.1安装jdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2安装Jenkins"><span class="nav-number">4.2.</span> <span class="nav-text">3.2安装Jenkins</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7，替换防火墙为iptables："><span class="nav-number">4.2.1.</span> <span class="nav-text">7，替换防火墙为iptables：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3安装tomcat"><span class="nav-number">4.3.</span> <span class="nav-text">3,3安装tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4安装maven"><span class="nav-number">4.4.</span> <span class="nav-text">3.4安装maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5安装svn服务"><span class="nav-number">4.5.</span> <span class="nav-text">3.5安装svn服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6至此所有的准备工作都已经做完了，我们可以去进行实际操作了！！！"><span class="nav-number">4.6.</span> <span class="nav-text">3.6至此所有的准备工作都已经做完了，我们可以去进行实际操作了！！！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四，搭建自动化部署环境"><span class="nav-number">5.</span> <span class="nav-text">四，搭建自动化部署环境</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+ 
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">作者: Mustang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">41.3k</span>
+  
+</div>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量:600<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客:300<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">奈何轻风葬花魂</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">LIFE &mdash; TM</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共41.3k字</span>
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '478e8a11b32cfafaabbd',
+          clientSecret: '8de8f460f625c274947cf08859b599458ad66794',
+          repo: 'jackLovewx.github.io',
+          owner: 'jackLovewx',
+          admin: ['温欣'],
+
+          id: md5(location.pathname),
+
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"left","width":120,"height":260},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
