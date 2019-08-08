@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "ddc57f1f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,面试题,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mustang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="面试题总结一，java语法以及特性1，Java中接口和抽象类的区别1.1接口1，可以有变量和方法也可以不含有 2，变量会被隐式的指定为 public static final ,并且只能是public static final 3，方法会被隐式的指定为 public abstract 方法并且只能是 public abstract 4，接口中所有的方法不能有具体的实现，必须是抽象方法 5，可以看出">
+<meta name="keywords" content="Java,面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试通">
+<meta property="og:url" content="https://jackLovewx.github.io/2019/04/01/面试通/index.html">
+<meta property="og:site_name" content="Mustang">
+<meta property="og:description" content="面试题总结一，java语法以及特性1，Java中接口和抽象类的区别1.1接口1，可以有变量和方法也可以不含有 2，变量会被隐式的指定为 public static final ,并且只能是public static final 3，方法会被隐式的指定为 public abstract 方法并且只能是 public abstract 4，接口中所有的方法不能有具体的实现，必须是抽象方法 5，可以看出">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jacklovewx.github.io/2019/04/01/面试通/1.png">
+<meta property="og:updated_time" content="2019-04-04T08:09:09.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试通">
+<meta name="twitter:description" content="面试题总结一，java语法以及特性1，Java中接口和抽象类的区别1.1接口1，可以有变量和方法也可以不含有 2，变量会被隐式的指定为 public static final ,并且只能是public static final 3，方法会被隐式的指定为 public abstract 方法并且只能是 public abstract 4，接口中所有的方法不能有具体的实现，必须是抽象方法 5，可以看出">
+<meta name="twitter:image" content="https://jacklovewx.github.io/2019/04/01/面试通/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jackLovewx.github.io/2019/04/01/面试通/">
+
+
+
+
+
+  <title>面试通 | Mustang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/jackLovewx/jackLovewx.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mustang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">温欣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jackLovewx.github.io/2019/04/01/面试通/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mustang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/aa0855bc961b63b3e60c5ff40a3fd4df.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mustang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面试通</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T14:58:27+08:00">
+                2019-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="面试题总结"><a href="#面试题总结" class="headerlink" title="面试题总结"></a>面试题总结</h2><h3 id="一，java语法以及特性"><a href="#一，java语法以及特性" class="headerlink" title="一，java语法以及特性"></a>一，java语法以及特性</h3><h3 id="1，Java中接口和抽象类的区别"><a href="#1，Java中接口和抽象类的区别" class="headerlink" title="1，Java中接口和抽象类的区别"></a>1，Java中接口和抽象类的区别</h3><h4 id="1-1接口"><a href="#1-1接口" class="headerlink" title="1.1接口"></a>1.1接口</h4><p>1，可以有变量和方法也可以不含有</p>
+<p>2，变量会被隐式的指定为 public static final ,并且只能是public static final</p>
+<p>3，方法会被隐式的指定为 public abstract 方法并且只能是 public abstract</p>
+<p>4，接口中所有的方法不能有具体的实现，必须是抽象方法</p>
+<p>5，可以看出接口是一种极度抽象的类型，他比抽象类更抽象</p>
+<p>6，一般情况下不会在接口中定义变量</p>
+<p>7，JDK8中接口可以有static方法，和default方法，在不破坏java架构的的情况下，可以往接口中增加新方法</p>
+<h4 id="1-2抽象类"><a href="#1-2抽象类" class="headerlink" title="1.2抽象类"></a>1.2抽象类</h4><p>1，一般含有抽象方法，也可以不含有</p>
+<p>2，抽象类前面，必须使用abstract关键字来修饰</p>
+<p>3，抽象类不能用来创建对象</p>
+<p>4，子类如果继承抽象类，子类必须实现抽象类中的所有抽象方法，否则子类依旧是抽象类。</p>
+<p>5，抽象类实现接口，可以不实现接口中的抽象方法。</p>
+<h4 id="1-3抽象方法"><a href="#1-3抽象方法" class="headerlink" title="1.3抽象方法"></a>1.3抽象方法</h4><p>1，抽象方法是一种特殊的方法，它只有声明没有实现</p>
+<h4 id="1-4抽象类和接口的区别"><a href="#1-4抽象类和接口的区别" class="headerlink" title="1.4抽象类和接口的区别"></a>1.4抽象类和接口的区别</h4><p>1，抽象类表示的是一种继承关系，一个类只能使用一次继承关系，却可以实现多个接口</p>
+<p>2，抽象类可以有数据成员变量，也可以有非抽象的成员方法；而接口中只能有static final的数据成员，所有成员的方法都       是abstract</p>
+<p>3，实现抽象类和接口的类，必须实现其中所有的方法，如果子类没有抽象类中的所有抽象方法，则子类必须声明为抽象类；非抽象类的子类实现，则必须把接口中的方法全部实现</p>
+<p>4，接口可以继承接口，此时不需要实现父类接口</p>
+<p>5，抽象类中可以有非抽象方法，接口中则不能有实现方法，（jdk1.7不可以，jdk1.8可以有实现）</p>
+<h3 id="2，抽象类和普通类的区别"><a href="#2，抽象类和普通类的区别" class="headerlink" title="2，抽象类和普通类的区别"></a>2，抽象类和普通类的区别</h3><p>1，抽象方法必须声明为public修饰，或者protected修饰，因为如果用private修饰，子类就无法实现该方法，缺省情况下默认的是public</p>
+<p>2，抽象类不能创建对象，而普通类可以</p>
+<p>3，子类必须实现抽象类的抽象方法，否则子类也是一个抽象类；而普通类没有抽象方法</p>
+<h3 id="3，方法签名"><a href="#3，方法签名" class="headerlink" title="3，方法签名"></a>3，方法签名</h3><p>1，方法签名包括俩部分：方法名称，参数列表（方法的参数数量，顺序，类型）</p>
+<p>2，注意方法签名不包括方法的返回值类型，返回值，和方法修饰符。</p>
+<h3 id="4，方法宗量"><a href="#4，方法宗量" class="headerlink" title="4，方法宗量"></a>4，方法宗量</h3><p>1，方法的接受者和方法的参数，统称为方法的宗量</p>
+<p>2，根据分派基于多少种宗量，可以将分派划分为单分派，和多分派俩种</p>
+<p>3，单分派是根据一个宗量对目标方法进行选择，多分派是根据多于一个宗量对目标方法进行选择</p>
+<h3 id="5，注解"><a href="#5，注解" class="headerlink" title="5，注解"></a>5，注解</h3><h4 id="5-1，定义"><a href="#5-1，定义" class="headerlink" title="5.1，定义"></a>5.1，定义</h4><p>1，官网定义：Java注解用于为Java代码提供元数据，作为元数据，注解不直接影响代码执行。</p>
+<p>2，通俗解释：如果代码有生命，那么注解就是对于代码中某些鲜活个体贴上去的一张标签，简化就是注解如同一张标签</p>
+<p>3，注解的定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TestAnnotation&#123;</span><br><span class="line">    <span class="comment">//它的形式和接口的定义方式有些相似，只是在前面多一个@符号</span></span><br><span class="line">    <span class="comment">//这段代码表示创建了一个名字为 TestAnnotation的注解</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-2，使用"><a href="#5-2，使用" class="headerlink" title="5.2，使用"></a>5.2，使用</h4><p>1，创建一个类Test，然后在该类的上方加上@TestAnnotation就可以使用TestAnnotation注解了，可以理解为，将TestAnnotation这张标签贴到Test这个类上面。</p>
+<h4 id="5-3，元注解"><a href="#5-3，元注解" class="headerlink" title="5.3，元注解"></a>5.3，元注解</h4><p>元注解是可以注解到注解上的注解，或者说元注解是一种基本注解，但是它能够应用在其他注解上面，或者也可以这么理解，元注解也是一张标签，但是它是一张特殊的标签，他的作用和目的是给其他普通的标签进行解释说明的，元注解有五种，分别是：  @Retention，@Documented，@Target，@Inherited，@Repetable</p>
+<h5 id="5-3-1-Retention-保留滞留"><a href="#5-3-1-Retention-保留滞留" class="headerlink" title="5.3.1@Retention(保留滞留)"></a>5.3.1@Retention(保留滞留)</h5><p>1，当这个注解应用在一个注解上时，它解释说明了这个注解的存活时间</p>
+<p>2，它的取值范围是：</p>
+<p>​        RetentionPolicy.SOURCE:注解只在源码阶段保留，在编译器进行编译时，它将被忽略丢弃。</p>
+<p>​        RetentionPolicy.CLASS：注解只保留到编译进行的时候，它并不会被加载到虚拟机中</p>
+<p>​        RetentionPolicy.RUNTIME：注解可以保留到程序运行的时候，它会被加载到虚拟机中，所以在程序运行时，可以获取他们。</p>
+<p>3，或者可以这么理解：@Retention去给一个注解解释的时候，指定了这个注解的存活时间，指明了它的时间周期。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TestAnnotation&#123;</span><br><span class="line">    <span class="comment">//指定了TestAnnotation注解可以在运行期间可以被获取到，因此它的生命周期很长。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="5-3-2-Documented-记录，备有证明文件的"><a href="#5-3-2-Documented-记录，备有证明文件的" class="headerlink" title="5.3.2@Documented(记录，备有证明文件的)"></a>5.3.2@Documented(记录，备有证明文件的)</h5><p>它的作用是能将注解中的元素包含到Javadoc中</p>
+<h5 id="5-3-3-Target（目标）"><a href="#5-3-3-Target（目标）" class="headerlink" title="5.3.3@Target（目标）"></a>5.3.3@Target（目标）</h5><p>1，@Target指定了注解运行的地方，当一个注解被@Target注解时，这个注解就被限定了应用的场景。</p>
+<p>2，比如注解到方法，类，方法参数等等</p>
+<p>3，<img src="/2019/04/01/面试通/1.png" alt="1554255559431"></p>
+<h5 id="5-3-4-Inherited（继承）"><a href="#5-3-4-Inherited（继承）" class="headerlink" title="5.3.4@Inherited（继承）"></a>5.3.4@Inherited（继承）</h5><p>如果一个父类被@Inherited注解过的注解，则它的子类没有任何注解的话，这个子类就继承了父类的注解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Retention</span>（RetentionPolicy.RUNTIME）</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TestInherited &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@TestInherited</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line">那么B也有了这个注解。</span><br></pre></td></tr></table></figure>
+<h5 id="5-3-5-Repeatable（可重复）"><a href="#5-3-5-Repeatable（可重复）" class="headerlink" title="5.3.5@Repeatable（可重复）"></a>5.3.5@Repeatable（可重复）</h5><p>1，jdk1.8加入的新特性</p>
+<p>2，通常注解的值是可重复的，比如一个人既是画家又是经理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Persons&#123;</span><br><span class="line">    Persion[] value();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Repeatable</span>(Persons.class)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Person&#123;</span><br><span class="line">    String role <span class="keyword">default</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Person</span>(role = <span class="string">"PM"</span>)</span><br><span class="line"><span class="meta">@Person</span>(role = <span class="string">"artist"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperMan</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，@Repeatable注解了Person类，而@Repeatable后面的括号中的类，相当于一个容器注解</p>
+<p>什么是容器注解：就是用来存放其他注解的地方，它本身也是一个注解</p>
+<p>Persons注解就是一个容器注解，按照规范，它里面必须有一个value属性，属性类型是被@Repeatable注解过的注解数组，注意它是数组</p>
+<h5 id="5-3-6注解属性"><a href="#5-3-6注解属性" class="headerlink" title="5.3.6注解属性"></a>5.3.6注解属性</h5><p>1，注解的属性，也叫作成员变量，注解只有成员变量，没有方法</p>
+<p>2，注解中的成员变量在注解的定义中，以 “无形参的方式”来声明：</p>
+<p>​    其方法名定义了该成员变量的名字</p>
+<p>​    其返回值定义了该成员变量的类型</p>
+<p>​    </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TestAnnotation&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">msg</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码中定义了TestAnnotatio注解中，拥有id 和 msg这俩个属性，在使用的时候，我们应该给他们赋值。</p>
+<p>属性赋值的方法，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TestAnnotation</span>(id=<span class="number">3</span>,msg=<span class="string">"hello annotation"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：在注解中定义属性时，它的类型必须死8中基本数据类型，外加：类，接口，注解，和他们的数组。</p>
+<p>注解中的属性可以有默认值，默认值需要用default来声明。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TestAnnotation&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">id</span><span class="params">()</span> <span class="keyword">default</span>-1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">msg</span><span class="params">()</span> <span class="keyword">default</span> "hello"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>id属性的默认值为-1，msg属性默认值为hello</p>
+<p>它可以这样用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TestAnnotation</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>因为有默认值，所以可以不用在@TestAnnotation的括号里面赋值了，</p>
+<p>另外还有一种情况，如果一个注解只有一个名字为value的属性时，使用这个注解时可以直接把属性值写到括号里，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DirectWriter&#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，DirectWriter注解只有一个value属性，所以使用时，可以直接写属性值，而不用写（属性名字=属性值），例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DirectWriter</span>(<span class="string">"hello"</span>)</span><br><span class="line"><span class="keyword">int</span> num;</span><br><span class="line"></span><br><span class="line">效果和下面的一样：</span><br><span class="line"><span class="meta">@DirectWriter</span>(value=<span class="string">"hello"</span>)</span><br><span class="line"><span class="keyword">int</span> num;</span><br></pre></td></tr></table></figure>
+<p>注解没有任何属性，此时使用这个注解的时候连括号也可以省略：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public @interface NoProperty&#123;&#125;</span><br><span class="line"></span><br><span class="line">使用这个注解的时候：</span><br><span class="line"></span><br><span class="line">@NoProperty</span><br><span class="line">public void testProperty()</span><br></pre></td></tr></table></figure>
+<h4 id="5-4，java内置注解"><a href="#5-4，java内置注解" class="headerlink" title="5.4，java内置注解"></a>5.4，java内置注解</h4><p>Java语言本身提供了几个现成的注解：@Deprecated，@Override，@SuppressWarnings，@SafeVarargs，@Functionallnterface</p>
+<h5 id="1，-Override"><a href="#1，-Override" class="headerlink" title="1，@Override"></a>1，@Override</h5><p>用来指定方法重写的，它强制一个子类必须覆盖父类的方法</p>
+<p>只能修饰方法，不能修饰其他程序元素</p>
+<h5 id="2，-Deprecated"><a href="#2，-Deprecated" class="headerlink" title="2，@Deprecated"></a>2，@Deprecated</h5><p>用于表示某个程序元素（类，方法，接口等）已过时</p>
+<p>当程序使用过时的类，方法时，编译器会给出警告，</p>
+<h5 id="3，-SuppressWarnings"><a href="#3，-SuppressWarnings" class="headerlink" title="3，@SuppressWarnings"></a>3，@SuppressWarnings</h5><p>抑制编译器警告，指示，被该注解修饰的程序元素（以及所有的子元素），取消显示指定的编译器警告，会一直作用于该程序元素的所有子元素。</p>
+<h5 id="4，SafeVarargs"><a href="#4，SafeVarargs" class="headerlink" title="4，SafeVarargs"></a>4，SafeVarargs</h5><p>java7中的堆污染：当把一个不带泛型的对象赋值给一个带泛型的变量时，往往会发生堆污染。</p>
+<p>使用该注解，一直引发该警告的方法或构造器。</p>
+<h5 id="5，-Functionallnterface："><a href="#5，-Functionallnterface：" class="headerlink" title="5，@Functionallnterface："></a>5，@Functionallnterface：</h5><p>java8中的函数式接口</p>
+<p>java8规定：如果接口中只有一个抽象方法，该接口就是函数式接口</p>
+<p>@FunctionalInterface就是用来指定某个接口必须是函数式接口</p>
+<p>函数式接口就是为了java8的lambda表达式准备的，java8允许使用Lambda表达式创建函数式接口的实例，因此java8专门增加了@FunctionalInterface</p>
+<p>只能修饰接口，不能修饰其他程序元素。</p>
+<h3 id="6-Java中equals和-的区别是什么？"><a href="#6-Java中equals和-的区别是什么？" class="headerlink" title="6.Java中equals和 ==的区别是什么？"></a>6.Java中equals和 ==的区别是什么？</h3><p>1，==用来判断俩个对象的地址是否相同，即是否指同一个对象，比较的是真正意义是指针操作</p>
+<p>2，equals用来比较的是俩个对象内容时候相等，由于所有的类都是继承自Object类的，所以适用于所有的对象，如果没有重写该方法的话，调用的仍然是Object中的方法，而Object发中的equals方法返回的却是==操作</p>
+<h3 id="7，Java8中新增的lamda表达式"><a href="#7，Java8中新增的lamda表达式" class="headerlink" title="7，Java8中新增的lamda表达式"></a>7，Java8中新增的lamda表达式</h3><h4 id="7-1什么是λ表达式"><a href="#7-1什么是λ表达式" class="headerlink" title="7.1什么是λ表达式"></a>7.1什么是λ表达式</h4><p>1，λ表达式是一个带有参数的代码块</p>
+<p>2，当你想要代码块在以后的某个时间点执行时，可以使用λ表达式</p>
+<p>3，λ表达式可以被转化为函数式接口</p>
+<p>4，λ表达式可以在闭包作用域中有效的访问final变量</p>
+<p>5，方法和构造器引用可以引用方法或构造器，但无须调用他们</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1,不需要参数，返回值为5</span></span><br><span class="line">() -&gt; <span class="number">5</span></span><br><span class="line"><span class="comment">//2，接受一个参数（数字类型），返回值其2倍的值</span></span><br><span class="line">x -&gt; <span class="number">2</span> * x</span><br><span class="line"><span class="comment">//3,接受2个参数（数字），并返回他们的差值</span></span><br><span class="line">(x,y) -&gt; x-y</span><br><span class="line"><span class="comment">//4,接受2个int整数，返回他们的和</span></span><br><span class="line">(<span class="keyword">int</span> x,<span class="keyword">int</span> y) -&gt; x + y</span><br><span class="line"><span class="comment">//5,接受一个string对象，并在控制台打印，不返回任何值</span></span><br><span class="line">(String s) -&gt; System.out.print(s)</span><br><span class="line"></span><br><span class="line"><span class="comment">//以前的循环方式：</span></span><br><span class="line">    <span class="keyword">for</span>(String player : players&#123;</span><br><span class="line">        System.out.print(player+<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//使用lamda表达式以及函数操作（functional operation）</span></span><br><span class="line">  players.forEach((player) -&gt; System.out.print(player+<span class="string">""</span>));</span><br><span class="line"><span class="comment">//在java8中使用双冒号操作符</span></span><br><span class="line">players.forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<p>6,Lambda表达式支持将代码块作为方法参数，允许使用使用更简洁的代码来创建只有一个抽象方法的借口（被称为函数式接口）</p>
+<p>7，Lambda表达式完全可用于简化创建匿名内部类对象</p>
+<p>当使用λ表达式代替匿名内部类创建对象时，Lambda表达式的代码块，将会代替实现抽象方法的方法体，Lambda表达式就相当于一个匿名方法。</p>
+<p>8，Lambda表达式的主要作用就是代替匿名内部类的繁琐语法，由三部分构成：</p>
+<p>形参列表：允许省略形参类型，如果形参列表中只有一个参数，甚至连形参列表的圆括号都可以省略。</p>
+<p>箭头：（-&gt;）必须通过英文中画线号和大于符号组成</p>
+<p>代码块：如果代码块只包含一条语句，Lambda表达式允许省略代码块的花括号，那么这条语句就不要用花括号表示语句结束，Lamdda代码块只有一条return语句，甚至可以省略return关键字，Lambda表达式需要返回值，而它的代码块中仅有一条省略了return语句，Lambda表达式会自动返回这条语句的值</p>
+<h3 id="8，char可以存储汉字吗"><a href="#8，char可以存储汉字吗" class="headerlink" title="8，char可以存储汉字吗"></a>8，char可以存储汉字吗</h3><p>1，char型变量是用来存储Unicode编码的字符，Unicode编码集中包含了汉字，所以，char型变量可以用来存储汉字。</p>
+<p>2，如果某个特殊的汉字没有包含在Unicode字符集中，那么这个char型变量中就不能存储这个特殊汉字</p>
+<p>3，补充：Unicode编码占用俩个字节，所以char类型的变量也是占用俩个字节。</p>
+<h3 id="9，Java序列化，什么时候需要修改序列化版本号？"><a href="#9，Java序列化，什么时候需要修改序列化版本号？" class="headerlink" title="9，Java序列化，什么时候需要修改序列化版本号？"></a>9，Java序列化，什么时候需要修改序列化版本号？</h3><p>当俩个进程在远程通信时，彼此可以发送各种类型的数据，无论何种数据类型的数据，都会以二进制序列的形式在网络上传送，发送方需要把这个Java对象转换为直接序列，才能在网络上传送，接收方则需要把字节序列再恢复为Java对象，把Java对象转换为字节序列的过程称为对象的序列化，把字节序列恢复为Java对象的过程称为对象的反序列化</p>
+<h4 id="9-1序列化规则"><a href="#9-1序列化规则" class="headerlink" title="9.1序列化规则"></a>9.1序列化规则</h4><p>1，java序列化机制为了节省磁盘空间，具有特定的存储规则，当写入文件的为同一个对象时，并不会将对象的内容进行存储，而只是再次存储一份引用。</p>
+<p>2，一次性写入传输对象修改前和修改后的状态，结果修改后的状态没有保存，还是修改前的状态，jvm根据引用关系直到，已经有一个相同的对象写入文件，因此只保存第二次写的引用，都是第一次保存的对象，在使用一个文件多次writeObject需要特别注意。</p>
+<p>3，jvm时候允许反序列化，不仅取决于类路径和功能代码是否一致，一个非常重要的一点是，俩个类的序列化id是否一致，俩个类的功能代码完全一致，但是序列化id不一致，则他们无法相互序列化和反序列化</p>
+<p>4，Java序列化是将一个对象编码成一个字节流，反序列化将字节流编码转换成一个对象序列化是Java中实现持久化存储的一种方法</p>
+<p>5，Java序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的，在进行反序列化时，JVM会把传来的字节流中的serialVersionUID与本地相应类的进行对比，如果相同认为一致，可以进行反序列化，否则就会出现序列化版本不一致的异常。</p>
+<h4 id="9-2-什么时候需要修改序列化版本号"><a href="#9-2-什么时候需要修改序列化版本号" class="headerlink" title="9.2,什么时候需要修改序列化版本号"></a>9.2,什么时候需要修改序列化版本号</h4><p>1,对象的序列化主要有俩种用途：</p>
+<p>把对象的字节序列永久的保存到硬盘上，通常存放在一个文件中。</p>
+<p>在网络上传送对象的字节序列</p>
+<p>2，显示地定义serialVersionUID有俩种用途：</p>
+<p>在某些场合，希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有相同的serialVersionUID；在某些场合，不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID。</p>
+<p>当你序列了一个类实例后，希望更改一个字段或者添加一个字段，不设置serialVersionUID，所做的任何更改都会导致无法反序列化旧有实例，并且在反序列化时抛出了一个异常，如果你添加了serialVersionUID，在反序列旧有实例时，新添加的或者更改的字段值将设为初始化值，字段被删除将不设置。</p>
+<h3 id="10，try-catch-finally-return-的情况"><a href="#10，try-catch-finally-return-的情况" class="headerlink" title="10，try   catch finally  return 的情况"></a>10，try   catch finally  return 的情况</h3><p>1，不管有没有发生异常，finally每次都会执行</p>
+<p>2，如果try中没有异常发生，而finally中有return，不管try中有没有return，则从finally中返回值</p>
+<p>3，如果try中没有发生异常，finally中没return，则在return前先缓存try中的return结果，再执行finally中代码。</p>
+<p>4，如果try中有异常，catch中有return，finally没return，则从catch中的return返回</p>
+<p>5，如果try中有异常，catch中没return，则从finally中的return返回</p>
+<p>6，任何执行try或者catch中的return语句之后，在返回之前，如果finally存在的话，都会先执行finally语句</p>
+<p>7，如果finally中有return那么程序就return了，所以finally中的return是一定会被return的</p>
+<p>8，编译器把finally中的return实现为一个warning</p>
+<h3 id="11，java中的泛型，泛型擦除"><a href="#11，java中的泛型，泛型擦除" class="headerlink" title="11，java中的泛型，泛型擦除"></a>11，java中的泛型，泛型擦除</h3><p>1，泛型本质是参数化类型，也就是说变量的类型是一个参数，在使用时再指定为具体类型，泛型可以用于类，接口，方法，通过使用泛型可以使代码更简单，安全，然而java中的泛型使用了类型的擦除，所以只是伪泛型，类型参数只存在于编译期，在运行时，java的虚拟机并不知道泛型的存在，</p>
+<p>2，包括：</p>
+<p>​    泛型类        泛型方法        泛型接口</p>
+<p>3，通配符的出现是为了指定泛型中的类型范围</p>
+<p>通配符有三种形式</p>
+<p>​    &lt;?&gt;：被称作无限定的通配符，提供了只读的功能，只保留与具体类型无关的功能，它不管转载在这个容器内的元素是什么类型，它只关心元素的数量，容器是否为空</p>
+<p>​    &lt;？ extends T&gt;：被称作有上限的通配符，上界不存，丧失了写的能力，只可以从里面读取</p>
+<p>​    &lt;? super T&gt;:被称作有下限的通配符，下界不取，丧失读的能力，只可以存入往里面存入对象</p>
+<p>4，类型擦除：</p>
+<p>泛型信息只存在于代码编译阶段，在进入jvm之前，与泛型相关的信息会被擦除。</p>
+<p>参数类型是一个单独的T，那么就擦除到Object，相当于所以出现T的地方都用Object替换，所以在JVM看来，保存的变量a还是Object类型，之所以取出来自动就是我们传入的参数的类型，这是因为编译器在编译生成的字节码中插入了类型转换的代码，不需要我们手动转型了，如果参数类型有边界那么就擦除到它的第一个边界。</p>
+<p>5，一般而言，通配符能干的事情都可以用类型参数替换</p>
+<p>6，不接受8中基本数据类型</p>
+<p>7，java中的泛型擦除，只在源码中存在，在编译后的字节码文件中就已经被替换为原生类型，并在相应位置插入强制类型转换。</p>
+<h3 id="12内部类"><a href="#12内部类" class="headerlink" title="12内部类"></a>12内部类</h3><p>1，内部类比外部类多使用三个访问修饰符：private，protected，static，外部类不可以用这三个修饰符。</p>
+<p>2，非静态内部类，不能拥有静态成员</p>
+<p>3，内部类分为四种：成员内部类，方法内部类，竞态内部类，匿名内部类。</p>
+<p>4，成员内部类是一种与成员变量，方法，构造器和初始化块相似的类成员</p>
+<p>5，局部内部类和匿名内部类则不是类成员</p>
+<p>6，内部类一定是行放在一个类的类体部分</p>
+<p>7，内部类作为其外部类的成员，所以可以使用任意访问修饰符如：private ，protected，public</p>
+<h4 id="12-1成员内部类"><a href="#12-1成员内部类" class="headerlink" title="12.1成员内部类"></a>12.1成员内部类</h4><p>1，</p>
+
+      
+    </div>
+    
+    
+    
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/04/01/面试通/">面试通</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Mustang 的个人博客">Mustang</a></p>
+  <p><span>发布时间:</span>2019年04月01日 - 14:04</p>
+  <p><span>最后更新:</span>2019年04月04日 - 16:04</p>
+  <p><span>原始链接:</span><a href="/2019/04/01/面试通/" title="面试通">https://jackLovewx.github.io/2019/04/01/面试通/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jackLovewx.github.io/2019/04/01/面试通/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+      
+	</div>
+    
+
+    
+
+    
+   <div>
+	
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:25px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	
+   </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/面试题/" rel="tag"><i class="fa fa-tag"></i> 面试题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/25/JAVA多线程第一阶段/" rel="next" title="JAVA多线程第一阶段">
+                <i class="fa fa-chevron-left"></i> JAVA多线程第一阶段
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/02/数据结构与算法/" rel="prev" title="数据结构与算法">
+                数据结构与算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+];
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+	<div id="gitalk-container">
+	</div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+	
+    <div class="sidebar-inner">
+	
+      
+	
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+		
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/aa0855bc961b63b3e60c5ff40a3fd4df.jpg" alt="Mustang">
+            
+              <p class="site-author-name" itemprop="name">Mustang</p>
+              <p class="site-description motion-element" itemprop="description">生活如此不易，笑对需要勇气。</p>
+			
+          </div>
+		  
+          <nav class="site-state motion-element">
+			
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+			
+          </nav>
+		  
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jackLovewx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1219787757@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/63445e24e8bf" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5a371ae551882512d0607108" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jacklovewx.github.io/2018/11/20/HEXO%E5%88%9D%E7%BA%A7%E6%90%AD%E5%BB%BA/#more" title="HEXO个人博客初级搭建" target="_blank">HEXO个人博客初级搭建</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="百 度" target="_blank">百 度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题总结"><span class="nav-number">1.</span> <span class="nav-text">面试题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，java语法以及特性"><span class="nav-number">1.1.</span> <span class="nav-text">一，java语法以及特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1，Java中接口和抽象类的区别"><span class="nav-number">1.2.</span> <span class="nav-text">1，Java中接口和抽象类的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1接口"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.1接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2抽象类"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2抽象类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3抽象方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.3抽象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4抽象类和接口的区别"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.4抽象类和接口的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，抽象类和普通类的区别"><span class="nav-number">1.3.</span> <span class="nav-text">2，抽象类和普通类的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3，方法签名"><span class="nav-number">1.4.</span> <span class="nav-text">3，方法签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，方法宗量"><span class="nav-number">1.5.</span> <span class="nav-text">4，方法宗量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5，注解"><span class="nav-number">1.6.</span> <span class="nav-text">5，注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1，定义"><span class="nav-number">1.6.1.</span> <span class="nav-text">5.1，定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2，使用"><span class="nav-number">1.6.2.</span> <span class="nav-text">5.2，使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3，元注解"><span class="nav-number">1.6.3.</span> <span class="nav-text">5.3，元注解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-1-Retention-保留滞留"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">5.3.1@Retention(保留滞留)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-2-Documented-记录，备有证明文件的"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">5.3.2@Documented(记录，备有证明文件的)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-3-Target（目标）"><span class="nav-number">1.6.3.3.</span> <span class="nav-text">5.3.3@Target（目标）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-4-Inherited（继承）"><span class="nav-number">1.6.3.4.</span> <span class="nav-text">5.3.4@Inherited（继承）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-5-Repeatable（可重复）"><span class="nav-number">1.6.3.5.</span> <span class="nav-text">5.3.5@Repeatable（可重复）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-6注解属性"><span class="nav-number">1.6.3.6.</span> <span class="nav-text">5.3.6注解属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4，java内置注解"><span class="nav-number">1.6.4.</span> <span class="nav-text">5.4，java内置注解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1，-Override"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">1，@Override</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2，-Deprecated"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">2，@Deprecated</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3，-SuppressWarnings"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">3，@SuppressWarnings</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4，SafeVarargs"><span class="nav-number">1.6.4.4.</span> <span class="nav-text">4，SafeVarargs</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5，-Functionallnterface："><span class="nav-number">1.6.4.5.</span> <span class="nav-text">5，@Functionallnterface：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Java中equals和-的区别是什么？"><span class="nav-number">1.7.</span> <span class="nav-text">6.Java中equals和 ==的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7，Java8中新增的lamda表达式"><span class="nav-number">1.8.</span> <span class="nav-text">7，Java8中新增的lamda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1什么是λ表达式"><span class="nav-number">1.8.1.</span> <span class="nav-text">7.1什么是λ表达式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8，char可以存储汉字吗"><span class="nav-number">1.9.</span> <span class="nav-text">8，char可以存储汉字吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9，Java序列化，什么时候需要修改序列化版本号？"><span class="nav-number">1.10.</span> <span class="nav-text">9，Java序列化，什么时候需要修改序列化版本号？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1序列化规则"><span class="nav-number">1.10.1.</span> <span class="nav-text">9.1序列化规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-什么时候需要修改序列化版本号"><span class="nav-number">1.10.2.</span> <span class="nav-text">9.2,什么时候需要修改序列化版本号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10，try-catch-finally-return-的情况"><span class="nav-number">1.11.</span> <span class="nav-text">10，try   catch finally  return 的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11，java中的泛型，泛型擦除"><span class="nav-number">1.12.</span> <span class="nav-text">11，java中的泛型，泛型擦除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12内部类"><span class="nav-number">1.13.</span> <span class="nav-text">12内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-1成员内部类"><span class="nav-number">1.13.1.</span> <span class="nav-text">12.1成员内部类</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+ 
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">作者: Mustang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">52k</span>
+  
+</div>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量:600<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客:300<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">奈何轻风葬花魂</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">LIFE &mdash; TM</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共52k字</span>
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '478e8a11b32cfafaabbd',
+          clientSecret: '8de8f460f625c274947cf08859b599458ad66794',
+          repo: 'jackLovewx.github.io',
+          owner: 'jackLovewx',
+          admin: ['温欣'],
+
+          id: md5(location.pathname),
+
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"left","width":120,"height":260},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
